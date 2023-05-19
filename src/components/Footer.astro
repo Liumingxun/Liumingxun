@@ -2,12 +2,38 @@
 const today = new Date();
 ---
 
-<footer>
-	&copy; {today.getFullYear()} Luoming. All rights reserved.
+<footer class="sticky bottom-0 opacity-0">
+	&copy; {today.getFullYear()} Luoming. All rights reserved. Powered by <a
+		href="//astro.build">Astro</a
+	>
 </footer>
 <style>
 	footer {
 		padding: 25px;
 		text-align: center;
+		transition: opacity 0.3s ease-in-out;
 	}
 </style>
+<script>
+	const el = document.getElementsByTagName("footer")[0];
+	window.addEventListener("scroll", () => {
+		function isPageBottom() {
+			const docHeight = Math.max(
+				document.body.scrollHeight,
+				document.documentElement.scrollHeight
+			);
+			const windowHeight = window.innerHeight;
+			const scrollPosition =
+				window.scrollY ||
+				window.pageYOffset ||
+				document.documentElement.scrollTop;
+			const remainingHeight = docHeight - windowHeight - scrollPosition;
+			return remainingHeight <= 0;
+		}
+		if (isPageBottom()) {
+			el.style.opacity = "1";
+		} else {
+			el.style.opacity = "0";
+		}
+	});
+</script>

@@ -1,23 +1,22 @@
 ---
 import HeaderLink from './HeaderLink.astro';
-import { SITE_TITLE } from '../consts';
 ---
 
-<header>
-	<h2>
-		{SITE_TITLE}
-	</h2>
-	<nav>
-		<HeaderLink href="/">Home</HeaderLink>
+<header class="flex my-8">
+	<div class="h-8 hover:opacity-95 hover:rotate-[8deg] transition-transform">
+		<a href="/">
+			<img class="h-full" src="/lime.png" alt="A Lime Logo" aria-label="A Lime Logo">
+		</a>
+	</div>
+	<nav class="ml-auto flex justify-around items-center">
 		<HeaderLink href="/blog">Blog</HeaderLink>
 		<HeaderLink href="/about">About</HeaderLink>
 	</nav>
 </header>
+
 <style>
 	header {
-		margin: 0em 0 2em;
-	}
-	h2 {
-		margin: 0.5em 0;
+		max-width: 800px;
+		margin: 0 auto;
 	}
 </style>
