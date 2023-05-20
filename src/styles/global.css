@@ -21,6 +21,7 @@ body {
 	overflow-wrap: break-word;
 	line-height: 1.5;
 	color: #444;
+	scroll-snap-type: y proximity;
 }
 h1,
 h2,
