@@ -1,0 +1,31 @@
+@font-face {
+  font-family: "Iconify Explorer Font";
+  src: url("/iconfont.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.i {
+  font-family: "Iconify Explorer Font" !important;
+  font-size: 1em;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+.i.github:before {
+  content: "\e001";
+}
+
+.i.email:before {
+  content: "\e002";
+}
+
+.i.steam:before {
+  content: "\e003";
+}
+
+.i.bilibili:before {
+  content: "\e004";
+}

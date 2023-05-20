@@ -6,7 +6,6 @@ module.exports = {
 			typography: {
 				DEFAULT: {
 					css: {
-						maxWidth: '70ch',
 						margin: '0 auto'
 					}
 				}

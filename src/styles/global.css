@@ -7,14 +7,13 @@
 @tailwind components;
 @tailwind utilities;
 
-@media (prefers-color-scheme: dark) {
-	body {
-		opacity: 1;
-	}
+::selection {
+	color: #3D0A82;
+	background-color: #66ccff;
 }
-  
+
 body {
-	font-family: Verdana, sans-serif;
+	font-family: Verdana, Inter, sans-serif;
 	margin: auto;
 	text-align: left;
 	background-color: #fff;
