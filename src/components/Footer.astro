@@ -11,13 +11,12 @@ const today = new Date();
 	footer {
 		padding: 25px;
 		text-align: center;
-		transition: opacity 0.3s ease-in;
+		transition: opacity 0.3s ease-in-out;
 	}
 </style>
 <script>
 	const el = document.getElementsByTagName("footer")[0];
-	window.addEventListener("scroll", () => {
-		function isPageBottom() {
+	function isPageBottom() {
 			const docHeight = Math.max(
 				document.body.scrollHeight,
 				document.documentElement.scrollHeight
@@ -30,6 +29,7 @@ const today = new Date();
 			const remainingHeight = docHeight - windowHeight - scrollPosition;
 			return remainingHeight <= 0;
 		}
+	window.addEventListener("scroll", () => {
 		if (isPageBottom()) {
 			el.style.opacity = "1";
 		} else {
