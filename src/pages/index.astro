@@ -2,7 +2,6 @@
 import Default from "../layouts/DefaultLayout.astro";
 import HoverList from "../components/HoverList.astro";
 
-
 const hobbyList = {
 	game: ["Minecraft", "platformer", "sandbox", "..."],
 	music: ["classical", "vocaloid", "acg (*/ω＼*)", "..."],
@@ -11,23 +10,21 @@ const hobbyList = {
 ---
 
 <Default>
-	<h1 class="text-cyan-600">✨ Hey there!</h1>
+	<h1 class="text-cyan-600">Hey there! 👋</h1>
 	<p>
 		Ah-huh! I'm <b class="text-[#66ccff]">Luoming</b>, a front-end
 		developer, you can call me <b class="text-lime-400">Lime</b>.
 	</p>
 	<p>
-		Welcome to my blog. Here, you may find some interesting content.
-		Yes, I would love to share something entertaining with you. But
-		if you notice anything that catches your attention and has
-		errors, please don't hesitate to contact me and I'll fix it
-		soon.
+		Welcome to my blog. Here, you may find some interesting content. Yes, I
+		would love to share something entertaining with you. But if you notice
+		anything that catches your attention and has errors, please don't
+		hesitate to contact me and I'll fix it soon.
 	</p>
 	<p>
-		Unfortunately, all of my awesome projects are currently on
-		vacation, so all I've got is a bunch of blah blah blah to fill
-		this section. But don't worry, I'll get those awesome projects
-		back and running soon!
+		Unfortunately, all of my awesome projects are currently on vacation, so
+		all I've got is a bunch of blah blah blah to fill this section. But
+		don't worry, I'll get those awesome projects back and running soon!
 	</p>
 	<div>
 		Besides programming, I'm also into
@@ -36,8 +33,8 @@ const hobbyList = {
 				<HoverList hover={hobby} list={hobbyList[hobby]} />
 			))
 		}
-		and other things that catch my interest. If you're looking to play
-		with me, you can find me at the link below. No biggie!
+		and other things that catch my interest. If you're looking to play with me,
+		you can find me at the link below. No biggie!
 	</div>
 	<hr />
 	<p>Find me on</p>

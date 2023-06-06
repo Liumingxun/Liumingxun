@@ -7,7 +7,7 @@ interface Props {
 const { hover, list } = Astro.props;
 ---
 
-<span class="container relative">
+<span class="relative">
     <b class="hover-element cursor-pointer underline">{hover}</b>
     <ul
         class:list={[{ hidden: list.length === 0 }]}
@@ -26,9 +26,8 @@ const { hover, list } = Astro.props;
         transition: opacity 0.3s ease, visibility 0.3s ease;
     }
 
-    .container:hover .list {
+    span:hover .list {
         opacity: 1;
         visibility: visible;
     }
 </style>
-
