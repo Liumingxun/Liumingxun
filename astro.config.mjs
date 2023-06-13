@@ -7,7 +7,7 @@ import viteCompression from 'vite-plugin-compression';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://luoming.space',
+  site: 'https://www.luoming.space',
   integrations: [mdx(), sitemap(),
   tailwind({
     config: {
