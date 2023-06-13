@@ -44,9 +44,10 @@ jobs:
 
   deploy:
     needs: build
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     name: Deploy
     steps:
       - name: Deploy use pm2
-        run: pnpm run deploy
+        run: |
+          npx --no-install pm2 start ./ecosystem.config.cjs
         working-directory: ${{ env.BUILD_PATH }}
