@@ -49,5 +49,5 @@ jobs:
     steps:
       - name: Deploy use pm2
         run: |
-          pm2 start ./ecosystem.config.cjs
+          npx --no-install pm2 start ./ecosystem.config.cjs
         working-directory: ${{ env.BUILD_PATH }}
