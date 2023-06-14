@@ -7,8 +7,8 @@ heroImage: "/lime-s.svg"
 
 项目配置使用了Vite 4.1.4，部分文件使用ts，使用路径缩写时IDE会提示找不到模块
 
-![](/public/cant_find_module.png)
-![](/public/cant_find_module_2.png)
+![](/cant_find_module.png)
+![](/cant_find_module_2.png)
 
 但实际上项目可以运行，也就是说vite可以解析路径，vite配置如下：
 

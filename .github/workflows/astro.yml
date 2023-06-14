@@ -41,12 +41,3 @@ jobs:
       - name: Build with Astro
         run: pnpm run build
         working-directory: ${{ env.BUILD_PATH }}
-
-  deploy:
-    needs: build
-    runs-on: self-hosted
-    name: Deploy
-    steps:
-      - name: Deploy use pm2
-        run: pm2 start ./ecosystem.config.cjs
-        working-directory: ${{ env.BUILD_PATH }}
