@@ -1,0 +1,63 @@
+---
+import { SITE } from "@/site-config";
+---
+
+<header class="header">
+    <div class="header__logo">
+        <a href="/" class="avatar">
+            <img
+                class="header__logo-img"
+                src="/assets/lime.svg"
+                alt="Lime logo"
+            />
+        </a>
+    </div>
+    <div class="header__meta flex-1">
+        <h3 class="header__title">
+            {SITE.title}
+        </h3>
+        <div class="header__meta-more flex">
+            <p class="header__desc">
+                {SITE.desc}
+            </p>
+            <nav class="header__nav flex">
+                <ul class="header__ref-list">
+                    <li>
+                        <a href="//github.com/liumingxun">
+                            <i class="i github"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <i class="i sun"></i>
+                    </li>
+                    <li>3</li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <div class="header__nav"></div>
+</header>
+
+<style>
+    .header {
+        @apply flex gap-4 mt-4 py-3 border-b border-gray-200 dark:border-gray-700;
+        font-family: "Fira Code", "Times New Roman", Times, serif;
+    }
+
+    .header__logo-img {
+        @apply w-16 h-16 overflow-hidden;
+    }
+
+    .header__title {
+        @apply text-4xl font-extrabold md:text-5xl text-theme-primary dark:text-theme-dark-secondary;
+    }
+
+    .header__desc {
+        @apply text-xl flex-1 dark:text-gray-200;
+    }
+
+    .header__ref-list {
+        @apply flex gap-3 text-gray-400 text-xl;
+        vertical-align: bottom;
+    }
+</style>

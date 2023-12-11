@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="372.41796875" height="284.123291015625" viewBox="0 0 372.41796875 284.123291015625" fill="none"><g id="路径 1" filter="url(#filter_0)"><path id="路径 1" fill-rule="evenodd" fill="url(#linear_0)" opacity="1" d="M95.6691 234.087C198.169 309.087 276.919 262.187 310.669 242.087C355.169 242.087 361.469 226.687 364.169 220.087C373.169 191.587 352.519 171.987 343.669 163.587C336.669 75.0867 275.069 40.0867 248.669 25.0867C164.169 -21.4133 90.3191 17.4367 58.6691 34.0867C27.6691 29.5867 18.9191 39.7367 15.1691 44.0867C-6.83093 75.5867 16.6191 97.9867 26.6691 107.587C46.6691 201.587 80.9691 224.337 95.6691 234.087Z"></path></g><defs><linearGradient id="linear_0" x1="11.724%" y1="71.389%" x2="61.478%" y2="30.829999999999995%" gradientUnits="objectBoundingBox"><stop offset="0" stop-color="#C9E571" stop-opacity="1" /><stop offset="1" stop-color="#95CC76" stop-opacity="1" /></linearGradient><filter id="filter_0" x="0.049072265625" y="-5.98333740234375" width="372.3409357184808" height="290.0945608327922" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="feFloodId"/>
+          <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+          
+          <feOffset dx="0" dy="3"/>
+          <feComposite in2="hardAlpha" operator="out"/>
+          <feGaussianBlur stdDeviation="3"/>
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+          <feBlend mode="normal" in2="filter_feFlood" result="filter_feFlood_1"/>
+          <feBlend mode="normal" in="SourceGraphic" in2="filter_0" result="shape"/></filter></defs></svg>

@@ -1,0 +1,33 @@
+---
+import { NAV_ITEMS } from "@/site-config";
+---
+
+<nav class="nav py-3">
+    <ul class="nav-list dark:text-theme-dark-secondary">
+        {
+            NAV_ITEMS.map((item) => (
+                <li>
+                    <a
+                        class:list={[
+                            `pb-1 border-b-2 hover:border-gray-400 hover:dark:border-gray-700 `,
+                            Astro.url.pathname.startsWith(item.path)
+                                ? "border-gray-100 dark:border-gray-800"
+                                : "",
+                            Astro.url.pathname.startsWith(item.path)
+                                ? "border-theme-primary"
+                                : "",
+                        ]}
+                        href={item.path}
+                    >
+                    {item.title}
+                    </a>
+                </li>
+            ))
+        }
+    </ul>
+</nav>
+<style>
+    .nav-list {
+        @apply inline-flex list-none gap-8 text-xl font-semibold text-theme-secondary dark:text-theme-dark-secondary py-2 flex-wrap mb-8;
+    }
+</style>
