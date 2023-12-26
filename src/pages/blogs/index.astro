@@ -1,0 +1,34 @@
+---
+import DefaultLayout from "@/layouts/default.astro";
+import fetchApi from "/lib/strapi";
+import type Blog from "/interfaces/blog";
+import BlogListItem from "@/components/BlogListItem.astro";
+
+const blogs = await fetchApi<Blog[]>({
+    endpoint: "posts",
+    wrappedByKey: "data",
+    query: {
+        fields: ["title", "createdAt", "slug"],
+        populate: {
+            tags: {
+                fields: ["name"],
+            },
+            hero_image: {
+                fields: [
+                    "url",
+                    "width",
+                    "height",
+                    "alternativeText",
+                    "formats",
+                ],
+            },
+        },
+    },
+});
+---
+
+<DefaultLayout
+    content={{ title: "Home", description: "Welcome to Lime site!!!" }}
+>
+    {blogs.map((blog) => <BlogListItem blog={blog} />)}
+</DefaultLayout>

@@ -1,0 +1,58 @@
+---
+import DefaultLayout from "@/layouts/default.astro";
+import HoverList from "@/components/HoverList.astro";
+
+const hobbyList = {
+    game: ["Minecraft", "platformer", "sandbox", "..."],
+    music: ["classical", "vocaloid", "acg (*/ω\\*)", "..."],
+    anime: ["..."],
+};
+---
+
+<DefaultLayout>
+    <article class="prose">
+        <h1 class="text-cyan-600">Hey there! 👋</h1>
+        <p>
+            Ah-huh! I'm <b class="text-[#66ccff]">Luoming</b>, a front-end
+            developer, you can call me <b class="text-lime-400">Lime</b>.
+        </p>
+        <p>
+            Welcome to my blog. Here, you may find some interesting content.
+            Yes, I would love to share something entertaining with you. But if
+            you notice anything that catches your attention and has errors,
+            please don't hesitate to contact me and I'll fix it soon.
+        </p>
+        <p>
+            Unfortunately, all of my awesome projects are currently on vacation,
+            so all I've got is a bunch of blah blah blah to fill this section.
+            But don't worry, I'll get those awesome projects back and running
+            soon!
+        </p>
+        <div>
+            Besides programming, I'm also into
+            {
+                Object.keys(hobbyList).map((hobby) => (
+                    <HoverList hover={hobby} list={hobbyList[hobby]} />
+                ))
+            }
+            and other things that catch my interest. If you're looking to play with
+            me, you can find me at the link below. No biggie!
+        </div>
+        <hr />
+        <p>Find me on</p>
+        <section class="flex flex-wrap gap-3 text-base text-black">
+            <a href="//github.com/liumingxun"
+                ><i class="i github"></i>&ensp;Github</a
+            >
+            <a href="//space.bilibili.com/13535750"
+                ><i class="i bilibili"></i>&ensp;Bilibili</a
+            >
+            <a href="//steamcommunity.com/profiles/76561198221049488/"
+                ><i class="i steam"></i>&ensp;Steam</a
+            >
+            <a href="mailto:liumingxun@yeah.net"
+                ><i class="i email"></i>&ensp;Email</a
+            >
+        </section>
+    </article>
+</DefaultLayout>

@@ -1,0 +1,52 @@
+---
+import Card from "./Card.astro";
+import { Image } from "astro:assets";
+import type Blog from "/interfaces/blog";
+
+interface Props {
+    blog: Blog;
+}
+
+const { blog } = Astro.props;
+const image = blog.attributes.hero_image?.data;
+---
+
+<Card>
+    <div class="flex">
+        <div class="empty:hidden w-1/4 max-h-20 mr-2">
+            {
+                image && (
+                    <Image
+                        class="w-full h-full object-cover"
+                        densities={[1, 2, 3]}
+                        src={import.meta.env.STRAPI_URL + image.attributes.url}
+                        alt={image.attributes.alternativeText}
+                        width={image.attributes.width}
+                        height={image.attributes.height}
+                    />
+                )
+            }
+        </div>
+
+        <div class="grow">
+            <a href={`/blogs/${blog.attributes.slug}`}>
+                <h2>{blog.attributes.title}</h2>
+            </a>
+            <div class="flex justify-between mt-1">
+                <div>
+                    {
+                        blog.attributes.tags?.data.map((tag) => (
+                            <span class="rounded mr-2 bg-gray-300 p-1 last:mr-0">
+                                {tag.attributes.name}
+                            </span>
+                        ))
+                    }
+                </div>
+                <p>
+                    {new Date(blog.attributes.createdAt).toLocaleDateString()}
+                </p>
+            </div>
+        </div>
+    </div>
+</Card>
+

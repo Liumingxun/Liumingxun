@@ -1,0 +1,35 @@
+---
+interface Props {
+    hover: string;
+    list: string[];
+}
+
+const { hover, list } = Astro.props;
+---
+
+<span class="relative">
+    <b class="hover-element cursor-pointer underline">{hover}</b>
+    <ul
+        class:list={[{ hidden: list.length === 0 }]}
+        class="list min-w-max p-2 bg-lime-200/90 list-none absolute invisible"
+    >
+        {list.map((item) => <li>{item}</li>)}
+    </ul>
+</span>
+
+<style>
+    .list {
+        top: 100%;
+        left: 0;
+        opacity: 0;
+        visibility: hidden;
+        transition:
+            opacity 0.3s ease,
+            visibility 0.3s ease;
+    }
+
+    span:hover .list {
+        opacity: 1;
+        visibility: visible;
+    }
+</style>

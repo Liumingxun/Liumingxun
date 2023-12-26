@@ -1,7 +1,8 @@
 export const SITE = {
-    title: 'Lime!',
-    name: 'lime site',
-    desc: 'FE-Developer! But not only FE!'
+    title: 'Lime\'s Site',
+    author: 'Lime!',
+    description: 'FE-Developer! But not only FE!',
+    ogImage: '/assets/lime.svg'
 }
 
 type NavItem = {
@@ -11,21 +12,17 @@ type NavItem = {
 
 export const NAV_ITEMS: NavItem[] = [
     {
-        path: '/',
-        title: 'home',
-    },
-    {
         path: '/blogs',
         title: 'blogs'
     },
-    {
-        path: '/tags',
-        title: 'tags',
-    },
-    {
-        path: '/tools',
-        title: 'tools',
-    },
+    // {
+    //     path: '/tags',
+    //     title: 'tags',
+    // },
+    // {
+    //     path: '/tools',
+    //     title: 'tools',
+    // },
     {
         path: '/about',
         title: 'about'

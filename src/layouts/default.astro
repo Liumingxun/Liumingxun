@@ -1,33 +1,32 @@
 ---
-import { ViewTransitions } from "astro:transitions";
 import Header from "./components/Header.astro";
+import Footer from "./components/Footer.astro";
 import Nav from "./components/Nav.astro";
 import BaseHead from "./components/BaseHead.astro";
+import "@/assets/prism.css";
 
 interface Props {
-	content: {
-		title: string,
-		description: string
-	}
+	content?: {
+		title: string;
+		description: string;
+	};
 }
 
-const { content } = Astro.props
-
+const { content } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={content.title} description={content.description}/>
-		<ViewTransitions />
+		<BaseHead title={content?.title ?? 'Lime\'s Site'} description={content?.description ?? 'Lime\'s Site'} />
 	</head>
-	<body>
-		<div class="transition-colors">
-			<main class="mx-auto max-w-4xl px-4 md:px-0">
-				<Header />
-				<Nav />
-				<slot />
-			</main>
-		</div>
+	<body class="transition-colors">
+		<Header />
+		<main class="mx-auto px-4 container">
+			<Nav />
+			<slot />
+		</main>
+		<Footer />
+		<script src="@/assets/prism.js"></script>
 	</body>
 </html>

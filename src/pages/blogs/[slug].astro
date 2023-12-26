@@ -1,0 +1,50 @@
+---
+import type Blog from "/interfaces/blog";
+import fetchApi from "/lib/strapi";
+import DefaultLayout from "@/layouts/default.astro";
+
+import { marked } from "marked";
+
+const { slug } = Astro.params;
+
+const blog = await fetchApi<Blog>({
+    endpoint: "posts",
+    wrappedByKey: "data",
+    wrappedByList: true,
+    query: {
+        filters: {
+            slug: {
+                $eq: slug,
+            },
+        },
+        populate: {
+            content: true,
+        },
+    },
+});
+
+console.log(blog);
+---
+
+<DefaultLayout
+    content={{
+        title: blog.attributes.title,
+        description: blog.attributes.slug,
+    }}
+>
+    <article class="prose">
+        <h1>{blog.attributes.title}</h1>
+        {
+            blog.attributes.content?.map((content) => {
+                switch (content.__component) {
+                    case "display.md":
+                        return <div set:html={marked.parse(content.content)} />;
+                    case "display.mce":
+                        return <div set:html={content.content} />;
+                    default:
+                        return null;
+                }
+            })
+        }
+    </article>
+</DefaultLayout>

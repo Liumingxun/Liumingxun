@@ -2,8 +2,7 @@ import { fontFamily } from 'tailwindcss/defaultTheme'
 import typography from "@tailwindcss/typography";
 import config from './tailwind.theme.config'
 
-const themeConfig = process.env.THEME_KEY && config[process.env.THEME_KEY] ? config[process.env.THEME_KEY] : config.limeroute
-const { colors } = themeConfig
+const { colors } = config.limeroute
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -12,7 +11,7 @@ export default {
 	safelist: ['dark'],
 	theme: {
 		fontFamily: {
-			sans: ['Fira Code', ...fontFamily.sans],
+			sans: ['Fira Sans', ...fontFamily.sans],
 		},
 		extend: {
 			colors: { theme: { ...colors } },
@@ -31,6 +30,7 @@ export default {
 				},
 				DEFAULT: {
 					css: {
+						// maxWidth: '92ch',
 						a: {
 							color: colors.dark.primary,
 							'&:hover': {
