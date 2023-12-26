@@ -22,6 +22,8 @@
   "devDependencies": {
     "@fontsource/fira-sans": "^5.0.18",
     "@tailwindcss/typography": "^0.5.10",
-    "@types/node": "^20.10.4"
+    "@types/node": "^20.10.4",
+    "@types/qs": "^6.9.11",
+    "qs": "^6.11.2"
   }
 }
