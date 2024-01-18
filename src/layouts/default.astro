@@ -3,30 +3,27 @@ import Header from "./components/Header.astro";
 import Footer from "./components/Footer.astro";
 import Nav from "./components/Nav.astro";
 import BaseHead from "./components/BaseHead.astro";
-import "@/assets/prism.css";
+import type Seo from "/interfaces/seo";
 
 interface Props {
-	content?: {
-		title: string;
-		description: string;
-	};
+	seo: Seo;
 }
 
-const { content } = Astro.props;
+const { seo } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={content?.title ?? 'Lime\'s Site'} description={content?.description ?? 'Lime\'s Site'} />
+		<BaseHead seo={seo} />
+		<slot name="extend-head" />
 	</head>
-	<body class="transition-colors">
+	<body class="transition-all">
 		<Header />
 		<main class="mx-auto px-4 container">
 			<Nav />
 			<slot />
 		</main>
 		<Footer />
-		<script src="@/assets/prism.js"></script>
 	</body>
 </html>

@@ -2,11 +2,10 @@
 import type Blog from "/interfaces/blog";
 import fetchApi from "/lib/strapi";
 import DefaultLayout from "@/layouts/default.astro";
+import { buildSeo } from "@/utils/buildSeo";
 
 import { marked } from "marked";
-
 const { slug } = Astro.params;
-
 const blog = await fetchApi<Blog>({
     endpoint: "posts",
     wrappedByKey: "data",
@@ -27,11 +26,32 @@ console.log(blog);
 ---
 
 <DefaultLayout
-    content={{
+    seo={buildSeo({
         title: blog.attributes.title,
-        description: blog.attributes.slug,
-    }}
+        description: blog.attributes.description,
+        createdAt: blog.attributes.createdAt,
+        updatedAt: blog.attributes.updatedAt,
+        publishedAt: blog.attributes.publishedAt,
+        image: blog.attributes.hero_image?.data,
+        tags: blog.attributes.tags?.data,
+    })}
 >
+    <Fragment slot="extend-head">
+        <script
+            is:inline
+            src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/??prism/1.27.0/components/prism-core.min.js,prism/1.27.0/plugins/autoloader/prism-autoloader.min.js,prism/1.27.0/plugins/line-numbers/prism-line-numbers.min.js"
+        ></script>
+        <link
+            href="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/prism/1.27.0/themes/prism.min.css"
+            type="text/css"
+            rel="stylesheet"
+        />
+        <link
+            href="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/prism/1.27.0/plugins/line-numbers/prism-line-numbers.min.css"
+            type="text/css"
+            rel="stylesheet"
+        />
+    </Fragment>
     <article class="prose">
         <h1>{blog.attributes.title}</h1>
         {

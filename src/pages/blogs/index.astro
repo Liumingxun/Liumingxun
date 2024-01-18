@@ -3,6 +3,7 @@ import DefaultLayout from "@/layouts/default.astro";
 import fetchApi from "/lib/strapi";
 import type Blog from "/interfaces/blog";
 import BlogListItem from "@/components/BlogListItem.astro";
+import { SITE } from "@/site-config";
 
 const blogs = await fetchApi<Blog[]>({
     endpoint: "posts",
@@ -27,8 +28,9 @@ const blogs = await fetchApi<Blog[]>({
 });
 ---
 
-<DefaultLayout
-    content={{ title: "Home", description: "Welcome to Lime site!!!" }}
->
+<DefaultLayout seo={{
+    title: 'Home',
+    description: SITE.description,
+}}>
     {blogs.map((blog) => <BlogListItem blog={blog} />)}
 </DefaultLayout>

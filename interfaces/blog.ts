@@ -10,9 +10,11 @@ export default interface Blog {
 interface BlogAttributes {
     title: string,
     slug: string,
-    hero_image: Wrapped<Image | null>,
+    hero_image: Wrapped<Image>,
     createdAt: string,
     updatedAt: string,
+    publishedAt: string,
+    description: string,
     locale: string,
     read: number,
     tags: Wrapped<Tag[]>,

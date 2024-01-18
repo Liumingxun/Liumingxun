@@ -1,6 +1,7 @@
 ---
 import DefaultLayout from "@/layouts/default.astro";
 import HoverList from "@/components/HoverList.astro";
+import { SITE } from "@/site-config";
 
 const hobbyList = {
     game: ["Minecraft", "platformer", "sandbox", "..."],
@@ -9,7 +10,7 @@ const hobbyList = {
 };
 ---
 
-<DefaultLayout>
+<DefaultLayout seo={{title: '我是谁( •̀ ω •́ )✧', description: SITE.description}}>
     <article class="prose">
         <h1 class="text-cyan-600">Hey there! 👋</h1>
         <p>
