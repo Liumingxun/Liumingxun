@@ -1,0 +1,5 @@
+User-Agent: *
+Disallow: /cdn-cgi/
+Disallow: /strapi/
+
+Sitemap: sitemap.xml

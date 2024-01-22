@@ -16,6 +16,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site).href;
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="generator" content={Astro.generator} />
+<link rel="alternate" href="/rss.xml" type="application/rss+xml" title="RSS">
+<link rel="shortcut icon" href="/favicon.svg" type="image/x-icon">
 <SEO
     canonical={canonicalURL}
     title={seo.title}
@@ -52,7 +54,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site).href;
             { name: "msapplication-TileColor", content: "#AAD37D" },
             { name: "theme-color", content: "#AAD37D" },
         ],
-        link: [{ rel: "icon", href: seo.image ?? SITE.image }],
+        link: [{ rel: "icon", href: SITE.image }],
     }}
 />
 

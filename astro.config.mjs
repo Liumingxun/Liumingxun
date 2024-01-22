@@ -1,5 +1,6 @@
 import { defineConfig } from 'astro/config';
 import { resolve } from 'node:path'
+import ViteCompression from 'vite-plugin-compression'
 
 import tailwindcss from "@astrojs/tailwind";
 import node from '@astrojs/node'
@@ -25,6 +26,7 @@ export default defineConfig({
     }),
     site: 'https://blog.luoming.space',
     vite: {
+        plugins: [ViteCompression()],
         resolve: {
             alias: {
                 '@': resolve(process.cwd(), './src')
