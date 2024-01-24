@@ -22,7 +22,6 @@ const blog = await fetchApi<Blog>({
     },
 });
 
-console.log(blog);
 ---
 
 <DefaultLayout
@@ -37,10 +36,6 @@ console.log(blog);
     })}
 >
     <Fragment slot="extend-head">
-        <script
-            is:inline
-            src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/??prism/1.27.0/components/prism-core.min.js,prism/1.27.0/plugins/autoloader/prism-autoloader.min.js,prism/1.27.0/plugins/line-numbers/prism-line-numbers.min.js"
-        ></script>
         <link
             href="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/prism/1.27.0/themes/prism.min.css"
             type="text/css"
@@ -51,8 +46,13 @@ console.log(blog);
             type="text/css"
             rel="stylesheet"
         />
+        <link
+            href="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/prism/1.27.0/plugins/toolbar/prism-toolbar.min.css"
+            type="text/css"
+            rel="stylesheet"
+        />
     </Fragment>
-    <article class="prose">
+    <article class="prose line-numbers">
         <h1>{blog.attributes.title}</h1>
         {
             blog.attributes.content?.map((content) => {
@@ -67,4 +67,24 @@ console.log(blog);
             })
         }
     </article>
+    <script
+        is:inline
+        src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/prism/1.27.0/components/prism-core.min.js"
+        type="application/javascript"></script>
+    <script
+        is:inline
+        src="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/prism/1.27.0/plugins/autoloader/prism-autoloader.min.js"
+        type="application/javascript"></script>
+    <script
+        is:inline
+        src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/prism/1.27.0/plugins/line-numbers/prism-line-numbers.min.js"
+        type="application/javascript"></script>
+    <script
+        is:inline
+        src="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/prism/1.27.0/plugins/toolbar/prism-toolbar.min.js"
+        type="application/javascript"></script>
+    <script
+        is:inline
+        src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/prism/1.27.0/plugins/show-language/prism-show-language.min.js"
+        type="application/javascript"></script>
 </DefaultLayout>
