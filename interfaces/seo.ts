@@ -7,4 +7,5 @@ export default interface Seo {
     updatedAt?: string
     publishedAt?: string
     tags?: string[]
+    noindex?: boolean
 }

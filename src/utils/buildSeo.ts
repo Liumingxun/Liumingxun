@@ -10,26 +10,28 @@ interface SeoParams {
     createdAt?: string,
     updatedAt?: string
     publishedAt?: string
+    noindex?: boolean
 }
 
 const isImage = (image: Image | string): image is Image => {
     return typeof image !== "string"
 }
 
-export function buildSeo({ title, description, image, tags, createdAt, updatedAt, publishedAt }: SeoParams): Seo {    
+export function buildSeo({ title, description, image, tags, createdAt, updatedAt, publishedAt, noindex }: SeoParams): Seo {    
     if (image && isImage(image)) {
         image = image.attributes.url
     }
 
     const seo: Seo = {
-        title: title,
-        description: description,
+        title,
+        description,
         image: image as string,
-        createdAt: createdAt,
-        updatedAt: updatedAt,
-        publishedAt: publishedAt,
+        createdAt,
+        updatedAt,
+        publishedAt,
         tags: tags?.map(tag => tag.attributes.name),
         keywords: tags?.map(tag => tag.attributes.name).join(","),
+        noindex
     }
 
     return seo

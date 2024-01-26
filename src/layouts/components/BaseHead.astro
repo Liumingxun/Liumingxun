@@ -23,6 +23,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site).href;
     title={seo.title}
     titleTemplate={`%s | ${SITE.title}`}
     description={seo.description}
+    noindex={seo.noindex}
     openGraph={{
         basic: {
             type: "website",

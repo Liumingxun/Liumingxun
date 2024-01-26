@@ -22,6 +22,9 @@ const blog = await fetchApi<Blog>({
     },
 });
 
+if (!blog) {
+    return Astro.redirect('/404', 404)
+}
 ---
 
 <DefaultLayout

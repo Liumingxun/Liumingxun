@@ -15,7 +15,11 @@ export default defineConfig({
         ]
     },
     redirects: {
-        '/': '/blogs'
+        '/': '/blogs',
+        '/blogs/python-debounce-throttle': {
+            status: 301,
+            destination: '/blogs/python-debounce-throttle-1'
+        },
     },
     integrations: [
         tailwindcss()
