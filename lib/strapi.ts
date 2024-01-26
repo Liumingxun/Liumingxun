@@ -38,7 +38,7 @@ export default async function fetchApi<T>({
         endpoint = endpoint.slice(1);
     }
 
-    const url = new URL(`${import.meta.env.STRAPI_URL}/api/${endpoint}`);
+    const url = new URL(`${import.meta.env.STRAPI_URL ?? process.env.STRAPI_URL}/api/${endpoint}`);
 
     url.href += qs.stringify(query, { addQueryPrefix: true, });
 

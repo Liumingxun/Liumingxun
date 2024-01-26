@@ -1,5 +1,4 @@
 User-Agent: *
 Disallow: /cdn-cgi/
-Disallow: /strapi/
 
-Sitemap: sitemap.xml
+Sitemap: https://blog.luoming.space/sitemap.xml

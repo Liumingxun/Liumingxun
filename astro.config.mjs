@@ -7,6 +7,9 @@ import node from '@astrojs/node'
 
 // https://astro.build/config
 export default defineConfig({
+    server: {
+        port: 4322, // dev server port
+    },
     image: {
         domains: [
             // 'blog.luoming.space',

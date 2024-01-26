@@ -13,6 +13,7 @@ FROM node:18-slim
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY --from=build /app/dist .
+ENV HOST=0.0.0.0
 ENV PORT=4321
 EXPOSE ${PORT}
 CMD [ "node", "./server/entry.mjs" ]
