@@ -10,7 +10,8 @@ COPY . .
 RUN yarn && yarn build
 
 FROM node:18-slim
-COPY --from=deps /app/node_modules .
+WORKDIR /app
+COPY --from=deps /app/node_modules ./node_modules
 COPY --from=build /app/dist .
 ENV PORT=4321
 EXPOSE ${PORT}
