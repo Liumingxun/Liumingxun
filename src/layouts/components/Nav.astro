@@ -14,7 +14,7 @@ import { NAV_ITEMS } from "@/site-config";
                                 ? "border-gray-100 dark:border-gray-800"
                                 : "",
                             Astro.url.pathname.startsWith(item.path)
-                                ? "border-theme-primary"
+                                ? "border-primary"
                                 : "",
                         ]}
                         href={item.path}
@@ -28,6 +28,6 @@ import { NAV_ITEMS } from "@/site-config";
 </nav>
 <style>
     .nav-list {
-        @apply inline-flex list-none gap-8 text-xl font-semibold text-theme-secondary dark:text-theme-dark-secondary py-2 flex-wrap mb-8;
+        @apply inline-flex list-none gap-8 text-xl font-semibold text-primary dark:text-secondary-content py-2 flex-wrap mb-8;
     }
 </style>

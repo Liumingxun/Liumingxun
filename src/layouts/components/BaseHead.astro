@@ -4,7 +4,7 @@ import { SITE } from "@/site-config";
 import "@/styles/global.css";
 import { ViewTransitions } from "astro:transitions";
 import { SEO } from "astro-seo";
-import type  Seo from "/interfaces/seo";
+import type Seo from "/interfaces/seo";
 
 export interface Props {
     seo: Seo;
@@ -16,8 +16,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site).href;
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="generator" content={Astro.generator} />
-<link rel="alternate" href="/rss.xml" type="application/rss+xml" title="RSS">
-<link rel="shortcut icon" href="/favicon.svg" type="image/x-icon">
+<link rel="alternate" href="/rss.xml" type="application/rss+xml" title="RSS" />
+<link rel="shortcut icon" href="/favicon.svg" type="image/x-icon" />
 <SEO
     canonical={canonicalURL}
     title={seo.title}
@@ -47,7 +47,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site).href;
         description: seo.description,
         title: seo.title,
         image: seo.image ?? SITE.image,
-        imageAlt: 'maybe a picture of a lime',
+        imageAlt: "maybe a picture of a lime",
     }}
     extend={{
         meta: [
@@ -59,25 +59,4 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site).href;
     }}
 />
 
-<script is:inline>
-    const theme = (() => {
-        if (
-            typeof localStorage !== "undefined" &&
-            localStorage.getItem("theme")
-        ) {
-            return localStorage.getItem("theme");
-        }
-        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-            return "dark";
-        }
-        return "light";
-    })();
-
-    if (theme === "light") {
-        document.documentElement.classList.remove("dark");
-    } else {
-        document.documentElement.classList.add("dark");
-    }
-</script>
-
-<ViewTransitions />
+<!-- <ViewTransitions /> -->

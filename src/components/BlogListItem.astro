@@ -37,7 +37,7 @@ const image = blog.attributes.hero_image?.data;
                 <div>
                     {
                         blog.attributes.tags?.data.map((tag) => (
-                            <span class="rounded mr-2 bg-gray-300 p-1 last:mr-0">
+                            <span class="badge badge-secondary mr-2 last:mr-0">
                                 {tag.attributes.name}
                             </span>
                         ))

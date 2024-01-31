@@ -1,0 +1,44 @@
+---
+
+---
+
+<label class="swap swap-rotate" for="themeController">
+    <input
+        id="themeController"
+        type="checkbox"
+        class="theme-controller"
+        value="dark"
+    />
+    <i class="i moon swap-on"></i>
+    <i class="i sun swap-off"></i>
+</label>
+
+<script>
+    const theme = (() => {
+        if (
+            typeof localStorage !== "undefined" &&
+            localStorage.getItem("theme")
+        ) {
+            return localStorage.getItem("theme");
+        }
+        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+            return "dark";
+        }
+        return "light";
+    })();
+
+    const themeController = document.getElementById('themeController') as HTMLInputElement
+    const html = document.documentElement;
+    html.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+    themeController.checked = theme === "dark";
+
+    const toggleThemeChange = () => {
+        const targetTheme =
+            html.getAttribute("data-theme") === "dark" ? "light" : "dark";
+        html.setAttribute("data-theme", targetTheme);
+        localStorage.setItem("theme", targetTheme);
+    };
+
+    themeController.addEventListener('change', toggleThemeChange)
+</script>

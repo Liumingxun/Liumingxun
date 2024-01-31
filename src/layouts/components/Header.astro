@@ -1,4 +1,5 @@
 ---
+import ThemeController from "@/components/ThemeController.astro";
 ---
 
 <header class="flex px-4 py-2 border-b border-gray-200 dark:border-gray-700">
@@ -12,7 +13,7 @@
             alt="Lime logo"
         />
         <h1
-            class="text-3xl font-extrabold md:text-4xl text-theme-primary dark:text-theme-dark-secondary"
+            class="text-3xl font-extrabold md:text-4xl text-primary dark:text-secondary"
         >
             lolo洛明
         </h1>
@@ -21,7 +22,7 @@
         <ul
             class="flex gap-3 text-gray-400 text-xl
             *:size-8 *:text-center *:leading-8 *:rounded
-            hover:*:bg-theme-primary
+            hover:*:bg-primary
             hover:*:text-white"
         >
             <li>
@@ -29,8 +30,8 @@
                     <i class="i github"></i>
                 </a>
             </li>
-            <li title="change color theme">
-                <i class="i sun"></i>
+            <li>
+                <ThemeController />
             </li>
         </ul>
     </nav>
