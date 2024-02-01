@@ -13,7 +13,7 @@
     <i class="i sun swap-off"></i>
 </label>
 
-<script>
+<script is:inline>
     const theme = (() => {
         if (
             typeof localStorage !== "undefined" &&
@@ -27,7 +27,7 @@
         return "light";
     })();
 
-    const themeController = document.getElementById('themeController') as HTMLInputElement
+    const themeController = document.getElementById('themeController')
     const html = document.documentElement;
     html.setAttribute("data-theme", theme);
     localStorage.setItem("theme", theme);
