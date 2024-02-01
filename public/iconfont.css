@@ -19,20 +19,31 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-
-.i.github:before {
+.i.email:before {
 content: "\e001";
 }
 
-.i.moon:before {
+.i.github:before {
 content: "\e002";
 }
 
-.i.rss:before {
+.i.steam:before {
 content: "\e003";
 }
 
-.i.sun:before {
+.i.moon:before {
 content: "\e004";
+}
+
+.i.rss:before {
+content: "\e005";
+}
+
+.i.sun:before {
+content: "\e006";
+}
+
+.i.bilibili:before {
+content: "\e007";
 }
 
