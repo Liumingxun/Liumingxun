@@ -1,0 +1,32 @@
+---
+export interface Props {
+    focus?: boolean;
+}
+
+const { focus } = Astro.props;
+---
+
+{
+    focus ? (
+        <div tabindex="0" class="ds-collapse bg-base-200">
+            <div class="ds-collapse-title text-xl font-medium">
+                Focus me to see content
+            </div>
+            <div class="ds-collapse-content">
+                <p>
+                    tabindex="0" attribute is necessary to make the div
+                    focusable
+                </p>
+            </div>
+        </div>
+    ) : (
+        <details class="ds-collapse bg-base-200">
+            <summary class="ds-collapse-title text-xl font-medium">
+                Click to open/close
+            </summary>
+            <div class="ds-collapse-content">
+                <p>content</p>
+            </div>
+        </details>
+    )
+}
