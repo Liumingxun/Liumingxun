@@ -33,6 +33,11 @@ export default defineConfig({
     }),
     site: 'https://blog.luoming.space',
     vite: {
+        server: {
+            proxy: {
+                '/uploads': 'http://localhost:6337'
+            }
+        },
         plugins: [ViteCompression()],
         resolve: {
             alias: {

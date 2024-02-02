@@ -19,8 +19,7 @@ const image = blog.attributes.hero_image?.data;
                 image && (
                     <Image
                         class="w-full h-full object-cover"
-                        densities={[1, 2, 3]}
-                        src={import.meta.env.STRAPI_URL + image.attributes.url}
+                        src={image.attributes.url}
                         alt={image.attributes.alternativeText}
                         width={image.attributes.width}
                         height={image.attributes.height}
