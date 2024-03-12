@@ -3,7 +3,7 @@ export default interface Image {
     attributes: Partial<ImageAttributes>
 }
 
-interface ImageAttributes { 
+export interface ImageAttributes { 
     name: string
     alternativeText: string
     caption: string

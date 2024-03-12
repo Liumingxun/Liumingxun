@@ -11,10 +11,13 @@ export default defineConfig({
         port: 4322, // dev server port
     },
     image: {
-        domains: [
-            // 'blog.luoming.space',
-            // 'cdn.jsdelivr.net',
-            // 'localhost'
+        remotePatterns: [
+            {
+                protocol: 'http'
+            },
+            {
+                protocol: 'https'
+            }
         ]
     },
     redirects: {

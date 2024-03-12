@@ -2,6 +2,7 @@
 import Card from "./Card.astro";
 import { Image } from "astro:assets";
 import type Blog from "/interfaces/blog";
+import LmImage from "./LmImage.astro";
 
 interface Props {
     blog: Blog;
@@ -17,12 +18,8 @@ const image = blog.attributes.hero_image?.data;
         <div class="empty:hidden w-1/4 max-h-20 mr-2">
             {
                 image && (
-                    <Image
-                        class="w-full h-full object-cover"
-                        src={image.attributes.url}
-                        alt={image.attributes.alternativeText}
-                        width={image.attributes.width}
-                        height={image.attributes.height}
+                    <LmImage
+                        {...image}
                     />
                 )
             }
@@ -36,7 +33,7 @@ const image = blog.attributes.hero_image?.data;
                 <div>
                     {
                         blog.attributes.tags?.data.map((tag) => (
-                            <span class="badge badge-secondary mr-2 last:mr-0">
+                            <span class="ds-badge ds-badge-secondary mr-2 last:mr-0">
                                 {tag.attributes.name}
                             </span>
                         ))

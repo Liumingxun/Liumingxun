@@ -4,9 +4,7 @@ interface Query {
     populate: string | string[] | Record<string, unknown>,
     fields: string[],
     filters: {
-        [key: string]: {
-            [operator in Operator]?: string
-        },
+        [key: string]: { [operator in Operator]?: string } | string | number,
     },
 }
 
@@ -38,7 +36,7 @@ export default async function fetchApi<T>({
         endpoint = endpoint.slice(1);
     }
 
-    const url = new URL(`${import.meta.env.STRAPI_URL ?? process.env.STRAPI_URL}/api/${endpoint}`);
+    const url = new URL(`/api/${endpoint}`, import.meta.env.STRAPI_URL ?? process.env.STRAPI_URL);
 
     url.href += qs.stringify(query, { addQueryPrefix: true, });
 
