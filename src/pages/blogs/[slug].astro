@@ -39,7 +39,6 @@ export const getStaticPaths = (async () => {
 }) satisfies GetStaticPaths;
 
 const { blog } = Astro.props;
-console.log(blog);
 if (!blog) {
     return Astro.redirect("/404", 404);
 }
