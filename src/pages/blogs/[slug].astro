@@ -1,29 +1,47 @@
 ---
+import type { GetStaticPaths } from "astro";
 import type Blog from "/interfaces/blog";
 import fetchApi from "/lib/strapi";
 import DefaultLayout from "@/layouts/default.astro";
 import { buildSeo } from "@/utils/buildSeo";
-
 import { marked } from "marked";
-const { slug } = Astro.params;
-const blog = await fetchApi<Blog>({
-    endpoint: "posts",
-    wrappedByKey: "data",
-    wrappedByList: true,
-    query: {
-        filters: {
-            slug: {
-                $eq: slug,
+
+export const getStaticPaths = (async () => {
+    const blogs = await fetchApi<Blog[]>({
+        endpoint: "posts",
+        wrappedByKey: "data",
+        query: {
+            populate: {
+                content: true,
+                tags: {
+                    fields: ["name"],
+                },
+                hero_image: {
+                    fields: [
+                        "url",
+                        "width",
+                        "height",
+                        "alternativeText",
+                        "formats",
+                    ],
+                },
             },
         },
-        populate: {
-            content: true,
+    });
+    return blogs.map((blog) => ({
+        params: {
+            slug: blog.attributes.slug,
         },
-    },
-});
+        props: {
+            blog: blog,
+        },
+    }));
+}) satisfies GetStaticPaths;
 
+const { blog } = Astro.props;
+console.log(blog);
 if (!blog) {
-    return Astro.redirect('/404', 404)
+    return Astro.redirect("/404", 404);
 }
 ---
 
