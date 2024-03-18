@@ -19,11 +19,15 @@ if (!isOriginImage(p)) {
     p = { id: p.id, ...p.attributes, origin: true };
 }
 const image = p;
+
+const prefix = import.meta.env.PROD
+    ? `https://admin.luoming.space`
+    : "http://localhost:6337";
 ---
 
 <Image
     class="w-full h-full object-cover"
-    src={`http://localhost:6337${image.url}`}
+    src={`${prefix}${image.url}`}
     widths={[240, 540, image.width]}
     sizes={"(max-width: 360px) 240px, 540px"}
     alt={image.alternativeText}

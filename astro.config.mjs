@@ -18,13 +18,6 @@ export default defineConfig({
             }
         ]
     },
-    // redirects: {
-    //     '/': '/blogs',
-    //     '/blogs/python-debounce-throttle': {
-    //         status: 301,
-    //         destination: '/blogs/python-debounce-throttle-1'
-    //     },
-    // },
     integrations: [
         tailwindcss()
     ],
@@ -35,9 +28,6 @@ export default defineConfig({
                 '/uploads': 'http://localhost:6337'
             }
         },
-        plugins: [
-            // compress()
-        ],
         resolve: {
             alias: {
                 '@': resolve(process.cwd(), './src')
