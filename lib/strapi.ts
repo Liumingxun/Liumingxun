@@ -40,7 +40,9 @@ export default async function fetchApi<T>({
 
     url.href += qs.stringify(query, { addQueryPrefix: true, });
 
-    const res = await fetch(url.toString());
+    const res = await fetch(url.toString(), {
+        signal: AbortSignal.timeout(15000),
+    });
     let data = await res.json();
 
     if (wrappedByKey) {

@@ -8,7 +8,7 @@
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "pnpm run build && astro preview",
-    "deploy": "pnpm run build && wrangler pages deploy ./dist --project-name=lime233",
+    "deploy": "wrangler pages deploy ./dist --project-name=lime233",
     "astro": "astro"
   },
   "dependencies": {
