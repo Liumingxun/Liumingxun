@@ -10,11 +10,9 @@ const hobbyList = {
 };
 ---
 
-<DefaultLayout
-    seo={{ title: "我是谁( •̀ ω •́ )✧", description: SITE.description }}
->
-    <article class="prose">
-        <h1 class="text-cyan-600">Hey there! 👋</h1>
+<DefaultLayout seo={{ title: "About", description: SITE.description }}>
+    <article class="prose ds-prose">
+        <h1>Hey there! 👋</h1>
         <p>
             Ah-huh! I'm <b class="text-[#66ccff]">Luoming</b>, a front-end
             developer, you can call me <b class="text-lime-400">Lime</b>.
@@ -43,7 +41,7 @@ const hobbyList = {
         </div>
         <hr />
         <p>Find me on</p>
-        <section class="flex flex-wrap gap-3 text-base text-black">
+        <section class="flex flex-wrap gap-3 text-base">
             <a href="//github.com/liumingxun"
                 ><i class="i github"></i>&ensp;Github</a
             >

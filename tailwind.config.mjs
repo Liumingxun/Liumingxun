@@ -24,7 +24,12 @@ export default {
 					primary: '#AAD37D',
 				}
 			},
-			'dark'
+			{
+				dark: {
+					...themes.dark,
+					primary: '#66ccff'
+				}
+			}
 		],
 		prefix: 'ds-'
 	},

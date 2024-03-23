@@ -13,10 +13,20 @@ const { seo } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="zh-CN">
 	<head>
 		<BaseHead seo={seo} />
 		<slot name="extend-head" />
+		<style is:global>
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,
+			h6 {
+				@apply text-base-content !important;
+			}
+		</style>
 	</head>
 	<body class="transition-all">
 		<Header />

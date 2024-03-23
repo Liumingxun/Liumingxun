@@ -27,7 +27,7 @@
         return "light";
     })();
 
-    const themeController = document.getElementById('themeController')
+    const themeController = document.getElementById("themeController");
     const html = document.documentElement;
     html.setAttribute("data-theme", theme);
     localStorage.setItem("theme", theme);
@@ -40,5 +40,5 @@
         localStorage.setItem("theme", targetTheme);
     };
 
-    themeController.addEventListener('change', toggleThemeChange)
+    themeController.addEventListener("change", toggleThemeChange);
 </script>
