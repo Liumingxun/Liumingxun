@@ -24,6 +24,7 @@ const blogs = await fetchApi<Blog[]>({
                 ],
             },
         },
+        sort: ["createdAt:desc"],
     },
 });
 ---

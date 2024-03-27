@@ -3,6 +3,7 @@ import qs from 'qs';
 interface Query {
     populate: string | string[] | Record<string, unknown>,
     fields: string[],
+    sort: string[],
     filters: {
         [key: string]: { [operator in Operator]?: string } | string | number,
     },

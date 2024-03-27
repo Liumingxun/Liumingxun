@@ -10,39 +10,64 @@ interface Props {
 const { blog } = Astro.props;
 const image = blog.attributes.hero_image?.data;
 
+const datetime = new Date(blog.attributes.createdAt).toLocaleDateString(
+    "en-UK",
+    {
+        month: "short",
+        day: "2-digit",
+        year: "numeric",
+    },
+);
 ---
 
-<Card>
-    <div class="flex">
-        <div class="empty:hidden w-1/4 max-h-20 mr-2">
-            {
-                image && (
-                    <LmImage
-                        {...image}
-                    />
-                )
-            }
-        </div>
-
-        <div class="grow">
-            <a href={`/blogs/${blog.attributes.slug}`}>
-                <h2>{blog.attributes.title}</h2>
-            </a>
-            <div class="flex justify-between mt-1">
-                <div>
-                    {
-                        blog.attributes.tags?.data.map((tag) => (
-                            <span class="ds-badge ds-badge-secondary mr-2 last:mr-0">
-                                {tag.attributes.name}
-                            </span>
-                        ))
-                    }
+<div class="mb-4 last:mb-0 h-24">
+    <Card>
+        <div class="flex gap-4">
+            <time
+                datetime={blog.attributes.createdAt}
+                class="flex flex-col text-secondary font-semibold"
+            >
+                <span class="text-3xl text-center"
+                    >{datetime.split(" ").shift()}</span
+                >
+                <span
+                    >{
+                        datetime
+                            .split(" ")
+                            .filter((_, i) => i !== 0)
+                            .join(" ")
+                    }</span
+                >
+            </time>
+            <div class="grow">
+                <a
+                    href={`/blogs/${blog.attributes.slug}`}
+                    class="hover:underline-offset-4 hover:underline decoration-primary text-xl"
+                >
+                    {blog.attributes.title}
+                </a>
+                <div class="flex justify-between">
+                    <div>
+                        {
+                            blog.attributes.tags?.data.map((tag) => (
+                                <span class="ds-badge ds-badge-outline mr-2 last:mr-0">
+                                    {tag.attributes.name}
+                                </span>
+                            ))
+                        }
+                    </div>
                 </div>
-                <p>
-                    {new Date(blog.attributes.createdAt).toLocaleDateString()}
-                </p>
             </div>
         </div>
-    </div>
-</Card>
-
+        {
+            image && (
+                <div
+                    class="absolute w-[350px] h-full top-0 right-0"
+                    style="mask-image: linear-gradient(to left, rgba(0,0,0, 1), rgba(0,0,0,0))"
+                >
+                    <LmImage {...image} />
+                </div>
+            )
+        }
+    </Card>
+</div>
