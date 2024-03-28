@@ -15,6 +15,7 @@
     "@astrojs/check": "^0.5.7",
     "@astrojs/node": "^8.2.3",
     "@astrojs/rss": "^4.0.5",
+    "@astrojs/sitemap": "^3.1.2",
     "@astrojs/tailwind": "^5.1.0",
     "@nanostores/logger": "^0.2.4",
     "astro": "^4.5.1",

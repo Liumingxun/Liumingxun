@@ -1,6 +1,7 @@
 import { defineConfig } from 'astro/config';
 import { resolve } from 'node:path'
 
+import sitemap from '@astrojs/sitemap'
 import tailwindcss from "@astrojs/tailwind";
 
 // https://astro.build/config
@@ -19,7 +20,8 @@ export default defineConfig({
         ]
     },
     integrations: [
-        tailwindcss()
+        tailwindcss(),
+        sitemap()
     ],
     site: 'https://blog.luoming.space',
     vite: {
