@@ -7,7 +7,7 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro check && astro build",
-    "preview": "pnpm run build && astro preview",
+    "preview": "astro preview",
     "deploy": "wrangler pages deploy ./dist --project-name=lime233",
     "astro": "astro"
   },

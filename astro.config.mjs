@@ -23,6 +23,16 @@ export default defineConfig({
         tailwindcss(),
         sitemap()
     ],
+    redirects: {
+        '/': {
+            destination: '/blogs',
+            status: 301
+        }
+    },
+    build: {
+        redirects: false,
+        format: 'file'
+    },
     site: 'https://blog.luoming.space',
     vite: {
         server: {
