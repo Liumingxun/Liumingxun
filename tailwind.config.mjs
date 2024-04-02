@@ -7,9 +7,9 @@ import themes from 'daisyui/src/theming/themes'
 export default {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	safelist: [
-		{
-			pattern: /^ds-/,
-		},
+		// {
+		// 	pattern: /^ds-/,
+		// },
 	],
 	theme: {
 		fontFamily: {
@@ -23,7 +23,19 @@ export default {
 						maxWidth: '48rem'
 					}
 				}
-			}
+			},
+			keyframes: {
+				floating: {
+					'0%, 100%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-0.5rem)' },
+				}
+			},
+			animation: {
+				'floating': 'floating 3.5s ease-in-out infinite',
+			},
+			backgroundImage: {
+				'gradient-primary': `linear-gradient(to bottom, #AAD37D, #66CCFF)`,
+			},
 		},
 	},
 	daisyui: {
@@ -31,13 +43,14 @@ export default {
 			{
 				light: {
 					...themes.acid,
+					'--rounded-btn': '0.5rem',
 					primary: '#AAD37D',
 				}
 			},
 			{
 				dark: {
 					...themes.dark,
-					primary: '#66ccff'
+					primary: '#66CCFF'
 				}
 			}
 		],

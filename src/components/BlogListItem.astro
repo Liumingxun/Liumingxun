@@ -22,14 +22,22 @@ const datetime = new Date(blog.attributes.createdAt).toLocaleDateString(
 
 <div class="mb-4 last:mb-0 h-24">
     <Card>
-        <div class="flex gap-4">
+        {
+            image && (
+                <div
+                    class="absolute w-[350px] h-full top-0 right-0"
+                    style="mask-image: linear-gradient(to left, rgba(0,0,0, 1), rgba(0,0,0,0))"
+                >
+                    <LmImage {...image} />
+                </div>
+            )
+        }
+        <div class="flex gap-4 z-10">
             <time
                 datetime={blog.attributes.createdAt}
-                class="flex flex-col text-secondary font-semibold"
+                class="flex flex-col text-secondary font-semibold text-center shrink-0"
             >
-                <span class="text-3xl text-center"
-                    >{datetime.split(" ").shift()}</span
-                >
+                <span class="text-3xl">{datetime.split(" ").shift()}</span>
                 <span
                     >{
                         datetime
@@ -57,15 +65,5 @@ const datetime = new Date(blog.attributes.createdAt).toLocaleDateString(
                 </div>
             </div>
         </div>
-        {
-            image && (
-                <div
-                    class="absolute w-[350px] h-full top-0 right-0"
-                    style="mask-image: linear-gradient(to left, rgba(0,0,0, 1), rgba(0,0,0,0))"
-                >
-                    <LmImage {...image} />
-                </div>
-            )
-        }
     </Card>
 </div>

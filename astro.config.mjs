@@ -6,6 +6,9 @@ import tailwindcss from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
+    devToolbar: {
+        enabled: false
+    },
     server: {
         port: 4322, // dev server port
     },
@@ -24,10 +27,6 @@ export default defineConfig({
         sitemap()
     ],
     redirects: {
-        '/': {
-            destination: '/blogs',
-            status: 301
-        }
     },
     build: {
         redirects: false,

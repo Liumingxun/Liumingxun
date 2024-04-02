@@ -2,8 +2,9 @@
 import Header from "./components/Header.astro";
 import Footer from "./components/Footer.astro";
 import Nav from "./components/Nav.astro";
-import BaseHead from "./components/BaseHead.astro";
 import type Seo from "/interfaces/seo";
+
+import EmptyLayout from "./empty.astro";
 
 interface Props {
 	seo: Seo;
@@ -12,18 +13,12 @@ interface Props {
 const { seo } = Astro.props;
 ---
 
-<!doctype html>
-<html lang="zh-CN">
-	<head>
-		<BaseHead seo={seo} />
-		<slot name="extend-head" />
-	</head>
-	<body class="transition-all">
-		<Header />
-		<main class="mx-auto px-4 container">
-			<Nav />
-			<slot />
-		</main>
-		<Footer />
-	</body>
-</html>
+<EmptyLayout seo={seo}>
+	<slot slot="extend-head" name="extend-head" />
+	<Header />
+	<main class="mx-auto container min-h-[calc(100vh-80px)]">
+		<Nav />
+		<slot />
+	</main>
+	<Footer />
+</EmptyLayout>

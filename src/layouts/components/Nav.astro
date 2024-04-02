@@ -2,7 +2,7 @@
 import { NAV_ITEMS } from "@/site-config";
 ---
 
-<nav class="nav py-3">
+<nav class="nav">
     <ul class="nav-list">
         {
             NAV_ITEMS.map((item) => (
@@ -19,7 +19,7 @@ import { NAV_ITEMS } from "@/site-config";
                         ]}
                         href={item.path}
                     >
-                    {item.title}
+                        {item.title}
                     </a>
                 </li>
             ))

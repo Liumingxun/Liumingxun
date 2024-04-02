@@ -30,7 +30,7 @@ const blogs = await fetchApi<Blog[]>({
 ---
 
 <DefaultLayout seo={{
-    title: 'Home',
+    title: 'Blogs',
     description: SITE.description,
 }}>
     {blogs.map((blog) => <BlogListItem blog={blog} />)}
