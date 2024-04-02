@@ -20,6 +20,9 @@ dependencies:
   '@astrojs/tailwind':
     specifier: ^5.1.0
     version: 5.1.0(astro@4.5.4)(tailwindcss@3.4.1)
+  '@fontsource-variable/fira-code':
+    specifier: ^5.0.17
+    version: 5.0.17
   '@nanostores/logger':
     specifier: ^0.2.4
     version: 0.2.4(nanostores@0.9.5)
@@ -963,6 +966,10 @@ packages:
     resolution: {integrity: sha512-vBZP4NlzfOlerQTnba4aqZoMhE/a9HY7HRqoOPaETQcSQuWEIyZMHGfVu6w9wGtGK5fED5qRs2DteVCjOH60sA==}
     engines: {node: '>=14'}
     dev: true
+
+  /@fontsource-variable/fira-code@5.0.17:
+    resolution: {integrity: sha512-TAzV74e3Tt6a7/cjxh1Jdly+Yrlc7AlSIMlzmtMUeDNQ0OcrYrcejkVRSRfGMjM+AuUhLw/PLoGV8fXj6pev5w==}
+    dev: false
 
   /@fontsource/fira-sans@5.0.19:
     resolution: {integrity: sha512-6hTOV2mgGx2OCyuXwjCPSfvQra4aw4t6rDCvembo8VHIVALOwEH6rmHrITDAVhxjP6p+51I0+9j+x6JD155G5w==}

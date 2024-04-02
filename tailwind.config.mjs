@@ -13,7 +13,17 @@ export default {
 	],
 	theme: {
 		fontFamily: {
-			sans: ['Fira Sans', ...fontFamily.sans],
+			sans: ['"Fira Sans"', ...fontFamily.sans],
+			mono: ['"Fira Code Variable"', ...fontFamily.mono],
+		},
+		extend: {
+			typography: {
+				DEFAULT: {
+					css: {
+						maxWidth: '48rem'
+					}
+				}
+			}
 		},
 	},
 	daisyui: {
@@ -34,7 +44,9 @@ export default {
 		prefix: 'ds-'
 	},
 	plugins: [
-		typography(),
+		typography({
+			className: 'ds-prose'
+		}),
 		daisyui
 	],
 }
