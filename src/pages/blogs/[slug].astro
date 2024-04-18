@@ -4,7 +4,7 @@ import type Blog from "/interfaces/blog";
 import fetchApi from "/lib/strapi";
 import DefaultLayout from "@/layouts/default.astro";
 import { buildSeo } from "@/utils/buildSeo";
-import { marked } from "marked";
+import { marked, type RendererObject } from "marked";
 
 export const getStaticPaths = (async () => {
     const blogs = await fetchApi<Blog[]>({
@@ -42,6 +42,22 @@ const { blog } = Astro.props;
 if (!blog) {
     return Astro.redirect("/404", 404);
 }
+
+const renderer: RendererObject = {
+    heading(text, level) {
+        const escapedText = text.toLowerCase().replace(/[^\w]+/g, "-");
+
+        return `
+            <h${level}>
+              <a class="not-ds-prose anchor" name="${escapedText}" aria-hidden="true" tabindex="-1" href="#${escapedText}">
+                <span class="header-link"></span>
+              </a>
+              ${text}
+            </h${level}>`;
+    },
+};
+
+marked.use({ renderer });
 ---
 
 <DefaultLayout
@@ -75,12 +91,12 @@ if (!blog) {
     <article class="m-auto line-numbers ds-prose">
         <h1>{blog.attributes.title}</h1>
         {
-            blog.attributes.content?.map((content) => {
-                switch (content.__component) {
+            blog.attributes.content?.map(({ content, __component }) => {
+                switch (__component) {
                     case "display.md":
-                        return <div set:html={marked.parse(content.content)} />;
+                        return <div set:html={marked.parse(content)} />;
                     case "display.mce":
-                        return <div set:html={content.content} />;
+                        return <Fragment set:html={marked.parse(content)} />;
                     default:
                         return null;
                 }
