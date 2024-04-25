@@ -5,6 +5,7 @@ import fetchApi from "/lib/strapi";
 import DefaultLayout from "@/layouts/default.astro";
 import { buildSeo } from "@/utils/buildSeo";
 import { marked, type RendererObject } from "marked";
+import GiscusWidget from "@/components/GiscusWidget";
 
 export const getStaticPaths = (async () => {
     const blogs = await fetchApi<Blog[]>({
@@ -102,6 +103,7 @@ marked.use({ renderer });
                 }
             })
         }
+        <GiscusWidget client:only="solid-js" />
     </article>
     <script
         is:inline

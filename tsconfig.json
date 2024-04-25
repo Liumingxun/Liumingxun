@@ -11,8 +11,8 @@
         "./*"
       ]
     },
-    "types": [
-      // "./src/types.d.ts"
-    ]
+    "types": [],
+    "jsx": "preserve",
+    "jsxImportSource": "solid-js"
   }
 }

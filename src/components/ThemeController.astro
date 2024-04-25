@@ -13,7 +13,7 @@
     <i class="i sun ds-swap-off"></i>
 </label>
 
-<script is:inline>
+<script>
     const theme = (() => {
         if (
             typeof localStorage !== "undefined" &&
@@ -21,13 +21,15 @@
         ) {
             return localStorage.getItem("theme");
         }
-        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        if (matchMedia("(prefers-color-scheme: dark)").matches) {
             return "dark";
         }
         return "light";
     })();
 
-    const themeController = document.getElementById("themeController");
+    const themeController = document.getElementById(
+        "themeController",
+    ) as HTMLInputElement;
     const html = document.documentElement;
     html.setAttribute("data-theme", theme);
     localStorage.setItem("theme", theme);
