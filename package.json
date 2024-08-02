@@ -12,31 +12,31 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/check": "^0.5.7",
-    "@astrojs/node": "^8.2.3",
-    "@astrojs/rss": "^4.0.5",
-    "@astrojs/sitemap": "^3.1.2",
-    "@astrojs/solid-js": "^4.1.0",
+    "@astrojs/check": "^0.9.1",
+    "@astrojs/node": "^8.3.2",
+    "@astrojs/rss": "^4.0.7",
+    "@astrojs/sitemap": "^3.1.6",
+    "@astrojs/solid-js": "^4.4.0",
     "@astrojs/tailwind": "^5.1.0",
     "@giscus/solid": "^3.0.0",
     "@nanostores/logger": "^0.2.4",
-    "astro": "^4.5.1",
-    "astro-seo": "^0.8.0",
+    "astro": "^4.13.0",
+    "astro-seo": "^0.8.4",
     "marked": "^11.1.0",
     "nanostores": "^0.9.5",
-    "sharp": "^0.33.2",
-    "solid-js": "^1.8.17",
+    "sharp": "^0.33.4",
+    "solid-js": "^1.8.19",
     "tailwindcss": "3.4.1",
-    "typescript": "^5.3.3"
+    "typescript": "^5.5.4"
   },
   "devDependencies": {
-    "@fontsource-variable/fira-code": "^5.0.17",
-    "@fontsource/fira-sans": "^5.0.18",
-    "@tailwindcss/typography": "^0.5.10",
-    "@types/node": "^20.10.4",
-    "@types/qs": "^6.9.11",
-    "daisyui": "^4.6.1",
-    "qs": "^6.11.2",
-    "wrangler": "^3.34.2"
+    "@fontsource-variable/fira-code": "^5.0.18",
+    "@fontsource/fira-sans": "^5.0.20",
+    "@tailwindcss/typography": "^0.5.13",
+    "@types/node": "^20.14.13",
+    "@types/qs": "^6.9.15",
+    "daisyui": "^4.12.10",
+    "qs": "^6.13.0",
+    "wrangler": "^3.68.0"
   }
 }
