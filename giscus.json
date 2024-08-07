@@ -1,9 +1,10 @@
 {
   "origins": [
-    "https://blog.luoming.space"
+    "https://limx.fun"
   ],
   "originsRegex": [
-    "http://localhost:[0-9]+"
+    "http://localhost:[0-9]+",
+    "https?://.*\\.limx\\.fun"
   ],
   "defaultCommentOrder": "oldest"
 }
