@@ -13,17 +13,10 @@ export default {
 	],
 	theme: {
 		fontFamily: {
-			sans: ['"Fira Sans"', ...fontFamily.sans],
-			mono: ['"Fira Code Variable"', ...fontFamily.mono],
+			sans: ['"LXGW WenKai Screen R"', ...fontFamily.sans],
+			mono: ['"Fira Code"', ...fontFamily.mono],
 		},
 		extend: {
-			typography: {
-				DEFAULT: {
-					css: {
-						maxWidth: '48rem'
-					}
-				}
-			},
 			keyframes: {
 				floating: {
 					'0%, 100%': { transform: 'translateY(0)' },

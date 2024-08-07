@@ -30,8 +30,6 @@
     "typescript": "^5.5.4"
   },
   "devDependencies": {
-    "@fontsource-variable/fira-code": "^5.0.18",
-    "@fontsource/fira-sans": "^5.0.20",
     "@tailwindcss/typography": "^0.5.13",
     "@types/node": "^20.14.13",
     "@types/qs": "^6.9.15",

@@ -57,12 +57,6 @@ importers:
         specifier: ^5.5.4
         version: 5.5.4
     devDependencies:
-      '@fontsource-variable/fira-code':
-        specifier: ^5.0.18
-        version: 5.0.18
-      '@fontsource/fira-sans':
-        specifier: ^5.0.20
-        version: 5.0.20
       '@tailwindcss/typography':
         specifier: ^0.5.13
         version: 0.5.13(tailwindcss@3.4.1)
@@ -712,12 +706,6 @@ packages:
   '@fastify/busboy@2.1.1':
     resolution: {integrity: sha512-vBZP4NlzfOlerQTnba4aqZoMhE/a9HY7HRqoOPaETQcSQuWEIyZMHGfVu6w9wGtGK5fED5qRs2DteVCjOH60sA==}
     engines: {node: '>=14'}
-
-  '@fontsource-variable/fira-code@5.0.18':
-    resolution: {integrity: sha512-Pmbnf4HukX4y928RY9g47hWyVECQglwV7HLv5taaDQwI3UBXyoLUnyRsjJxeviCPhdwJY5qyLT4GaCMlgC9oCQ==}
-
-  '@fontsource/fira-sans@5.0.20':
-    resolution: {integrity: sha512-inmUjoKPrgnO4uUaZTAgP0b6YdhDfA52axHXvdTwgLvwd2kn3ZgK52UZoxD0VnrvTOjLA/iE4oC0tNtz4nyb5g==}
 
   '@giscus/solid@3.0.0':
     resolution: {integrity: sha512-d8utQz0LXkR6YoMFGwOiJ/hBZ7Kp0m8BZbLbbINw1TWQp/sp6VXqha5XZcVtBMIw1HMSNLr6zcuSWfOYaYgV5Q==}
@@ -3640,10 +3628,6 @@ snapshots:
     optional: true
 
   '@fastify/busboy@2.1.1': {}
-
-  '@fontsource-variable/fira-code@5.0.18': {}
-
-  '@fontsource/fira-sans@5.0.20': {}
 
   '@giscus/solid@3.0.0(solid-js@1.8.19)':
     dependencies:
