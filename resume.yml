@@ -1,0 +1,151 @@
+basics:
+  name: Lime / Liumingxun
+  label: FrontEnd & Python Development Engineer
+
+contact:
+  email:
+    href: mailto:liumingxun@yeah.net
+    icon: ri:mail-line
+    label: liumingxun@yeah.net
+  blog:
+    href: https://limx.fun/
+    icon: ri:earth-line
+    label: https://limx.fun/
+  github:
+    href: https://github.com/Liumingxun
+    icon: ri:github-line
+    label: Liumingxun
+
+project:
+  icon: ri:folders-line
+  title: Project Experience
+  sets:
+    - name: Comprehensive Network Equipment Fault Troubleshooting Tool
+      logo: ic:outline-router
+      type: Development/Deployment
+      start: 09 / 2023
+      end: Now
+      summary: Developed a tool based on <code>netmiko</code> for aiding in network equipment fault troubleshooting, aiming to improve efficiency and reduce downtime. The tool adapts to multiple vendor outputs and simplifies the process by providing a unified interface, helping the operations team quickly identify and resolve issues to ensure system stability.
+      keywords:
+        - name: Python
+          icon: nonicons:python-16
+        - name: Flask
+          icon: mingcute:flask-line
+        - name: Netmiko
+          icon: carbon:tcp-ip-service
+        - name: JavaScript
+          icon: nonicons:javascript-16
+        - name: TailwindCSS
+          icon: ri:tailwind-css-line
+        - name: AlpineJS
+          icon: tabler:brand-alpine-js
+      highlights:
+        - "<strong>Basic Equipment Status Check</strong>: Monitors CPU, memory, fans, disk, power, system, temperature, and voltage statuses, providing a comprehensive health report."
+        - "<strong>Multi-Tenant IP Access Switch Quick Check</strong>: Quickly determines whether multiple tenant devices are on the same access switch subnet to expedite network issue troubleshooting."
+        - "<strong>Physical Link Quality Check within POD</strong>: Monitors the physical link status of single tenant devices, including access switch, SDN gateway, core switch transmission indicators like RX/TX optical power, CRC checks, and bandwidth usage to ensure link quality."
+        - "<strong>Core Network Physical Link Quality Check</strong>: Inspects key indicators such as CRC, optical power, and interface bandwidth percentage of core devices, ensuring no abnormalities in the core links."
+        - "<strong>User-Friendly Frontend Interface</strong>: Uses AlpineJS and TailwindCSS to customize component styles, offering an intuitive and easy-to-use interface for end users."
+    - name: Network Equipment Status Inspection and Comparison Tool
+      logo: ri:checkbox-multiple-line
+      type: Development/Deployment
+      start: 03 / 2024
+      end: Now
+      summary: Developed an automated monitoring and data collection tool for network equipment inspection based on the <code>SNMP</code> protocol. The tool adapts to multiple vendor outputs, collects equipment status, organizes it into Excel spreadsheets, and provides differential reports compared to historical data.
+      keywords:
+        - name: Python
+          icon: nonicons:python-16
+        - name: openpyxl
+          icon: mdi:microsoft-excel
+        - name: snmpwalk
+          icon: ic:round-terminal
+        - name: shell
+          icon: mdi:bash
+      highlights:
+        - "<strong>Customizable Inspection Items</strong>: Allows users to set inspection items through configuration files based on actual needs. Users can specify device types, IP lists, and <code>SNMP OIDs</code> to adjust the content and output of inspections."
+        - "<strong>Pre-Check of Host Status</strong>: Establishes different pre-check logic according to device types. Uses <code>ICMP</code> and <code>TCP</code> methods to check the host's live status, ensuring that detailed inspections are only performed on online devices, thereby improving script execution efficiency."
+        - "<strong>Encapsulated Command-Line Interface</strong>: Provides rich command-line options and parameters, allowing users to directly invoke the tool for inspection tasks."
+        - "<strong>Multi-threaded Execution</strong>: Utilizes multi-threading technology with a thread pool to handle multiple inspection tasks simultaneously, significantly improving efficiency."
+        - "<strong>Systemd Service Unit Configuration</strong>: Configures the tool as a <code>systemd</code> service unit for automatic startup, service status monitoring, and log management."
+    - name: catppuccin/daisyui Theme Style Library
+      logo: solar:cat-broken
+      type: Frontend/Maintainer
+      summary: Maintained the open-source theme style library of DaisyUI, developed using TypeScript, CI/CD with GitHub Actions, and distributed through npm.
+      start: 04 / 2024
+      end: Now
+      repo: https://github.com/catppuccin/daisyui
+      url: https://github.com/catppuccin/daisyui
+      badges:
+        - https://img.shields.io/github/stars/catppuccin/daisyui?colorA=363a4f&colorB=b7bdf8&style=flat-square
+      keywords:
+        - name: TypeScript
+          icon: nonicons:typescript-16
+        - name: Node.js
+          icon: nonicons:node-16
+        - name: npm
+          icon: nonicons:npm-16
+    - name: Other Open Source Projects
+      logo: ri:github-line
+      type: Maintenance/Contribution
+      start: 2022
+      end: Now
+      url: https://github.com/YunYouJun
+      summary: Actively contributed to projects such as <a href="https://astro.build/">Astro</a> and <a href="https://www.freecodecamp.org/">freeCodeCamp</a> by submitting PRs and maintaining several frontend projects in spare time.
+
+# skill:
+#   icon: mage:light-bulb
+#   title: 技能经验
+#   sets:
+#     - title: 技能
+#       keywords:
+#         - name: ''
+#           icon: nonicons:typescript-16
+#         - name: ''
+#           icon: nonicons:javascript-16
+#         - name: ''
+#           icon: nonicons:css-16
+#         - name: ''
+#           icon: nonicons:python-16
+#         - name: ''
+#           icon: nonicons:go-16
+#     - title: 软件
+#       keywords:
+#         - name: 'vs code '
+#           icon: nonicons:vscode-16
+#         - name: 'GitHub '
+#           icon: ri:github-line
+#         - name: 'Git '
+#           icon: mingcute:git-branch-line
+#         - name: 'Shell '
+#           icon: mdi:bash
+
+other:
+  icon: ri:information-line
+  title: Personal Overview
+  info:
+    - Proficient in <code>pip</code>, <code>conda</code>, and environment setup; skilled in data processing tools like <code>numpy</code> and <code>pandas</code>.
+    - Familiar with the Linux operating system, with substantial practice in Shell scripting; proficient in <code>JavaScript</code>, <code>TypeScript</code>, and frontend project engineering.
+    - Experienced with <code>Docker</code>, and familiar with databases such as <code>MySQL</code>, <code>MongoDB</code>, and <code>Redis</code>.
+    - Knowledgeable about Cloudflare, AWS cloud service providers; actively experimenting with AI-related projects; active in the open-source community with contributions to large-scale projects.
+
+certificate:
+  icon: mage:stars-c
+  title: Skills & Certifications
+  histories:
+    - name: China Qualification for Computer and Software Technology - Software Designer
+      time: ""
+    - name: Amateur Radio Operator Certificate
+      time: ""
+    - name: Brix Certified Intermediate Engineer
+      time: ""
+
+education:
+  icon: fluent:step-16-regular
+  title: Educational Background
+  histories:
+    - school: Zhengzhou University of Aeronautics
+      logo: https://www.zua.edu.cn/__local/3/BF/28/9751F8632ED3A5B59C80C3EB2B9_EABD5625_8C9D5.png
+      start: 09 / 2019
+      end: 06 / 2023
+      area: School of Intelligent Engineering | Computer Science and Technology
+      studyType: Full-time Bachelor's Degree
+      city: Zhengzhou, Henan, China
