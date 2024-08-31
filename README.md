@@ -1,7 +1,7 @@
 ## Hey there! 👋
 
-I'm Liumingxun, you also call me Lime🍋‍🟩. I am passionate about web developer
-with a strong focus on the JavaScript and TypeScript!
+I'm Liumingxun, you also call me Lime🍋‍🟩. I am passionate about web
+developement with a strong focus on the JavaScript and TypeScript!
 
 🪄 Here is my [site](https://limx.fun).
 
