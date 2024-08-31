@@ -51,11 +51,11 @@ project:
         - name: AlpineJS
           icon: tabler:brand-alpine-js
       highlights:
-        - '<strong>Basic Equipment Status Check</strong>: Monitors CPU, memory, fans, disk, power, system, temperature, and voltage statuses, providing a comprehensive health report.'
-        - '<strong>Multi-Tenant IP Access Switch Quick Check</strong>: Quickly determines whether multiple tenant devices are on the same access switch subnet to expedite network issue troubleshooting.'
-        - '<strong>Physical Link Quality Check within POD</strong>: Monitors the physical link status of single tenant devices, including access switch, SDN gateway, core switch transmission indicators like RX/TX optical power, CRC checks, and bandwidth usage to ensure link quality.'
-        - '<strong>Core Network Physical Link Quality Check</strong>: Inspects key indicators such as CRC, optical power, and interface bandwidth percentage of core devices, ensuring no abnormalities in the core links.'
-        - '<strong>User-Friendly Frontend Interface</strong>: Uses AlpineJS and TailwindCSS to customize component styles, offering an intuitive and easy-to-use interface for end users.'
+        - "<strong>Basic Equipment Status Check</strong>: Monitors CPU, memory, fans, disk, power, system, temperature, and voltage statuses, providing a comprehensive health report."
+        - "<strong>Multi-Tenant IP Access Switch Quick Check</strong>: Quickly determines whether multiple tenant devices are on the same access switch subnet to expedite network issue troubleshooting."
+        - "<strong>Physical Link Quality Check within POD</strong>: Monitors the physical link status of single tenant devices, including access switch, SDN gateway, core switch transmission indicators like RX/TX optical power, CRC checks, and bandwidth usage to ensure link quality."
+        - "<strong>Core Network Physical Link Quality Check</strong>: Inspects key indicators such as CRC, optical power, and interface bandwidth percentage of core devices, ensuring no abnormalities in the core links."
+        - "<strong>User-Friendly Frontend Interface</strong>: Uses AlpineJS and TailwindCSS to customize component styles, offering an intuitive and easy-to-use interface for end users."
     - name: Router Status Inspection Tool (CLI)
       logo: ri:checkbox-multiple-line
       type: Development/Deployment
@@ -72,11 +72,11 @@ project:
         - name: shell
           icon: mdi:bash
       highlights:
-        - '<strong>Customizable Inspection Items</strong>: Allows users to set inspection items through configuration files based on actual needs. Users can specify device types, IP lists, and <code>SNMP OIDs</code> to adjust the content and output of inspections.'
-        - '<strong>Pre-Check of Host Status</strong>: Establishes different pre-check logic according to device types. Uses <code>ICMP</code> and <code>TCP</code> methods to check the host''s live status, ensuring that detailed inspections are only performed on online devices, thereby improving script execution efficiency.'
-        - '<strong>Encapsulated Command-Line Interface</strong>: Provides rich command-line options and parameters, allowing users to directly invoke the tool for inspection tasks.'
-        - '<strong>Multi-threaded Execution</strong>: Utilizes multi-threading technology with a thread pool to handle multiple inspection tasks simultaneously, significantly improving efficiency.'
-        - '<strong>Systemd Service Unit Configuration</strong>: Configures the tool as a <code>systemd</code> service unit for automatic startup, service status monitoring, and log management.'
+        - "<strong>Customizable Inspection Items</strong>: Allows users to set inspection items through configuration files based on actual needs. Users can specify device types, IP lists, and <code>SNMP OIDs</code> to adjust the content and output of inspections."
+        - "<strong>Pre-Check of Host Status</strong>: Establishes different pre-check logic according to device types. Uses <code>ICMP</code> and <code>TCP</code> methods to check the host's live status, ensuring that detailed inspections are only performed on online devices, thereby improving script execution efficiency."
+        - "<strong>Encapsulated Command-Line Interface</strong>: Provides rich command-line options and parameters, allowing users to directly invoke the tool for inspection tasks."
+        - "<strong>Multi-threaded Execution</strong>: Utilizes multi-threading technology with a thread pool to handle multiple inspection tasks simultaneously, significantly improving efficiency."
+        - "<strong>Systemd Service Unit Configuration</strong>: Configures the tool as a <code>systemd</code> service unit for automatic startup, service status monitoring, and log management."
     - name: catppuccin/daisyui Theme Style Library
       logo: solar:cat-broken
       type: Frontend/Maintainer
@@ -97,7 +97,7 @@ project:
     - name: Other Open Source Projects
       logo: ri:github-line
       type: Maintenance/Contribution
-      start: '2022'
+      start: "2022"
       end: Now
       url: https://github.com/YunYouJun
       summary: Actively contributed to projects such as <a href="https://astro.build/">Astro</a> and <a href="https://www.freecodecamp.org/">freeCodeCamp</a> by submitting PRs and maintaining several frontend projects in spare time.
@@ -138,11 +138,11 @@ certificate:
   title: Certifications
   histories:
     - name: China Qualification for Computer and Software Technology - Software Designer
-      time: ''
+      time: ""
     - name: Amateur Radio Operator Certificate
-      time: ''
+      time: ""
     - name: Brix Certified Intermediate Engineer
-      time: ''
+      time: ""
 
 education:
   icon: fluent:step-16-regular
