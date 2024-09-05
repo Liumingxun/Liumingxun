@@ -38,9 +38,6 @@ importers:
       astro-seo:
         specifier: ^0.8.4
         version: 0.8.4(typescript@5.5.4)
-      marked:
-        specifier: ^11.1.0
-        version: 11.2.0
       nanostores:
         specifier: ^0.9.5
         version: 0.9.5
@@ -1878,11 +1875,6 @@ packages:
 
   markdown-table@3.0.3:
     resolution: {integrity: sha512-Z1NL3Tb1M9wH4XESsCDEksWoKTdlUafKc4pt0GRwjUyXaCFZ+dc3g2erqB6zm3szA2IUSi7VnPI+o/9jnxh9hw==}
-
-  marked@11.2.0:
-    resolution: {integrity: sha512-HR0m3bvu0jAPYiIvLUUQtdg1g6D247//lvcekpHO1WMvbwDlwSkZAX9Lw4F4YHE1T0HaaNve0tuAWuV1UJ6vtw==}
-    engines: {node: '>= 18'}
-    hasBin: true
 
   mdast-util-definitions@6.0.0:
     resolution: {integrity: sha512-scTllyX6pnYNZH/AIp/0ePz6s4cZtARxImwoPJ7kS42n+MnVsI4XbnG6d4ibehRIldYMWM2LD7ImQblVhUejVQ==}
@@ -4827,8 +4819,6 @@ snapshots:
       source-map-js: 1.2.0
 
   markdown-table@3.0.3: {}
-
-  marked@11.2.0: {}
 
   mdast-util-definitions@6.0.0:
     dependencies:

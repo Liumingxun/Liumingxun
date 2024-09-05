@@ -22,7 +22,6 @@
     "@nanostores/logger": "^0.2.4",
     "astro": "^4.15.2",
     "astro-seo": "^0.8.4",
-    "marked": "^11.1.0",
     "nanostores": "^0.9.5",
     "sharp": "^0.33.5",
     "solid-js": "^1.8.22",
