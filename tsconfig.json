@@ -11,7 +11,9 @@
         "./*"
       ]
     },
-    "types": [],
+    "types": [
+      "./worker-configuration.d.ts"
+    ],
     "jsx": "preserve",
     "jsxImportSource": "solid-js"
   }

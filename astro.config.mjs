@@ -26,13 +26,8 @@ export default defineConfig({
     redirects: false,
     format: 'file'
   },
-  site: import.meta.PROD ? 'https://blog.luoming.space' : 'http://localhost:4322',
+  site: import.meta.PROD ? 'https://limx.fun' : 'http://localhost:4322',
   vite: {
-    server: {
-      proxy: {
-        '/uploads': 'http://localhost:6337'
-      }
-    },
     resolve: {
       alias: {
         '@': resolve(process.cwd(), './src')

@@ -9,7 +9,6 @@
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "deploy": "wrangler pages deploy ./dist --project-name=lime233",
     "astro": "astro"
   },
   "dependencies": {

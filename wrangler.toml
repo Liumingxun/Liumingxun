@@ -1,0 +1,6 @@
+name = "lime-site"
+compatibility_date = "2024-09-05"
+pages_build_output_dir = "dist"
+
+[vars]
+PNPM_VERSION = "9.7.0"
