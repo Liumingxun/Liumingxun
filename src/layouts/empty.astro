@@ -1,21 +1,21 @@
 ---
-import BaseHead from "./components/BaseHead.astro";
-import type Seo from "/interfaces/seo";
+import BaseHead from './components/BaseHead.astro'
+import type Seo from '/interfaces/seo'
 
 interface Props {
-	seo: Seo;
+  seo: Seo
 }
 
-const { seo } = Astro.props;
+const { seo } = Astro.props
 ---
 
 <!doctype html>
 <html lang="zh-CN">
-	<head>
-		<BaseHead seo={seo} />
-		<slot name="extend-head" />
-	</head>
-	<body class="transition-all h-svh">
-		<slot />
-	</body>
+  <head>
+    <BaseHead seo={seo} />
+    <slot name="extend-head" />
+  </head>
+  <body class="transition-all h-svh">
+    <slot />
+  </body>
 </html>

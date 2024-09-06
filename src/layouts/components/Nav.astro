@@ -1,33 +1,29 @@
 ---
-import { NAV_ITEMS } from "@/site-config";
+import { NAV_ITEMS } from '@/site-config'
 ---
 
 <nav class="nav">
-    <ul class="nav-list">
-        {
-            NAV_ITEMS.map((item) => (
-                <li>
-                    <a
-                        class:list={[
-                            `pb-1 border-b-2 hover:border-gray-400`,
-                            Astro.url.pathname.startsWith(item.path)
-                                ? "border-gray-100"
-                                : "",
-                            Astro.url.pathname.startsWith(item.path)
-                                ? "border-primary"
-                                : "",
-                        ]}
-                        href={item.path}
-                    >
-                        {item.title}
-                    </a>
-                </li>
-            ))
-        }
-    </ul>
+  <ul class="nav-list">
+    {
+      NAV_ITEMS.map((item) => (
+        <li>
+          <a
+            class:list={[
+              `pb-1 border-b-2 hover:border-gray-400`,
+              Astro.url.pathname.startsWith(item.path) ? 'border-gray-100' : '',
+              Astro.url.pathname.startsWith(item.path) ? 'border-primary' : '',
+            ]}
+            href={item.path}
+          >
+            {item.title}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
 </nav>
 <style>
-    .nav-list {
-        @apply inline-flex list-none gap-8 text-xl font-semibold text-primary py-2 flex-wrap mb-8;
-    }
+  .nav-list {
+    @apply inline-flex list-none gap-8 text-xl font-semibold text-primary py-2 flex-wrap mb-8;
+  }
 </style>

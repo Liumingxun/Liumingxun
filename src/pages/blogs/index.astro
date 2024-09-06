@@ -1,37 +1,17 @@
 ---
-import DefaultLayout from "@/layouts/default.astro";
-import fetchApi from "/lib/strapi";
-import type Blog from "/interfaces/blog";
-import BlogListItem from "@/components/BlogListItem.astro";
-import { SITE } from "@/site-config";
+import DefaultLayout from '@/layouts/default.astro'
+import BlogListItem from '@/components/BlogListItem.astro'
+import { SITE } from '@/site-config'
+import { getCollection } from 'astro:content'
 
-const blogs = await fetchApi<Blog[]>({
-    endpoint: "posts",
-    wrappedByKey: "data",
-    query: {
-        fields: ["title", "createdAt", "slug"],
-        populate: {
-            tags: {
-                fields: ["name"],
-            },
-            hero_image: {
-                fields: [
-                    "url",
-                    "width",
-                    "height",
-                    "alternativeText",
-                    "formats",
-                ],
-            },
-        },
-        sort: ["createdAt:desc"],
-    },
-});
+const blogs = await getCollection('blog')
 ---
 
-<DefaultLayout seo={{
+<DefaultLayout
+  seo={{
     title: 'Blogs',
     description: SITE.description,
-}}>
-    {blogs.map((blog) => <BlogListItem blog={blog} />)}
+  }}
+>
+  {blogs.map((blog) => <BlogListItem blog={blog} />)}
 </DefaultLayout>

@@ -1,6 +1,7 @@
 @import url(https://cdnjs.cloudflare.com/ajax/libs/lxgw-wenkai-screen-webfont/1.7.0/style.min.css);
 @import url(https://cdnjs.cloudflare.com/ajax/libs/firacode/6.2.0/fira_code.min.css);
 
-pre, code {
-    @apply !font-mono;
+pre,
+code {
+  @apply !font-mono;
 }

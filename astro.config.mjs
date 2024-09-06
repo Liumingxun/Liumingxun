@@ -1,45 +1,34 @@
-import { defineConfig } from 'astro/config';
-import { resolve } from 'node:path';
-import sitemap from '@astrojs/sitemap';
-import tailwindcss from "@astrojs/tailwind";
+import { resolve } from 'node:path'
+import { cwd } from 'node:process'
+import sitemap from '@astrojs/sitemap'
+import solid from '@astrojs/solid-js'
+import tailwindcss from '@astrojs/tailwind'
 
-import solid from "@astrojs/solid-js";
+import { defineConfig } from 'astro/config'
 
 // https://astro.build/config
 export default defineConfig({
+  markdown: {
+    shikiConfig: {
+      defaultColor: false,
+      theme: 'catppuccin-latte',
+    },
+  },
   devToolbar: {
-    enabled: false
-  },
-  server: {
-    port: 4322 // dev server port
-  },
-  image: {
-    remotePatterns: [{
-      protocol: 'http'
-    }, {
-      protocol: 'https'
-    }]
+    enabled: false,
   },
   integrations: [solid(), tailwindcss(), sitemap()],
   redirects: {},
   build: {
     redirects: false,
-    format: 'file'
+    format: 'file',
   },
-  site: import.meta.PROD ? 'https://blog.luoming.space' : 'http://localhost:4322',
+  site: 'https://limx.fun',
   vite: {
-    server: {
-      proxy: {
-        '/uploads': 'http://localhost:6337'
-      }
-    },
     resolve: {
       alias: {
-        '@': resolve(process.cwd(), './src')
-      }
+        '@': resolve(cwd(), './src'),
+      },
     },
-    optimizeDeps: {
-      allowNodeBuiltins: true
-    }
-  }
-});
+  },
+})

@@ -1,20 +1,20 @@
 ---
-import DefaultLayout from "@/layouts/default.astro";
+import DefaultLayout from '@/layouts/default.astro'
 ---
 
 <DefaultLayout
-    seo={{
-        title: "诶！你好像迷路了…w(ﾟДﾟ)w",
-        description: "诶！你好像迷路了…w(ﾟДﾟ)w",
-        noindex: true,
-    }}
+  seo={{
+    title: '诶！你好像迷路了…w(ﾟДﾟ)w',
+    description: '诶！你好像迷路了…w(ﾟДﾟ)w',
+    noindex: true,
+  }}
 >
-    <Fragment slot="extend-head">
-        <meta http-equiv="refresh" content="5; url=/blogs">
-    </Fragment>
-    <div style="height: calc(100vh - 180px)" class="text-center">
-        <div class="text-7xl select-none font-bold">┭┮﹏┭┮</div>
-        <div class="mt-5">诶！你好像迷路了…w(ﾟДﾟ)w</div>
-        <div class="mt-5">5 秒后会带你回到首页</div>
-    </div>
+  <Fragment slot="extend-head">
+    <meta http-equiv="refresh" content="5; url=/blogs" />
+  </Fragment>
+  <div style="height: calc(100vh - 180px)" class="text-center">
+    <div class="text-7xl select-none font-bold">┭┮﹏┭┮</div>
+    <div class="mt-5">诶！你好像迷路了…w(ﾟДﾟ)w</div>
+    <div class="mt-5">5 秒后会带你回到首页</div>
+  </div>
 </DefaultLayout>

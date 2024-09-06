@@ -1,14 +1,14 @@
 ---
-import "@/styles/global.css";
-import { SITE } from "@/site-config";
-import { SEO } from "astro-seo";
-import type Seo from "/interfaces/seo";
+import '@/styles/global.css'
+import { SITE } from '@/site-config'
+import { SEO } from 'astro-seo'
+import type Seo from '/interfaces/seo'
 
 export interface Props {
-    seo: Seo;
+  seo: Seo
 }
-const { seo } = Astro.props;
-const canonicalURL = new URL(Astro.url.pathname, Astro.site).href;
+const { seo } = Astro.props
+const canonicalURL = new URL(Astro.url.pathname, Astro.site).href
 ---
 
 <meta charset="UTF-8" />
@@ -19,44 +19,44 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site).href;
 <link rel="shortcut icon" href="/favicon.svg" type="image/x-icon" />
 <link rel="stylesheet" href="/iconfont.css" />
 <SEO
-    canonical={canonicalURL}
-    title={seo.title}
-    titleTemplate={`%s | ${SITE.title}`}
-    description={seo.description}
-    noindex={seo.noindex}
-    openGraph={{
-        basic: {
-            type: "website",
-            title: seo.title,
-            image: seo.image ?? SITE.image,
-            url: canonicalURL,
-        },
-        optional: {
-            description: seo.description,
-            siteName: SITE.title,
-        },
-        article: {
-            publishedTime: seo.publishedAt,
-            modifiedTime: seo.updatedAt,
-            authors: [SITE.author],
-            tags: seo.tags,
-        },
-    }}
-    twitter={{
-        card: "summary",
-        description: seo.description,
-        title: seo.title,
-        image: seo.image ?? SITE.image,
-        imageAlt: "maybe a picture of a lime",
-    }}
-    extend={{
-        meta: [
-            { name: "author", content: SITE.author },
-            { name: "msapplication-TileColor", content: "#AAD37D" },
-            { name: "theme-color", content: "#AAD37D" },
-        ],
-        link: [{ rel: "icon", href: SITE.image }],
-    }}
+  canonical={canonicalURL}
+  title={seo.title}
+  titleTemplate={`%s | ${SITE.title}`}
+  description={seo.description}
+  noindex={seo.noindex}
+  openGraph={{
+    basic: {
+      type: 'website',
+      title: seo.title,
+      image: seo.image ?? SITE.image, // @todo: image
+      url: canonicalURL,
+    },
+    optional: {
+      description: seo.description,
+      siteName: SITE.title,
+    },
+    article: {
+      publishedTime: seo.publishedAt,
+      modifiedTime: seo.updatedAt,
+      authors: [SITE.author],
+      tags: seo.tags,
+    },
+  }}
+  twitter={{
+    card: 'summary',
+    description: seo.description,
+    title: seo.title,
+    image: seo.image ?? SITE.image,
+    imageAlt: 'maybe a picture of a lime',
+  }}
+  extend={{
+    meta: [
+      { name: 'author', content: SITE.author },
+      { name: 'msapplication-TileColor', content: '#AAD37D' },
+      { name: 'theme-color', content: '#AAD37D' },
+    ],
+    link: [{ rel: 'icon', href: SITE.image }],
+  }}
 />
 
 <!-- <ViewTransitions /> -->

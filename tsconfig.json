@@ -1,8 +1,9 @@
 {
-  "extends": "astro/tsconfigs/base",
+  "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
+    "jsx": "preserve",
+    "jsxImportSource": "solid-js",
     "module": "ESNext",
-    "esModuleInterop": true,
     "paths": {
       "@/*": [
         "./src/*"
@@ -11,8 +12,9 @@
         "./*"
       ]
     },
-    "types": [],
-    "jsx": "preserve",
-    "jsxImportSource": "solid-js"
+    "types": [
+      "./worker-configuration.d.ts"
+    ],
+    "esModuleInterop": true
   }
 }

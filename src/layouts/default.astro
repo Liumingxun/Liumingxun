@@ -1,24 +1,24 @@
 ---
-import Header from "./components/Header.astro";
-import Footer from "./components/Footer.astro";
-import Nav from "./components/Nav.astro";
-import type Seo from "/interfaces/seo";
+import Header from './components/Header.astro'
+import Footer from './components/Footer.astro'
+import Nav from './components/Nav.astro'
+import type Seo from '/interfaces/seo'
 
-import EmptyLayout from "./empty.astro";
+import EmptyLayout from './empty.astro'
 
 interface Props {
-	seo: Seo;
+  seo: Seo
 }
 
-const { seo } = Astro.props;
+const { seo } = Astro.props
 ---
 
 <EmptyLayout seo={seo}>
-	<slot slot="extend-head" name="extend-head" />
-	<Header />
-	<main class="mx-auto container min-h-[calc(100vh-80px)]">
-		<Nav />
-		<slot />
-	</main>
-	<Footer />
+  <slot slot="extend-head" name="extend-head" />
+  <Header />
+  <main class="mx-auto container min-h-[calc(100vh-80px)]">
+    <Nav />
+    <slot />
+  </main>
+  <Footer />
 </EmptyLayout>
