@@ -1,9 +1,10 @@
-import { defineConfig } from 'astro/config';
-import { resolve } from 'node:path';
-import sitemap from '@astrojs/sitemap';
-import tailwindcss from "@astrojs/tailwind";
+import { resolve } from 'node:path'
+import { cwd } from 'node:process'
+import sitemap from '@astrojs/sitemap'
+import solid from '@astrojs/solid-js'
+import tailwindcss from '@astrojs/tailwind'
 
-import solid from "@astrojs/solid-js";
+import { defineConfig } from 'astro/config'
 
 // https://astro.build/config
 export default defineConfig({
@@ -11,23 +12,23 @@ export default defineConfig({
     shikiConfig: {
       defaultColor: false,
       theme: 'catppuccin-latte',
-    }
+    },
   },
   devToolbar: {
-    enabled: false
+    enabled: false,
   },
   integrations: [solid(), tailwindcss(), sitemap()],
   redirects: {},
   build: {
     redirects: false,
-    format: 'file'
+    format: 'file',
   },
   site: 'https://limx.fun',
   vite: {
     resolve: {
       alias: {
-        '@': resolve(process.cwd(), './src')
-      }
-    }
-  }
-});
+        '@': resolve(cwd(), './src'),
+      },
+    },
+  },
+})

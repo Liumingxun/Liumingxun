@@ -1,39 +1,31 @@
 ---
-import ThemeController from "@/components/ThemeController.astro";
-import EmptyLayout from "@/layouts/empty.astro";
-import { SITE } from "@/site-config";
+import ThemeController from '@/components/ThemeController.astro'
+import EmptyLayout from '@/layouts/empty.astro'
+import { SITE } from '@/site-config'
 ---
 
-<EmptyLayout seo={{ title: "Home", description: SITE.description }}>
-    <div class="ds-hero min-h-screen">
-        <div
-            class="absolute flex gap-3 top-4 right-0 px-4 text-xl
+<EmptyLayout seo={{ title: 'Home', description: SITE.description }}>
+  <div class="ds-hero min-h-screen">
+    <div
+      class="absolute flex gap-3 top-4 right-0 px-4 text-xl
             *:size-8 *:text-center *:leading-8 *:rounded
             hover:*:bg-primary
             hover:*:text-white"
-        >
-            <ThemeController />
-        </div>
-        <img
-            class="w-96 h-96 overflow-hidden animate-floating"
-            src="/assets/lime.svg"
-            alt="Lime logo"
-        />
-        <div
-            class="ds-hero-content bg-white/50 ds-card py-8 text-center flex-col text-primary-content"
-        >
-            <h1
-                class="text-7xl font-extrabold stroke-transparent bg-gradient-primary bg-clip-text text-transparent"
-            >
-                lolo洛明
-            </h1>
-            <div class="max-w-md">
-                <p class="py-6 text-balance">
-                    {SITE.description}
-                </p>
-                <a class="ds-btn ds-btn-primary" href="/blogs">Visit blogs</a>
-                <a class="ds-btn ds-btn-ghost" href="/about">About me</a>
-            </div>
-        </div>
+    >
+      <ThemeController />
     </div>
+    <img class="w-96 h-96 overflow-hidden animate-floating" src="/assets/lime.svg" alt="Lime logo" />
+    <div class="ds-hero-content bg-white/50 ds-card py-8 text-center flex-col text-primary-content">
+      <h1 class="text-7xl font-extrabold stroke-transparent bg-gradient-primary bg-clip-text text-transparent">
+        lolo洛明
+      </h1>
+      <div class="max-w-md">
+        <p class="py-6 text-balance">
+          {SITE.description}
+        </p>
+        <a class="ds-btn ds-btn-primary" href="/blogs">Visit blogs</a>
+        <a class="ds-btn ds-btn-ghost" href="/about">About me</a>
+      </div>
+    </div>
+  </div>
 </EmptyLayout>

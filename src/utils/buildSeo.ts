@@ -1,28 +1,28 @@
-import type Seo from "/interfaces/seo"
+import type Seo from '/interfaces/seo'
 
 interface SeoParams {
-    title: string,
-    description: string,
-    image?: string
-    tags?: string[],
-    createdAt?: string,
-    updatedAt?: string
-    publishedAt?: string
-    noindex?: boolean
+  title: string
+  description: string
+  image?: string
+  tags?: string[]
+  createdAt?: string
+  updatedAt?: string
+  publishedAt?: string
+  noindex?: boolean
 }
 
 export function buildSeo({ title, description, image, tags, createdAt, updatedAt, publishedAt, noindex = false }: SeoParams): Seo {
-    const seo: Seo = {
-        title,
-        description,
-        image: image,
-        createdAt,
-        updatedAt,
-        publishedAt,
-        tags: tags,
-        keywords: tags?.join(","),
-        noindex
-    }
+  const seo: Seo = {
+    title,
+    description,
+    image,
+    createdAt,
+    updatedAt,
+    publishedAt,
+    tags,
+    keywords: tags?.join(','),
+    noindex,
+  }
 
-    return seo
+  return seo
 }

@@ -6,5 +6,5 @@ export const blogSchema = z.object({
   createdAt: z.date(),
   updatedAt: z.date(),
   publishedAt: z.date(),
-  tags: z.array(z.string()).optional()
+  tags: z.array(z.string()).optional(),
 })

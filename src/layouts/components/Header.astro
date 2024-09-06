@@ -1,36 +1,27 @@
 ---
-import ThemeController from "@/components/ThemeController.astro";
+import ThemeController from '@/components/ThemeController.astro'
 ---
 
 <header class="flex px-4 py-2 border-b border-gray-200">
-    <a
-        href="/"
-        class="flex items-center gap-2 hover:rotate-3 transition-transform"
-    >
-        <img
-            class="w-16 h-16 overflow-hidden"
-            src="/assets/lime.svg"
-            alt="Lime logo"
-        />
-        <span class="text-3xl font-extrabold md:text-4xl text-primary">
-            lolo洛明
-        </span>
-    </a>
-    <nav class="ml-auto flex items-center">
-        <ul
-            class="flex gap-3 text-gray-400 text-xl
+  <a href="/" class="flex items-center gap-2 hover:rotate-3 transition-transform">
+    <img class="w-16 h-16 overflow-hidden" src="/assets/lime.svg" alt="Lime logo" />
+    <span class="text-3xl font-extrabold md:text-4xl text-primary"> lolo洛明 </span>
+  </a>
+  <nav class="ml-auto flex items-center">
+    <ul
+      class="flex gap-3 text-gray-400 text-xl
             *:size-8 *:text-center *:leading-8 *:rounded
             hover:*:bg-primary
             hover:*:text-white"
-        >
-            <li>
-                <a href="//github.com/liumingxun" title="lime's github link">
-                    <i class="i github"></i>
-                </a>
-            </li>
-            <li>
-                <ThemeController />
-            </li>
-        </ul>
-    </nav>
+    >
+      <li>
+        <a href="//github.com/liumingxun" title="lime's github link">
+          <i class="i github"></i>
+        </a>
+      </li>
+      <li>
+        <ThemeController />
+      </li>
+    </ul>
+  </nav>
 </header>
