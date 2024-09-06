@@ -28,7 +28,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site).href;
         basic: {
             type: "website",
             title: seo.title,
-            image: seo.image ?? SITE.image,
+            image: seo.image ?? SITE.image, // @todo: image
             url: canonicalURL,
         },
         optional: {

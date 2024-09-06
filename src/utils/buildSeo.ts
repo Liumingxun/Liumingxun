@@ -1,12 +1,11 @@
 import type Image from "/interfaces/image"
 import type Seo from "/interfaces/seo"
-import type Tag from "/interfaces/tag"
 
 interface SeoParams {
     title: string,
     description: string,
     image?: Image | string
-    tags?: Tag[],
+    tags?: string[],
     createdAt?: string,
     updatedAt?: string
     publishedAt?: string
@@ -18,7 +17,7 @@ const isImage = (image: Image | string): image is Image => {
 }
 
 export function buildSeo({ title, description, image, tags, createdAt, updatedAt, publishedAt, noindex = false }: SeoParams): Seo {
-    if (image && isImage(image)) {
+    if (image && isImage(image)) { // @todo: image
         image = image.attributes.url
     }
 
@@ -29,8 +28,8 @@ export function buildSeo({ title, description, image, tags, createdAt, updatedAt
         createdAt,
         updatedAt,
         publishedAt,
-        tags: tags?.map(tag => tag.attributes.name),
-        keywords: tags?.map(tag => tag.attributes.name).join(","),
+        tags: tags,
+        keywords: tags?.join(","),
         noindex
     }
 

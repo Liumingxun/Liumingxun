@@ -1,16 +1,14 @@
 ---
+import type { CollectionEntry } from "astro:content";
 import Card from "./Card.astro";
-import type Blog from "/interfaces/blog";
-import LmImage from "./LmImage.astro";
 
 interface Props {
-    blog: Blog;
+    blog: CollectionEntry<'blog'>;
 }
 
 const { blog } = Astro.props;
-const image = blog.attributes.hero_image?.data;
 
-const datetime = new Date(blog.attributes.createdAt).toLocaleDateString(
+const datetime = new Date(blog.data.createdAt).toLocaleDateString(
     "en-UK",
     {
         month: "short",
@@ -22,19 +20,9 @@ const datetime = new Date(blog.attributes.createdAt).toLocaleDateString(
 
 <div class="mb-4 last:mb-0 h-24">
     <Card>
-        {
-            image && (
-                <div
-                    class="absolute w-[350px] h-full top-0 right-0"
-                    style="mask-image: linear-gradient(to left, rgba(0,0,0, 1), rgba(0,0,0,0))"
-                >
-                    <LmImage {...image} />
-                </div>
-            )
-        }
         <div class="flex gap-4 z-10">
             <time
-                datetime={blog.attributes.createdAt}
+                datetime={blog.data.createdAt.toISOString()}
                 class="flex flex-col text-secondary font-semibold text-center shrink-0"
             >
                 <span class="text-3xl">{datetime.split(" ").shift()}</span>
@@ -49,16 +37,16 @@ const datetime = new Date(blog.attributes.createdAt).toLocaleDateString(
             </time>
             <div class="grow">
                 <a
-                    href={`/blogs/${blog.attributes.slug}`}
+                    href={`/blogs/${blog.slug}`}
                     class="hover:underline-offset-4 hover:underline decoration-primary text-xl"
                 >
-                    {blog.attributes.title}
+                    {blog.data.title}
                 </a>
                 <div>
                     {
-                        blog.attributes.tags?.data.map((tag) => (
+                        blog.data.tags?.map((tag) => (
                             <span class="ds-badge ds-badge-outline mr-2 last:mr-0">
-                                {tag.attributes.name}
+                                {tag}
                             </span>
                         ))
                     }

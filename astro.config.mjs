@@ -7,18 +7,14 @@ import solid from "@astrojs/solid-js";
 
 // https://astro.build/config
 export default defineConfig({
+  markdown: {
+    shikiConfig: {
+      defaultColor: false,
+      theme: 'catppuccin-latte',
+    }
+  },
   devToolbar: {
     enabled: false
-  },
-  server: {
-    port: 4322 // dev server port
-  },
-  image: {
-    remotePatterns: [{
-      protocol: 'http'
-    }, {
-      protocol: 'https'
-    }]
   },
   integrations: [solid(), tailwindcss(), sitemap()],
   redirects: {},
@@ -26,15 +22,12 @@ export default defineConfig({
     redirects: false,
     format: 'file'
   },
-  site: import.meta.PROD ? 'https://limx.fun' : 'http://localhost:4322',
+  site: 'https://limx.fun',
   vite: {
     resolve: {
       alias: {
         '@': resolve(process.cwd(), './src')
       }
-    },
-    optimizeDeps: {
-      allowNodeBuiltins: true
     }
   }
 });

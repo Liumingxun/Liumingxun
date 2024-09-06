@@ -1,128 +1,38 @@
 ---
 import type { GetStaticPaths } from "astro";
-import type Blog from "/interfaces/blog";
-import fetchApi from "/lib/strapi";
 import DefaultLayout from "@/layouts/default.astro";
 import { buildSeo } from "@/utils/buildSeo";
-import { marked, type RendererObject } from "marked";
 import GiscusWidget from "@/components/GiscusWidget";
+import { getCollection } from "astro:content";
 
 export const getStaticPaths = (async () => {
-    const blogs = await fetchApi<Blog[]>({
-        endpoint: "posts",
-        wrappedByKey: "data",
-        query: {
-            populate: {
-                content: true,
-                tags: {
-                    fields: ["name"],
-                },
-                hero_image: {
-                    fields: [
-                        "url",
-                        "width",
-                        "height",
-                        "alternativeText",
-                        "formats",
-                    ],
-                },
-            },
-        },
-    });
+    const blogs = await getCollection('blog')
     return blogs.map((blog) => ({
         params: {
-            slug: blog.attributes.slug,
+            slug: blog.slug,
         },
         props: {
-            blog: blog,
+            blog,
         },
     }));
 }) satisfies GetStaticPaths;
 
 const { blog } = Astro.props;
-if (!blog) {
-    return Astro.redirect("/404", 404);
-}
-
-const renderer: RendererObject = {
-    heading(text, level) {
-        const escapedText = text.toLowerCase().replace(/[^\w]+/g, "-");
-
-        return `
-            <h${level}>
-              <a class="not-ds-prose anchor" name="${escapedText}" aria-hidden="true" tabindex="-1" href="#${escapedText}">
-                <span class="header-link"></span>
-              </a>
-              ${text}
-            </h${level}>`;
-    },
-};
-
-marked.use({ renderer });
+const {Content, headings} = await blog.render()
 ---
 
 <DefaultLayout
     seo={buildSeo({
-        title: blog.attributes.title,
-        description: blog.attributes.description,
-        createdAt: blog.attributes.createdAt,
-        updatedAt: blog.attributes.updatedAt,
-        publishedAt: blog.attributes.publishedAt,
-        image: blog.attributes.hero_image?.data,
-        tags: blog.attributes.tags?.data,
+        title: blog.data.title,
+        description: blog.data.description,
+        createdAt: blog.data.createdAt.toLocaleDateString(),
+        updatedAt: blog.data.updatedAt.toLocaleDateString(),
+        publishedAt: blog.data.publishedAt.toLocaleDateString(),
+        tags: blog.data.tags,
     })}
 >
-    <Fragment slot="extend-head">
-        <link
-            href="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/prism/1.27.0/themes/prism.min.css"
-            type="text/css"
-            rel="stylesheet"
-        />
-        <link
-            href="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/prism/1.27.0/plugins/line-numbers/prism-line-numbers.min.css"
-            type="text/css"
-            rel="stylesheet"
-        />
-        <link
-            href="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/prism/1.27.0/plugins/toolbar/prism-toolbar.min.css"
-            type="text/css"
-            rel="stylesheet"
-        />
-    </Fragment>
     <article class="m-auto line-numbers ds-prose">
-        <h1>{blog.attributes.title}</h1>
-        {
-            blog.attributes.content?.map(({ content, __component }) => {
-                switch (__component) {
-                    case "display.md":
-                        return <div set:html={marked.parse(content)} />;
-                    case "display.mce":
-                        return <Fragment set:html={marked.parse(content)} />;
-                    default:
-                        return null;
-                }
-            })
-        }
+        <Content />
         <GiscusWidget client:only="solid-js" />
     </article>
-    <script
-        is:inline
-        src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/prism/1.27.0/components/prism-core.min.js"
-        type="application/javascript"></script>
-    <script
-        is:inline
-        src="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/prism/1.27.0/plugins/autoloader/prism-autoloader.min.js"
-        type="application/javascript"></script>
-    <script
-        is:inline
-        src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/prism/1.27.0/plugins/line-numbers/prism-line-numbers.min.js"
-        type="application/javascript"></script>
-    <script
-        is:inline
-        src="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/prism/1.27.0/plugins/toolbar/prism-toolbar.min.js"
-        type="application/javascript"></script>
-    <script
-        is:inline
-        src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/prism/1.27.0/plugins/show-language/prism-show-language.min.js"
-        type="application/javascript"></script>
 </DefaultLayout>
