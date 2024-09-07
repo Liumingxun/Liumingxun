@@ -3,6 +3,7 @@ import type { GetStaticPaths } from 'astro'
 import DefaultLayout from '@/layouts/default.astro'
 import GiscusWidget from '@/components/GiscusWidget'
 import { getCollection } from 'astro:content'
+import TOC from '@/components/TOC.astro'
 
 export const getStaticPaths = (async () => {
   const blogs = await getCollection('blog')
@@ -30,7 +31,10 @@ const { Content, headings } = await blog.render()
     tags: blog.data.tags,
   }}
 >
-  <article class="m-auto line-numbers ds-prose">
+  <article class="m-auto line-numbers ds-prose relative">
+    <section class="absolute top-10 left-full ml-4">
+      <TOC headings={headings} />
+    </section>
     <Content />
     <GiscusWidget client:only="solid-js" />
   </article>
