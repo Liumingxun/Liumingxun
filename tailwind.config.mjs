@@ -16,7 +16,7 @@ export default {
       keyframes: {
         floating: {
           '0%, 100%': { transform: 'translateY(0)' },
-          '50%': { transform: 'translateY(-0.5rem)' },
+          '50%': { transform: 'translateY(-2%)' },
         },
       },
       animation: {

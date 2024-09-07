@@ -18,7 +18,7 @@ const { seo } = Astro.props
   <Header />
   <main class="mx-auto container min-h-[calc(100vh-80px)]">
     <Nav />
-    <slot />
+    <slot transition:name="bg" />
   </main>
   <Footer />
 </EmptyLayout>

@@ -3,6 +3,7 @@ import '@/styles/global.css'
 import type Seo from '@/types/seo'
 import { SITE } from '@/site-config'
 import { SEO } from 'astro-seo'
+import { ViewTransitions } from 'astro:transitions'
 
 export interface Props {
   seo: Seo
@@ -60,4 +61,4 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site).href
   }}
 />
 
-<!-- <ViewTransitions /> -->
+<ViewTransitions />

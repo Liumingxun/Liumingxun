@@ -10,12 +10,12 @@ const { seo } = Astro.props
 ---
 
 <!doctype html>
-<html lang="zh-CN">
+<html lang="zh-CN" class="transition-all">
   <head>
     <BaseHead seo={seo} />
     <slot name="extend-head" />
   </head>
-  <body class="transition-all h-svh">
+  <body class="h-svh">
     <slot />
   </body>
 </html>
