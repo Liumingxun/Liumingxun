@@ -1,7 +1,6 @@
 ---
 import type { GetStaticPaths } from 'astro'
 import DefaultLayout from '@/layouts/default.astro'
-import { buildSeo } from '@/utils/buildSeo'
 import GiscusWidget from '@/components/GiscusWidget'
 import { getCollection } from 'astro:content'
 
@@ -22,14 +21,14 @@ const { Content, headings } = await blog.render()
 ---
 
 <DefaultLayout
-  seo={buildSeo({
+  seo={{
     title: blog.data.title,
     description: blog.data.description,
     createdAt: blog.data.createdAt.toLocaleDateString(),
     updatedAt: blog.data.updatedAt.toLocaleDateString(),
     publishedAt: blog.data.publishedAt.toLocaleDateString(),
     tags: blog.data.tags,
-  })}
+  }}
 >
   <article class="m-auto line-numbers ds-prose">
     <Content />

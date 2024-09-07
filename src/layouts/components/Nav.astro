@@ -10,7 +10,6 @@ import { NAV_ITEMS } from '@/site-config'
           <a
             class:list={[
               `pb-1 border-b-2 hover:border-gray-400`,
-              Astro.url.pathname.startsWith(item.path) ? 'border-gray-100' : '',
               Astro.url.pathname.startsWith(item.path) ? 'border-primary' : '',
             ]}
             href={item.path}

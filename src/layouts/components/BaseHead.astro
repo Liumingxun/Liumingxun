@@ -1,12 +1,13 @@
 ---
 import '@/styles/global.css'
+import type Seo from '@/types/seo'
 import { SITE } from '@/site-config'
 import { SEO } from 'astro-seo'
-import type Seo from '/interfaces/seo'
 
 export interface Props {
   seo: Seo
 }
+
 const { seo } = Astro.props
 const canonicalURL = new URL(Astro.url.pathname, Astro.site).href
 ---
