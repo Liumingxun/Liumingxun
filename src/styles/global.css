@@ -1,6 +1,6 @@
-@import url(https://cdnjs.cloudflare.com/ajax/libs/lxgw-wenkai-screen-webfont/1.7.0/style.min.css);
-@import url(https://cdnjs.cloudflare.com/ajax/libs/firacode/6.2.0/fira_code.min.css);
-@import url(https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@100..900&display=swap);
+@import url('https://cdnjs.cloudflare.com/ajax/libs/lxgw-wenkai-screen-webfont/1.7.0/style.min.css');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/firacode/6.2.0/fira_code.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@100..900&display=swap');
 
 pre,
 code {
@@ -9,8 +9,4 @@ code {
 
 .ds-prose h1 {
   @apply text-pretty;
-}
-
-.ds-prose {
-  @apply font-serif;
 }

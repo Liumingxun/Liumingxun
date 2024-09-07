@@ -1,13 +1,6 @@
 ---
 import DefaultLayout from '@/layouts/default.astro'
-import HoverList from '@/components/HoverList.astro'
 import { SITE } from '@/site-config'
-
-const hobbyList: Record<string, string[]> = {
-  game: ['Minecraft', 'platformer', 'sandbox', '...'],
-  music: ['classical', 'vocaloid', 'acg (*/ω\\*)', '...'],
-  anime: ['...'],
-}
 ---
 
 <DefaultLayout seo={{ title: 'About', description: SITE.description }}>
@@ -29,9 +22,8 @@ const hobbyList: Record<string, string[]> = {
       on innovative ideas!
     </p>
     <div>
-      Besides programming, I'm also into
-      {Object.keys(hobbyList).map((hobby) => <HoverList hover={hobby} list={hobbyList[hobby]} />)}
-      and other things that catch my interest. If you're looking to play with me, you can find me at the link below. No biggie!
+      Besides programming, I'm also into game, music, anime and other things that catch my interest. If you're looking
+      to play with me, you can find me at the link below. No biggie!
     </div>
     <hr />
     <p>Find me on...</p>

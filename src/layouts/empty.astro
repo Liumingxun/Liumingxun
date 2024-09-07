@@ -1,4 +1,5 @@
 ---
+import '@/styles/global.css'
 import BaseHead from './components/BaseHead.astro'
 import type Seo from '@/types/seo'
 
@@ -15,7 +16,7 @@ const { seo } = Astro.props
     <BaseHead seo={seo} />
     <slot name="extend-head" />
   </head>
-  <body class="h-svh">
+  <body class="h-svh font-serif">
     <slot />
   </body>
 </html>
