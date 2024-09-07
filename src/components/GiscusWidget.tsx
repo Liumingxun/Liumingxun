@@ -2,7 +2,7 @@ import Giscus from '@giscus/solid'
 import { type Component, createEffect, createSignal, onCleanup } from 'solid-js'
 
 function getSavedTheme() {
-  return localStorage.getItem('theme')
+  return localStorage.getItem('theme') ?? 'light'
 }
 
 function getSystemTheme() {
