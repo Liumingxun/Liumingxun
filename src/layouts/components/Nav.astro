@@ -2,8 +2,8 @@
 import { NAV_ITEMS } from '@/site-config'
 ---
 
-<nav class="nav">
-  <ul class="nav-list">
+<nav>
+  <ul class="font-serif inline-flex list-none gap-8 text-xl font-semibold text-primary py-2 flex-wrap mb-8">
     {
       NAV_ITEMS.map((item) => (
         <li>
@@ -21,8 +21,3 @@ import { NAV_ITEMS } from '@/site-config'
     }
   </ul>
 </nav>
-<style>
-  .nav-list {
-    @apply inline-flex list-none gap-8 text-xl font-semibold text-primary py-2 flex-wrap mb-8;
-  }
-</style>

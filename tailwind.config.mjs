@@ -8,7 +8,8 @@ export default {
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   theme: {
     fontFamily: {
-      sans: ['"LXGW WenKai Screen R"', ...fontFamily.sans],
+      sans: ['"Noto Sans SC"', ...fontFamily.sans],
+      serif: ['"LXGW WenKai Screen R"', ...fontFamily.serif],
       mono: ['"Fira Code"', ...fontFamily.mono],
     },
     extend: {

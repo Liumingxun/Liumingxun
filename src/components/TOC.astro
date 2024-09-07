@@ -12,14 +12,15 @@ const mlMap = [, 'ml-0', 'ml-2', 'ml-4']
 <div class="fixed w-72 border-l border-b border-dashed">
   <ul class="text-sm list-none px-2">
     {
-      headings.filter(h => !(h.depth > 3))
-      .map((heading) => (
-        <li class={mlMap[heading.depth]}>
-          <a href={`#${heading.slug}`} class="ds-link ds-link-hover">
-            <span>{heading.text}</span>
-          </a>
-        </li>
-      ))
+      headings
+        .filter((h) => !(h.depth > 3))
+        .map((heading) => (
+          <li class={mlMap[heading.depth]}>
+            <a href={`#${heading.slug}`} class="ds-link ds-link-hover">
+              <span>{heading.text}</span>
+            </a>
+          </li>
+        ))
     }
   </ul>
 </div>
