@@ -1,0 +1,34 @@
+---
+import ProjectGroup from '@/components/ProjectGroup.astro'
+import DefaultLayout from '@/layouts/default.astro'
+---
+
+<DefaultLayout
+  seo={{
+    title: 'Projects',
+    description: 'Here are some projects by me',
+  }}
+>
+  <ProjectGroup
+    category="FrontEnd"
+    items={[
+      {
+        name: 'catppuccin/daisyui',
+        description: '',
+        link: 'https://github.com/catppuccin/daisyui',
+        tags: ['daisyui', 'catppuccin', 'theme'],
+      },
+    ]}
+  />
+  <ProjectGroup
+    category="Toys"
+    items={[
+      {
+        name: 'Skill Badge Tools',
+        description: '',
+        link: 'https://badge.limx.fun',
+        tags: ['astro', 'shields.io'],
+      },
+    ]}
+  />
+</DefaultLayout>

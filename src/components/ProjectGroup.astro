@@ -1,0 +1,39 @@
+---
+import Card from '@/components/Card.astro'
+interface ProjectItem {
+  name: string
+  description: string
+  tags: string[]
+  link: `https://${string}` | `http://${string}`
+  image?: string
+}
+
+interface Props {
+  category: string
+  items: ProjectItem[]
+}
+
+const { category, items } = Astro.props
+---
+
+<div class="mb-12">
+  <h2 class="text-2xl font-semibold mb-4">{category}</h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    {
+      items.map(({ name, description, tags, link, image }) => (
+        <Card>
+          {image ? <img src={image} alt="Project Image" class="w-full h-48 object-cover" /> : ''}
+          <h3 class="text-xl font-semibold mb-2">
+            <a href={link} target="_blank" class="ds-link">
+              {name}
+            </a>
+          </h3>
+          <p class="text-gray-600 mb-2">{description}</p>
+          <div class="mb-4">
+            {Array.isArray(tags) ? tags.map((tag) => <span class="ds-badge mr-1 last:mr-0">{tag}</span>) : ''}
+          </div>
+        </Card>
+      ))
+    }
+  </div>
+</div>
