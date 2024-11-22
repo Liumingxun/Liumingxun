@@ -36,6 +36,6 @@ const { Content, headings } = await blog.render()
       <TOC headings={headings} />
     </section>
     <Content />
-    <GiscusWidget client:only="solid-js" />
+    {import.meta.env.DEV ? '' : <GiscusWidget client:only="solid-js" />}
   </article>
 </DefaultLayout>
