@@ -3,6 +3,7 @@ import { cwd } from 'node:process'
 import sitemap from '@astrojs/sitemap'
 import solid from '@astrojs/solid-js'
 import tailwindcss from '@astrojs/tailwind'
+import cu from '@inox-tools/content-utils'
 
 import { defineConfig } from 'astro/config'
 
@@ -17,7 +18,7 @@ export default defineConfig({
   devToolbar: {
     enabled: false,
   },
-  integrations: [solid(), tailwindcss(), sitemap()],
+  integrations: [solid(), tailwindcss(), sitemap(), cu()],
   redirects: {},
   build: {
     redirects: false,

@@ -1,9 +1,6 @@
 ---
 title: 如何使用 Vue 一步一步重构 Flask 项目
 description: 本文分享了使用 Vue 重构原来 Flask 前后端不分离项目，这里有很多值得注意且容易出错的细节，比如 Vue Router 应该如何配置 WebHistory，以及其他种种。
-createdAt: 2024-11-22T03:11:06.461Z
-updatedAt: 2024-11-22T03:11:06.461Z
-publishedAt: 2024-11-22T03:11:06.461Z
 tags: [Vue, Vue router, Flask, Python]
 ---
 

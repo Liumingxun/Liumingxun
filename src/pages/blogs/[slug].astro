@@ -4,20 +4,39 @@ import DefaultLayout from '@/layouts/default.astro'
 import GiscusWidget from '@/components/GiscusWidget'
 import { getCollection } from 'astro:content'
 import TOC from '@/components/TOC.astro'
+import { getEntryGitInfo, getLatestCommitDate, getOldestCommitDate } from '@it-astro:content/git'
 
 export const getStaticPaths = (async () => {
-  const blogs = await getCollection('blog')
-  return blogs.map((blog) => ({
-    params: {
-      slug: blog.slug,
-    },
-    props: {
-      blog,
-    },
-  }))
+  const blogs = getCollection('blog').then((blogs) =>
+    Promise.all(
+      blogs.map(async (blog) => {
+        return {
+          blog,
+          publishedAt: await getOldestCommitDate(blog),
+          updatedAt: await getLatestCommitDate(blog),
+          commitLog: await getEntryGitInfo(blog),
+        }
+      }),
+    ),
+  )
+
+  return (await blogs).map(({ blog }, index, blogs) => {
+    const previous = index === 0 ? null : blogs.at(index - 1)!.blog
+    const next = index === blogs.length - 1 ? null : blogs.at(index + 1)!.blog
+    return {
+      params: {
+        slug: blog.slug,
+      },
+      props: {
+        blog,
+        previous: previous ? { title: previous.data.title, slug: previous.slug } : null,
+        next: next ? { title: next.data.title, slug: next.slug } : null,
+      },
+    }
+  })
 }) satisfies GetStaticPaths
 
-const { blog } = Astro.props
+const { blog, previous, next } = Astro.props
 const { Content, headings } = await blog.render()
 ---
 
@@ -25,9 +44,8 @@ const { Content, headings } = await blog.render()
   seo={{
     title: blog.data.title,
     description: blog.data.description,
-    createdAt: blog.data.createdAt.toLocaleDateString(),
-    updatedAt: blog.data.updatedAt.toLocaleDateString(),
-    publishedAt: blog.data.publishedAt.toLocaleDateString(),
+    updatedAt: new Date().toLocaleDateString(),
+    publishedAt: new Date().toLocaleDateString(),
     tags: blog.data.tags,
   }}
 >
@@ -36,6 +54,30 @@ const { Content, headings } = await blog.render()
       <TOC headings={headings} />
     </section>
     <Content />
-    {import.meta.env.DEV ? '' : <GiscusWidget client:only="solid-js" />}
   </article>
+  <section class="m-auto md:w-1/2 w-full">
+    <nav class="flex flex-col py-4">
+      {
+        previous && (
+          <div class="self-start">
+            <span>上一篇：</span>
+            <a class="ds-link ds-link-hover decoration-primary" href={previous.slug}>
+              {previous.title}
+            </a>
+          </div>
+        )
+      }
+      {
+        next && (
+          <div class="self-end">
+            <span>下一篇：</span>
+            <a class="ds-link ds-link-hover decoration-primary" href={next.slug}>
+              {next.title}
+            </a>
+          </div>
+        )
+      }
+    </nav>
+    <GiscusWidget client:only="solid-js" />
+  </section>
 </DefaultLayout>

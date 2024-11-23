@@ -4,33 +4,36 @@ import Card from './Card.astro'
 
 interface Props {
   blog: CollectionEntry<'blog'>
+  publishedAt: Date
 }
 
-const { blog } = Astro.props
+const { blog, publishedAt } = Astro.props
 
-const datetime = new Date(blog.data.createdAt).toLocaleDateString('en-UK', {
+const dateParts = new Intl.DateTimeFormat('en-UK', {
   month: 'short',
   day: '2-digit',
   year: 'numeric',
-})
+}).formatToParts(publishedAt)
+
+const datetime = dateParts.reduce<{
+  [key in 'month' | 'day' | 'year']?: string
+}>((acc, part) => {
+  if (part.type === 'month' || part.type === 'day' || part.type === 'year') {
+    acc[part.type] = part.value
+  }
+  return acc
+}, {})
 ---
 
 <div class="mb-4 last:mb-0 h-24">
   <Card>
     <div class="flex gap-4 z-10">
       <time
-        datetime={blog.data.createdAt.toISOString()}
+        datetime={publishedAt.toLocaleString()}
         class="flex flex-col text-secondary font-semibold text-center shrink-0"
       >
-        <span class="text-3xl">{datetime.split(' ').shift()}</span>
-        <span
-          >{
-            datetime
-              .split(' ')
-              .filter((_, i) => i !== 0)
-              .join(' ')
-          }</span
-        >
+        <span class="text-3xl">{datetime.day}</span>
+        <span>{`${datetime.month} ${datetime.year}`}</span>
       </time>
       <div class="grow">
         <a href={`/blogs/${blog.slug}`} class="hover:underline-offset-4 hover:underline decoration-primary text-xl">
