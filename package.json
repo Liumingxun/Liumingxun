@@ -2,7 +2,7 @@
   "name": "lime-site",
   "type": "module",
   "version": "0.0.1",
-  "packageManager": "pnpm@9.9.0",
+  "packageManager": "pnpm@9.14.2",
   "license": "UNLICENSED",
   "scripts": {
     "dev": "astro dev",
