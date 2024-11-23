@@ -3,20 +3,17 @@ import DefaultLayout from '@/layouts/default.astro'
 import BlogListItem from '@/components/BlogListItem.astro'
 import { SITE } from '@/site-config'
 import { getCollection } from 'astro:content'
-import { getEntryGitInfo, getLatestCommitDate, getOldestCommitDate } from '@it-astro:content/git'
+import { getFileCommitDate } from '@/utils/getCommitMeta'
 
 const blogs = (
   await getCollection('blog').then((blogs) =>
-    Promise.all(
-      blogs.map(async (blog) => {
-        return {
-          blog,
-          publishedAt: await getOldestCommitDate(blog),
-          updatedAt: await getLatestCommitDate(blog),
-          commitLog: await getEntryGitInfo(blog),
-        }
-      }),
-    ),
+    blogs.map((blog) => {
+      return {
+        blog,
+        publishedAt: getFileCommitDate(blog),
+        updatedAt: getFileCommitDate(blog, true),
+      }
+    }),
   )
 )
   .toSorted((a, b) => a.publishedAt.getMilliseconds() - b.publishedAt.getMilliseconds())
