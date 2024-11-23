@@ -1,6 +1,7 @@
-name = "lime-site"
-compatibility_date = "2024-09-05"
+name = "liumingxun"
+compatibility_date = "2024-11-11"
 pages_build_output_dir = "dist"
 
 [vars]
-PNPM_VERSION = "9.9.0"
+PNPM_VERSION = "9.14.2"
+NODE_VERSION = "22.11.0"
