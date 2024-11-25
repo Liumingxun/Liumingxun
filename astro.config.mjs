@@ -23,7 +23,6 @@ export default defineConfig({
     redirects: false,
     format: 'directory',
   },
-  trailingSlash: 'never',
   site: 'https://limx.fun',
   vite: {
     resolve: {

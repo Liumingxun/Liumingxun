@@ -60,7 +60,7 @@ const { Content, headings } = await blog.render()
         previous && (
           <div class="self-start">
             <span>上一篇：</span>
-            <a class="ds-link ds-link-hover decoration-primary" href={previous.slug}>
+            <a class="ds-link ds-link-hover decoration-primary" href={`/blogs/${previous.slug}`}>
               {previous.title}
             </a>
           </div>
@@ -70,7 +70,7 @@ const { Content, headings } = await blog.render()
         next && (
           <div class="self-end">
             <span>下一篇：</span>
-            <a class="ds-link ds-link-hover decoration-primary" href={next.slug}>
+            <a class="ds-link ds-link-hover decoration-primary" href={`/blogs/${next.slug}`}>
               {next.title}
             </a>
           </div>
