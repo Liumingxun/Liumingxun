@@ -3,7 +3,7 @@ import { resolve } from 'node:path'
 import type { CollectionEntry, CollectionKey } from 'astro:content'
 
 export function getFileCommitDate<T extends CollectionKey>(entry: CollectionEntry<T>, latest?: boolean): Date {
-  const filePath = resolve(import.meta.dirname, `../content/${entry.collection}/${entry.slug}.md`)
+  const filePath = resolve(`src/content/${entry.collection}/${entry.slug}.md`)
 
   // 构造 git 命令
   const command

@@ -21,8 +21,9 @@ export default defineConfig({
   redirects: {},
   build: {
     redirects: false,
-    format: 'file',
+    format: 'directory',
   },
+  trailingSlash: 'never',
   site: 'https://limx.fun',
   vite: {
     resolve: {
