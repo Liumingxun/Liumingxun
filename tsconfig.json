@@ -16,5 +16,7 @@
       "./worker-configuration.d.ts"
     ],
     "esModuleInterop": true
-  }
+  },
+  "include": [".astro/types.d.ts", "**/*"],
+  "exclude": ["dist"]
 }
