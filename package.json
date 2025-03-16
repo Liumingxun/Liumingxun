@@ -29,15 +29,15 @@
     "typescript": "^5.6.3"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^3.3.1",
+    "@antfu/eslint-config": "^4.10.1",
     "@tailwindcss/typography": "^0.5.16",
     "@types/node": "^20.16.4",
-    "astro-eslint-parser": "^1.0.2",
+    "astro-eslint-parser": "catalog:peer",
     "daisyui": "^5.0.4",
     "eslint": "^9.9.1",
-    "eslint-plugin-astro": "^1.2.3",
-    "eslint-plugin-format": "^0.1.2",
-    "prettier-plugin-astro": "^0.14.1",
+    "eslint-plugin-astro": "catalog:peer",
+    "eslint-plugin-format": "catalog:peer",
+    "prettier-plugin-astro": "catalog:peer",
     "wrangler": "^3.89.0"
   }
 }
