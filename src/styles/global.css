@@ -1,6 +1,7 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/lxgw-wenkai-screen-webfont/1.7.0/style.min.css');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/firacode/6.2.0/fira_code.min.css');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@100..900&display=swap');
+@import 'tailwindcss';
 
 pre,
 code {
@@ -9,4 +10,63 @@ code {
 
 .ds-prose h1 {
   @apply text-pretty;
+}
+
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
+
+@plugin "daisyui" {
+  prefix: 'ds-';
+  themes: acid;
+}
+
+@plugin "daisyui/theme" {
+  name: 'acid';
+  default: true;
+  prefersdark: false;
+  --color-primary: #aad37d;
+  --radius-selector: 0.5rem;
+  --radius-field: 0.25rem;
+  --radius-box: 0.5rem;
+}
+
+@plugin "daisyui/theme" {
+  name: 'dark';
+  prefersdark: true;
+  --color-primary: #66ccff;
+  --color-primary-content: oklch(16.0787% 0.023846 232.686197);
+  --radius-selector: 0.5rem;
+  --radius-field: 0.25rem;
+  --radius-box: 0.5rem;
+}
+
+@plugin "@tailwindcss/typography" {
+  className: 'ds-prose';
+}
+
+@theme {
+  --font-sans: 'Noto Sans SC', sans-serif;
+  --font-mono: 'Fira Code', monospace;
+  --font-serif: 'LXGW WenKai Screen R', sans-serif;
+
+  --animate-floating: floating 3.5s ease-in-out infinite;
+
+  --background-image-gradient-primary: linear-gradient(to bottom, #aad37d, #66ccff);
+
+  @keyframes floating {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-2%);
+    }
+  }
 }
