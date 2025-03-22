@@ -1,5 +1,6 @@
+import type { Component } from 'solid-js'
 import Giscus from '@giscus/solid'
-import { type Component, createEffect, createSignal, onCleanup } from 'solid-js'
+import { createEffect, createSignal, onCleanup } from 'solid-js'
 
 function getSavedTheme() {
   return localStorage.getItem('theme') ?? 'light'

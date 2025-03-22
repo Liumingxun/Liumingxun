@@ -1,6 +1,6 @@
+import type { CollectionEntry, CollectionKey } from 'astro:content'
 import { execSync } from 'node:child_process'
 import { resolve } from 'node:path'
-import type { CollectionEntry, CollectionKey } from 'astro:content'
 
 export function getFileCommitDate<T extends CollectionKey>(entry: CollectionEntry<T>, latest?: boolean): Date {
   const filePath = resolve(`src/content/${entry.collection}/${entry.slug}.md`)
