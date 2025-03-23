@@ -36,7 +36,7 @@ const datetime = dateParts.reduce<{
         <span>{`${datetime.month} ${datetime.year}`}</span>
       </time>
       <div class="grow">
-        <a href={`/blogs/${blog.slug}`} class="hover:underline-offset-4 hover:underline decoration-primary text-xl">
+        <a href={`/blogs/${blog.id}`} class="hover:underline-offset-4 hover:underline decoration-primary text-xl">
           {blog.data.title}
         </a>
         <div>
