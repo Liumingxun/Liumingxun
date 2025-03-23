@@ -10,7 +10,8 @@
     "build": "astro check && astro build",
     "preview": "wrangler pages dev dist",
     "astro": "astro",
-    "lint": "eslint --fix"
+    "lint": "eslint",
+    "lint:fix": "eslint --fix"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",

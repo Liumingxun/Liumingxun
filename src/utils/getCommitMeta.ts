@@ -3,7 +3,7 @@ import { execSync } from 'node:child_process'
 import { resolve } from 'node:path'
 
 export function getFileCommitDate<T extends CollectionKey>(entry: CollectionEntry<T>, latest?: boolean): Date {
-  const filePath = resolve(`src/content/${entry.collection}/${entry.slug}.md`)
+  const filePath = resolve(entry.filePath!)
 
   // 构造 git 命令
   const command

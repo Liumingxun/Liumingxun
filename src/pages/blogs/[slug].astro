@@ -2,7 +2,7 @@
 import type { GetStaticPaths } from 'astro'
 import DefaultLayout from '@/layouts/default.astro'
 import GiscusWidget from '@/components/GiscusWidget'
-import { getCollection } from 'astro:content'
+import { getCollection, getEntry, render } from 'astro:content'
 import TOC from '@/components/TOC.astro'
 import { getFileCommitDate } from '@/utils/getCommitMeta'
 
@@ -24,19 +24,19 @@ export const getStaticPaths = (async () => {
     const next = index === blogs.length - 1 ? null : blogs.at(index + 1)!.blog
     return {
       params: {
-        slug: blog.slug,
+        slug: blog.id,
       },
       props: {
         blog,
-        previous: previous ? { title: previous.data.title, slug: previous.slug } : null,
-        next: next ? { title: next.data.title, slug: next.slug } : null,
+        previous: previous ? { title: previous.data.title, slug: previous.id } : null,
+        next: next ? { title: next.data.title, slug: next.id } : null,
       },
     }
   })
 }) satisfies GetStaticPaths
 
 const { blog, previous, next } = Astro.props
-const { Content, headings } = await blog.render()
+const { Content, headings } = await render(blog)
 ---
 
 <DefaultLayout
