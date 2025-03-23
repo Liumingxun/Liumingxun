@@ -15,10 +15,10 @@ export const GET: APIRoute = async (context) => {
       title: blog.data.title,
       description: blog.data.description,
       pubDate: getFileCommitDate(blog),
-      link: `${context.site}blogs/${blog.slug}`,
+      link: `${context.site}blogs/${blog.id}`,
       author: SITE.author,
       categories: blog.data.tags?.map(v => v),
-      content: blog.body.split('\n').slice(0, 20).join('\n'),
+      content: blog.body?.split('\n').slice(0, 20).join('\n'),
     } as RSSFeedItem)),
   })
 }
