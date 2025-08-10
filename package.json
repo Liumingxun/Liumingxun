@@ -40,7 +40,7 @@
     "eslint-plugin-format": "^1.0.1",
     "prettier-plugin-astro": "^0.14.1",
     "typescript": "^5.9.2",
-    "wrangler": "^3.89.0"
+    "wrangler": "^3.114.13"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
