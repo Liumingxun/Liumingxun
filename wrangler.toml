@@ -1,7 +1,0 @@
-name = "liumingxun"
-compatibility_date = "2024-11-11"
-pages_build_output_dir = "dist"
-
-[vars]
-PNPM_VERSION = "10.6.5"
-NODE_VERSION = "22.14.0"
