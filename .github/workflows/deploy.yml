@@ -24,8 +24,8 @@ jobs:
           run_install: true
       - run: pnpm build
       - name: Deploy
-        uses: cloudflare/wrangler-action@v3.7.0
+        uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy
+          command: deploy --assets=dist

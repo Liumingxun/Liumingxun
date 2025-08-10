@@ -9,7 +9,7 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro check && astro build",
-    "preview": "wrangler pages dev dist",
+    "preview": "wrangler dev --assets=dist",
     "astro": "astro",
     "lint": "eslint",
     "lint:fix": "eslint --fix"
