@@ -1,0 +1,15 @@
+{
+  "name": "limx-site",
+  "compatibility_date": "2025-08-07",
+  "placement": {
+    "mode": "smart"
+  },
+  "assets": {
+    "directory": "dist",
+    "not_found_handling": "404-page"
+  },
+  "vars": {
+    "PNPM_VERSION": "10.14.0",
+    "NODE_VERSION": "22.14.0"
+  }
+}
