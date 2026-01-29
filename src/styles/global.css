@@ -40,6 +40,7 @@ code {
 @plugin "daisyui/theme" {
   name: 'dark';
   prefersdark: true;
+  color-scheme: dark;
   --color-primary: #66ccff;
   --color-primary-content: oklch(16.0787% 0.023846 232.686197);
   --radius-selector: 0.5rem;
