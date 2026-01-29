@@ -5,7 +5,7 @@ import { blogSchema } from '@/schemas'
 export const collections = {
   blog: defineCollection({
     loader: glob({
-      pattern: '*.md',
+      pattern: '*.{md,mdx}',
       base: './src/content/blog',
     }),
     schema: blogSchema,

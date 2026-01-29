@@ -1,5 +1,6 @@
 import { resolve } from 'node:path'
 import { cwd } from 'node:process'
+import mdx from '@astrojs/mdx'
 import sitemap from '@astrojs/sitemap'
 import solid from '@astrojs/solid-js'
 import tailwindcss from '@tailwindcss/vite'
@@ -17,7 +18,7 @@ export default defineConfig({
   devToolbar: {
     enabled: false,
   },
-  integrations: [solid(), sitemap()],
+  integrations: [solid(), sitemap(), mdx()],
   redirects: {},
   build: {
     redirects: false,
