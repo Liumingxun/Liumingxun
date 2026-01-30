@@ -4,24 +4,13 @@ import DefaultLayout from '@/layouts/default.astro'
 import GiscusWidget from '@/components/GiscusWidget'
 import { getCollection, render } from 'astro:content'
 import TOC from '@/components/TOC.astro'
-import { getFileCommitDate } from '@/utils/getCommitMeta'
 
 export const getStaticPaths = (async () => {
-  const blogs = getCollection('blog').then((blogs) =>
-    Promise.all(
-      blogs.map(async (blog) => {
-        return {
-          blog,
-          publishedAt: getFileCommitDate(blog),
-          updatedAt: getFileCommitDate(blog, true),
-        }
-      }),
-    ),
-  )
+  const blogs = getCollection('blog')
 
-  return (await blogs).map(({ blog }, index, blogs) => {
-    const previous = index === 0 ? null : blogs.at(index - 1)!.blog
-    const next = index === blogs.length - 1 ? null : blogs.at(index + 1)!.blog
+  return (await blogs).map((blog, index, blogs) => {
+    const previous = index !== 0 ? blogs.at(index - 1)! : null
+    const next = index !== blogs.length - 1 ? blogs.at(index + 1)! : null
     return {
       params: {
         slug: blog.id,

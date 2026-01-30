@@ -3,21 +3,8 @@ import DefaultLayout from '@/layouts/default.astro'
 import BlogListItem from '@/components/BlogListItem.astro'
 import { SITE } from '@/site-config'
 import { getCollection } from 'astro:content'
-import { getFileCommitDate } from '@/utils/getCommitMeta'
 
-const blogs = (
-  await getCollection('blog').then((blogs) =>
-    blogs.map((blog) => {
-      return {
-        blog,
-        publishedAt: getFileCommitDate(blog),
-        updatedAt: getFileCommitDate(blog, true),
-      }
-    }),
-  )
-)
-  .toSorted((a, b) => a.publishedAt.getMilliseconds() - b.publishedAt.getMilliseconds())
-  .toReversed()
+const blogs = (await getCollection('blog')).toSorted((a, b) => b.data.createAt.getTime() - a.data.createAt.getTime())
 ---
 
 <DefaultLayout
@@ -26,5 +13,5 @@ const blogs = (
     description: SITE.description,
   }}
 >
-  {blogs.map(({ blog, publishedAt }) => <BlogListItem publishedAt={publishedAt} blog={blog} />)}
+  {blogs.map(({ id, data }) => <BlogListItem data={data} slug={id} />)}
 </DefaultLayout>

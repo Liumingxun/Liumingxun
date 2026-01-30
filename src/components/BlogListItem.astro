@@ -1,46 +1,35 @@
 ---
 import type { CollectionEntry } from 'astro:content'
 import Card from './Card.astro'
+import { format } from 'date-fns'
 
 interface Props {
-  blog: CollectionEntry<'blog'>
-  publishedAt: Date
+  slug: CollectionEntry<'blog'>['id']
+  data: CollectionEntry<'blog'>['data']
 }
 
-const { blog, publishedAt } = Astro.props
+const { slug, data } = Astro.props
+const { createAt } = data
 
-const dateParts = new Intl.DateTimeFormat('en-UK', {
-  month: 'short',
-  day: '2-digit',
-  year: 'numeric',
-}).formatToParts(publishedAt)
-
-const datetime = dateParts.reduce<{
-  [key in 'month' | 'day' | 'year']?: string
-}>((acc, part) => {
-  if (part.type === 'month' || part.type === 'day' || part.type === 'year') {
-    acc[part.type] = part.value
-  }
-  return acc
-}, {})
+const [month, day, year] = format(createAt.toLocaleString(), 'MMM/do/yyyy').split('/')
 ---
 
 <div class="mb-4 last:mb-0 h-24">
   <Card>
     <div class="flex gap-4 z-10">
       <time
-        datetime={publishedAt.toLocaleString()}
+        datetime={createAt.toLocaleString()}
         class="flex flex-col text-secondary font-semibold text-center shrink-0"
       >
-        <span class="text-3xl">{datetime.day}</span>
-        <span>{`${datetime.month} ${datetime.year}`}</span>
+        <span class="text-3xl">{day}</span>
+        <span>{`${month} ${year}`}</span>
       </time>
       <div class="grow">
-        <a href={`/blogs/${blog.id}`} class="hover:underline-offset-4 hover:underline decoration-primary text-xl">
-          {blog.data.title}
+        <a href={`/blogs/${slug}`} class="hover:underline-offset-4 hover:underline decoration-primary text-xl">
+          {data.title}
         </a>
         <div>
-          {blog.data.tags?.map((tag) => <span class="ds-badge ds-badge-outline mr-2 last:mr-0">{tag}</span>)}
+          {data.tags?.map((tag) => <span class="ds-badge ds-badge-outline mr-2 last:mr-0">{tag}</span>)}
         </div>
       </div>
     </div>

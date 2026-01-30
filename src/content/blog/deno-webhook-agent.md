@@ -1,7 +1,12 @@
 ---
 title: 使用 Deno 创建一个 Webhook 代理
 description: Strapi 的 webhook 并不支持自定义 payload，不能按照预期触发在 Coding 设置的构建计划，所以使用 Deno 设置一个代理来正确触发。
-tags: [deno, webhook, script]
+tags:
+  - deno
+  - webhook
+  - script
+createAt: 2024-09-06T07:22:17.000Z
+updateAt: 2026-01-30T03:14:22.290Z
 ---
 
 # 使用 Deno 创建一个 Webhook 代理

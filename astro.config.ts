@@ -4,8 +4,8 @@ import mdx from '@astrojs/mdx'
 import sitemap from '@astrojs/sitemap'
 import solid from '@astrojs/solid-js'
 import tailwindcss from '@tailwindcss/vite'
-
 import { defineConfig } from 'astro/config'
+import remarkAppendDate from '/src/utils/append-date'
 
 // https://astro.build/config
 export default defineConfig({
@@ -14,6 +14,9 @@ export default defineConfig({
       defaultColor: false,
       theme: 'catppuccin-latte',
     },
+    remarkPlugins: [
+      remarkAppendDate,
+    ],
   },
   devToolbar: {
     enabled: false,

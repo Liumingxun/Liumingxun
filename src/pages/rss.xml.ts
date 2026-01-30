@@ -3,7 +3,6 @@ import type { APIRoute } from 'astro'
 import rss from '@astrojs/rss'
 import { getCollection } from 'astro:content'
 import { SITE } from '@/site-config'
-import { getFileCommitDate } from '@/utils/getCommitMeta'
 
 export const GET: APIRoute = async (context) => {
   const blogs = await getCollection('blog')
@@ -14,7 +13,7 @@ export const GET: APIRoute = async (context) => {
     items: blogs.map(blog => ({
       title: blog.data.title,
       description: blog.data.description,
-      pubDate: getFileCommitDate(blog),
+      pubDate: blog.data.createAt,
       link: `${context.site}blogs/${blog.id}`,
       author: SITE.author,
       categories: blog.data.tags?.map(v => v),
