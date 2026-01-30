@@ -2,13 +2,17 @@
 import type { GetStaticPaths } from 'astro'
 import DefaultLayout from '@/layouts/default.astro'
 import GiscusWidget from '@/components/GiscusWidget'
-import { getCollection, render } from 'astro:content'
+import { render } from 'astro:content'
 import TOC from '@/components/TOC.astro'
+import { queryCollection } from '@/utils/queryCollection'
 
 export const getStaticPaths = (async () => {
-  const blogs = getCollection('blog')
+  const blogs = await queryCollection('blog', {
+    by: 'createAt',
+    order: 'desc',
+  })
 
-  return (await blogs).map((blog, index, blogs) => {
+  return blogs.map((blog, index, blogs) => {
     const previous = index !== 0 ? blogs.at(index - 1)! : null
     const next = index !== blogs.length - 1 ? blogs.at(index + 1)! : null
     return {

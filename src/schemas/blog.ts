@@ -5,8 +5,8 @@ export const blogSchema = z.object({
   description: z.string(),
   tags: z.array(z.string()).optional(),
   draft: z.boolean().optional(),
-  createAt: z.coerce.date(),
-  updateAt: z.coerce.date(),
+  createAt: z.coerce.date().default(new Date()),
+  updateAt: z.coerce.date().default(new Date()),
   hash: z.string().optional(),
 })
 

@@ -5,6 +5,7 @@ import sitemap from '@astrojs/sitemap'
 import solid from '@astrojs/solid-js'
 import tailwindcss from '@tailwindcss/vite'
 import { defineConfig } from 'astro/config'
+import remarkGithubAlerts from 'remark-github-alerts'
 import remarkAppendDate from '/src/utils/append-date'
 
 // https://astro.build/config
@@ -16,6 +17,7 @@ export default defineConfig({
     },
     remarkPlugins: [
       remarkAppendDate,
+      remarkGithubAlerts,
     ],
   },
   devToolbar: {

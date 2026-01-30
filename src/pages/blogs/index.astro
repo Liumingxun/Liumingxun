@@ -2,9 +2,12 @@
 import DefaultLayout from '@/layouts/default.astro'
 import BlogListItem from '@/components/BlogListItem.astro'
 import { SITE } from '@/site-config'
-import { getCollection } from 'astro:content'
+import { queryCollection } from '@/utils/queryCollection'
 
-const blogs = (await getCollection('blog')).toSorted((a, b) => b.data.createAt.getTime() - a.data.createAt.getTime())
+const blogs = await queryCollection('blog', {
+  by: 'createAt',
+  order: 'desc',
+})
 ---
 
 <DefaultLayout

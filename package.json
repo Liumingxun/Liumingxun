@@ -25,6 +25,7 @@
     "astro": "^5.16.16",
     "astro-seo": "^0.8.4",
     "nanostores": "^0.9.5",
+    "remark-github-alerts": "^0.1.1",
     "sharp": "^0.33.5",
     "solid-js": "^1.9.11",
     "tailwindcss": "^4.1.18"
