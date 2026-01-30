@@ -32,17 +32,19 @@ const { Content, headings } = await render(blog)
   seo={{
     title: blog.data.title,
     description: blog.data.description,
-    updatedAt: new Date().toLocaleDateString(),
-    publishedAt: new Date().toLocaleDateString(),
+    updatedAt: blog.data.updateAt.toLocaleDateString(),
+    publishedAt: blog.data.createAt.toLocaleDateString(),
     tags: blog.data.tags,
   }}
 >
-  <article class="m-auto line-numbers ds-prose relative">
-    <section class="absolute top-10 left-full ml-4 font-sans">
+  <div class="grid grid-cols-1 lg:grid-cols-[24rem_minmax(0,1fr)_24rem] lg:gap-6">
+    <article class="col-start-2 ds-prose not-lg:max-w-screen m-auto">
+      <Content />
+    </article>
+    <aside class="hidden lg:block">
       <TOC headings={headings} />
-    </section>
-    <Content />
-  </article>
+    </aside>
+  </div>
   <section class="m-auto md:w-1/2 w-full">
     <nav class="flex flex-col py-4">
       {

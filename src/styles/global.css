@@ -5,7 +5,7 @@
 
 pre,
 code {
-  @apply !font-mono;
+  @apply font-mono!;
 }
 
 .ds-prose h1 {
