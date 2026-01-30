@@ -2,28 +2,46 @@ import type { AstroConfig } from 'astro'
 import type { BlogFrontmatter } from '@/schemas'
 import { readFile, stat, writeFile } from 'node:fs/promises'
 import { dump } from 'js-yaml'
+import xxhash from 'xxhash-wasm'
 
 type AstroMarkdownRemarkPlugin = AstroConfig['markdown']['remarkPlugins'][number]
 
 const remarkAppendDate: AstroMarkdownRemarkPlugin = () => {
   const frontmatterRegex = /---\n[\s\S]*?\n---/
-  return (_, file) => {
-    Promise.all([readFile(file.path, 'utf-8'), stat(file.path)]).then(([content, stats]) => {
-      if (!file.data.astro?.frontmatter)
-        return undefined
+  return async (_, file) => {
+    if (!file.data.astro?.frontmatter)
+      return
+
+    try {
       const data = file.data.astro.frontmatter as BlogFrontmatter
+      const bodyContent = file.value.toString()
+      const [{ birthtime, mtime }, { h64ToString }] = await Promise.all([
+        stat(file.path),
+        xxhash(),
+      ])
+
+      const currentHash = h64ToString(bodyContent)
+
       if (!data.createAt) {
-        data.createAt = stats.birthtime
+        data.createAt = birthtime
+        data.hash = currentHash
       }
-      else {
-        data.updateAt = stats.mtime
+      else if (data.hash !== currentHash) {
+        data.updateAt = mtime
+        data.hash = currentHash
       }
-      return content.replace(frontmatterRegex, `---\n${dump(data, { lineWidth: -1 })}---`)
-    }).then((content) => {
-      if (!content)
-        return Promise.resolve()
-      return writeFile(file.path, content, 'utf-8')
-    })
+
+      const rawContent = await readFile(file.path, 'utf-8')
+      const newContent = rawContent.replace(
+        frontmatterRegex,
+        `---\n${dump(data, { lineWidth: -1 })}---`,
+      )
+
+      await writeFile(file.path, newContent, 'utf-8')
+    }
+    catch (err) {
+      console.error(`Failed to update metadata for ${file.path}:`, err)
+    }
   }
 }
 

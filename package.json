@@ -44,7 +44,8 @@
     "js-yaml": "^4.1.1",
     "prettier-plugin-astro": "^0.14.1",
     "typescript": "^5.9.3",
-    "wrangler": "^4.28.1"
+    "wrangler": "^4.28.1",
+    "xxhash-wasm": "^1.1.0"
   },
   "pnpm": {
     "onlyBuiltDependencies": [

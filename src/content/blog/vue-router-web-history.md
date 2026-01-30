@@ -7,7 +7,8 @@ tags:
   - Flask
   - Python
 createAt: 2024-11-22T16:41:49.000Z
-updateAt: 2026-01-30T03:14:22.290Z
+updateAt: 2026-01-30T15:43:56.262Z
+hash: fb316bd3
 ---
 
 # 如何使用 Vue 一步一步重构 Flask 项目

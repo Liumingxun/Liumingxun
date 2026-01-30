@@ -6,7 +6,8 @@ tags:
   - webhook
   - script
 createAt: 2024-09-06T07:22:17.000Z
-updateAt: 2026-01-30T03:14:22.290Z
+updateAt: 2026-01-30T15:43:56.258Z
+hash: d96b0c8c
 ---
 
 # 使用 Deno 创建一个 Webhook 代理

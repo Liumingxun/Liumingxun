@@ -7,6 +7,7 @@ export const blogSchema = z.object({
   draft: z.boolean().optional(),
   createAt: z.coerce.date(),
   updateAt: z.coerce.date(),
+  hash: z.string().optional(),
 })
 
 const _blogSchemaPartial = blogSchema.partial({

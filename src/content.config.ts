@@ -16,7 +16,7 @@ function devLoader(opts: Pick<Parameters<typeof glob>[0], 'base' | 'pattern'>) {
 
 export const collections = {
   blog: defineCollection({
-    loader: glob({
+    loader: devLoader({
       pattern: '**/*.md',
       base: 'src/content/blog',
     }),
