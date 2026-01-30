@@ -37,8 +37,8 @@ const { Content, headings } = await render(blog)
     tags: blog.data.tags,
   }}
 >
-  <div class="grid grid-cols-1 lg:grid-cols-[24rem_minmax(0,1fr)_24rem] lg:gap-6">
-    <article class="col-start-2 ds-prose not-lg:max-w-screen m-auto">
+  <div class="grid grid-cols-1 lg:grid-cols-[1fr_minmax(max-content,1fr)_1fr] lg:gap-6">
+    <article class="col-start-2 prose not-lg:max-w-screen m-auto">
       <Content />
     </article>
     <aside class="hidden lg:block">
@@ -51,7 +51,7 @@ const { Content, headings } = await render(blog)
         previous && (
           <div class="self-start">
             <span>上一篇：</span>
-            <a class="ds-link ds-link-hover decoration-primary" href={`/blogs/${previous.slug}`}>
+            <a class="link link-hover decoration-primary" href={`/blogs/${previous.slug}`}>
               {previous.title}
             </a>
           </div>
@@ -61,7 +61,7 @@ const { Content, headings } = await render(blog)
         next && (
           <div class="self-end">
             <span>下一篇：</span>
-            <a class="ds-link ds-link-hover decoration-primary" href={`/blogs/${next.slug}`}>
+            <a class="link link-hover decoration-primary" href={`/blogs/${next.slug}`}>
               {next.title}
             </a>
           </div>

@@ -5,7 +5,7 @@ import { SITE } from '@/site-config'
 ---
 
 <EmptyLayout seo={{ title: 'Home', description: SITE.description }}>
-  <div class="ds-hero min-h-screen">
+  <div class="hero min-h-screen">
     <div
       class="absolute flex gap-3 top-4 right-0 px-4 text-xl
             *:size-8 *:text-center *:leading-8 *:rounded
@@ -22,7 +22,7 @@ import { SITE } from '@/site-config'
     />
     <div
       transition:name="bg"
-      class="ds-hero-content bg-white/50 ds-card py-8 text-center flex-col text-primary-content"
+      class="hero-content bg-white/50 card py-8 text-center flex-col text-primary-content"
     >
       <h1
         transition:name="title"
@@ -34,8 +34,8 @@ import { SITE } from '@/site-config'
         <p class="py-6 text-balance">
           {SITE.description}
         </p>
-        <a class="ds-btn ds-btn-primary" href="/blogs">Visit blogs</a>
-        <a class="ds-btn ds-btn-ghost" href="/about">About me</a>
+        <a class="btn btn-primary" href="/blogs">Visit blogs</a>
+        <a class="btn btn-ghost" href="/about">About me</a>
       </div>
     </div>
   </div>

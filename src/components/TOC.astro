@@ -8,14 +8,14 @@ interface Props {
 const { headings } = Astro.props
 ---
 
-<nav class="sticky top-20 w-72 px-2 py-4 ds-glass font-sans">
+<nav class="sticky top-20 w-72 px-2 py-4 glass font-sans">
   <ul class="text-sm list-disc list-inside">
     {
       headings
         .filter((h) => !(h.depth > 3))
         .map((heading) => (
           <li class={[, 'ms-0', 'ms-4', 'ms-8'][heading.depth]}>
-            <a href={`#${heading.slug}`} class="ds-link ds-link-hover">
+            <a href={`#${heading.slug}`} class="link link-hover">
               <span>{heading.text}</span>
             </a>
           </li>
