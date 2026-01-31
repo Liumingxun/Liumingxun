@@ -5,7 +5,7 @@ import { SITE } from '@/site-config'
 ---
 
 <EmptyLayout seo={{ title: 'Home', description: SITE.description }}>
-  <div class="hero min-h-screen">
+  <div class="hero min-h-screen transform-gpu">
     <div
       class="absolute flex gap-3 top-4 right-0 px-4 text-xl
             *:size-8 *:text-center *:leading-8 *:rounded
@@ -20,10 +20,7 @@ import { SITE } from '@/site-config'
       alt="Lime logo"
       transition:name="logo"
     />
-    <div
-      transition:name="bg"
-      class="hero-content bg-white/50 card py-8 text-center flex-col text-primary-content"
-    >
+    <div transition:name="bg" class="hero-content bg-white/50 card py-8 text-center flex-col text-primary-content">
       <h1
         transition:name="title"
         class="text-7xl font-extrabold stroke-transparent bg-gradient-primary bg-clip-text text-transparent"

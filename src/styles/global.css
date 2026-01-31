@@ -1,4 +1,4 @@
-@import url('https://cdnjs.cloudflare.com/ajax/libs/lxgw-wenkai-screen-webfont/1.7.0/style.min.css');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/lxgw-wenkai-screen-web/1.520.0/lxgwwenkaimonogbscreen/result.css');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/firacode/6.2.0/fira_code.min.css');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@100..900&display=swap');
 @import 'tailwindcss';
@@ -59,7 +59,7 @@ code {
 @theme {
   --font-sans: 'Noto Sans SC', sans-serif;
   --font-mono: 'Fira Code', monospace;
-  --font-serif: 'LXGW WenKai Screen R', sans-serif;
+  --font-serif: 'LXGW WenKai Mono GB Screen', sans-serif;
 
   --animate-floating: floating 3.5s ease-in-out infinite;
   --animate-switch: switch 450ms ease-in-out;
