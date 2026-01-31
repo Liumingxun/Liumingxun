@@ -17,7 +17,7 @@ const { seo } = Astro.props
   <slot slot="extend-head" name="extend-head" />
   <div class="min-h-screen bg-base-100 grid grid-rows-[5rem_auto]">
     <Header />
-    <main class="mx-auto container">
+    <main class="mx-auto container not-sm:max-w-xs">
       <Nav />
       <slot transition:name="bg" />
     </main>

@@ -16,5 +16,7 @@ const blogs = await queryCollection('blog', {
     description: SITE.description,
   }}
 >
-  {blogs.map(({ id, data }) => <BlogListItem data={data} slug={id} />)}
+  <div>
+    {blogs.map(({ id, data }) => <BlogListItem data={data} slug={id} />)}
+  </div>
 </DefaultLayout>

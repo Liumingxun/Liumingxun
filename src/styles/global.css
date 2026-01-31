@@ -13,6 +13,16 @@ code {
   @apply text-pretty;
 }
 
+.prose a {
+  @apply break-all;
+}
+
+@layer utilities {
+  /* .container {
+    @apply px-2;
+  } */
+}
+
 @layer base {
   *,
   ::after,

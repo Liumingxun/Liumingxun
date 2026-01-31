@@ -41,8 +41,8 @@ const { Content, headings } = await render(blog)
     tags: blog.data.tags,
   }}
 >
-  <div class="grid grid-cols-1 lg:grid-cols-[1fr_minmax(max-content,1fr)_1fr] lg:gap-6">
-    <article class="col-start-2 prose not-lg:max-w-screen m-auto">
+  <div class="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] lg:gap-6">
+    <article class="prose max-w-xs md:max-w-lg lg:max-w-xl lg:col-start-2 mx-auto wrap-anywhere">
       <Content />
     </article>
     <aside class="hidden lg:block">
