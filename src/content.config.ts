@@ -3,7 +3,6 @@ import { glob } from 'astro/loaders'
 import { defineCollection } from 'astro:content'
 import { blogSchema } from '@/schemas'
 
-void devLoader
 function devLoader(opts: Pick<Parameters<typeof glob>[0], 'base' | 'pattern'>) {
   return ({
     name: 'dev-loader',

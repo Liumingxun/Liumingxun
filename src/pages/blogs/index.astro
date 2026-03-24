@@ -4,10 +4,7 @@ import BlogListItem from '@/components/BlogListItem.astro'
 import { SITE } from '@/site-config'
 import { queryCollection } from '@/utils/queryCollection'
 
-const blogs = await queryCollection('blog', {
-  by: 'createAt',
-  order: 'desc',
-})
+const blogs = await queryCollection('blog')
 ---
 
 <DefaultLayout

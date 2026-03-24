@@ -7,10 +7,7 @@ import TOC from '@/components/TOC.astro'
 import { queryCollection } from '@/utils/queryCollection'
 
 export const getStaticPaths = (async () => {
-  const blogs = await queryCollection('blog', {
-    by: 'createAt',
-    order: 'desc',
-  })
+  const blogs = await queryCollection('blog')
 
   return blogs.map((blog, index, blogs) => {
     const previous = index !== 0 ? blogs.at(index - 1)! : null

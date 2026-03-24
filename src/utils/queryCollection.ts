@@ -8,7 +8,10 @@ interface CollectionSort<CK extends CollectionKey> {
 
 export async function queryCollection<CK extends CollectionKey>(
   collection: CK,
-  sort: CollectionSort<CK>,
+  sort: CollectionSort<CK> = {
+    by: 'createAt',
+    order: 'desc',
+  }
 ) {
   const entries = await getCollection<CK>(collection)
   return entries.toSorted((a, b) => {
