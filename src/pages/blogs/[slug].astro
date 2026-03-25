@@ -1,7 +1,7 @@
 ---
 import type { GetStaticPaths } from 'astro'
 import DefaultLayout from '@/layouts/default.astro'
-import GiscusWidget from '@/components/GiscusWidget'
+import GiscusWidget from '@/components/GiscusWidget.vue'
 import { render } from 'astro:content'
 import TOC from '@/components/TOC.astro'
 import { queryCollection } from '@/utils/queryCollection'
@@ -69,6 +69,6 @@ const { Content, headings } = await render(blog)
         )
       }
     </nav>
-    <GiscusWidget client:only="solid-js" />
+    <GiscusWidget client:only="vue" />
   </section>
 </DefaultLayout>

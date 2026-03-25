@@ -1,12 +1,10 @@
-import { resolve } from 'node:path'
-import { cwd } from 'node:process'
-import mdx from '@astrojs/mdx'
 import sitemap from '@astrojs/sitemap'
-import solid from '@astrojs/solid-js'
+import vue from '@astrojs/vue'
 import tailwindcss from '@tailwindcss/vite'
 import { defineConfig } from 'astro/config'
 import remarkGithubAlerts from 'remark-github-alerts'
-import remarkAppendDate from '/src/utils/append-date'
+import tsconfigpaths from 'vite-tsconfig-paths'
+import remarkAppendDate from './src/utils/append-date'
 
 // https://astro.build/config
 export default defineConfig({
@@ -23,7 +21,7 @@ export default defineConfig({
   devToolbar: {
     enabled: false,
   },
-  integrations: [solid(), sitemap(), mdx()],
+  integrations: [sitemap(), vue()],
   redirects: {},
   build: {
     redirects: false,
@@ -31,13 +29,6 @@ export default defineConfig({
   },
   site: 'https://limx.fun',
   vite: {
-    plugins: [
-      tailwindcss(),
-    ],
-    resolve: {
-      alias: {
-        '@': resolve(cwd(), './src'),
-      },
-    },
+    plugins: [tsconfigpaths(), tailwindcss()],
   },
 })
