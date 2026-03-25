@@ -10,8 +10,11 @@ import remarkAppendDate from './src/utils/append-date'
 export default defineConfig({
   markdown: {
     shikiConfig: {
-      defaultColor: false,
-      theme: 'catppuccin-latte',
+      defaultColor: 'light-dark()',
+      themes: {
+        light: 'catppuccin-latte',
+        dark: 'catppuccin-macchiato',
+      },
     },
     remarkPlugins: [
       remarkAppendDate,
