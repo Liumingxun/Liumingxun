@@ -6,8 +6,8 @@ import xxhash from 'xxhash-wasm'
 
 type AstroMarkdownRemarkPlugin = AstroConfig['markdown']['remarkPlugins'][number]
 
+const frontmatterRegex = /---\n[\s\S]*?\n---/
 const remarkAppendDate: AstroMarkdownRemarkPlugin = () => {
-  const frontmatterRegex = /---\n[\s\S]*?\n---/
   return async (_, file) => {
     if (!file.data.astro?.frontmatter)
       return

@@ -5,8 +5,8 @@ tags:
   - Emmet
   - Web
 createAt: 2024-11-06T14:37:00.000Z
-updateAt: 2026-01-30T17:55:42.150Z
-hash: 48e0addd575d471b
+updateAt: 2026-03-25T12:42:14.579Z
+hash: 3467d1d80f6f2878
 ---
 
 # Emmet
@@ -94,9 +94,8 @@ Emmet 还提供了 `lorem` 生成器，如果你在写 HTML 模板时需要一�
 
 ```html
 <p>
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt veritatis
-  molestias deserunt nam voluptatem omnis delectus. Perferendis velit illum
-  eaque ea quisquam labore molestias dolore, asperiores voluptas, placeat,
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt veritatis molestias deserunt nam voluptatem omnis
+  delectus. Perferendis velit illum eaque ea quisquam labore molestias dolore, asperiores voluptas, placeat,
   reprehenderit praesentium!
 </p>
 ```

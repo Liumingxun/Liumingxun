@@ -11,7 +11,7 @@ export async function queryCollection<CK extends CollectionKey>(
   sort: CollectionSort<CK> = {
     by: 'createAt',
     order: 'desc',
-  }
+  },
 ) {
   const entries = await getCollection<CK>(collection)
   return entries.toSorted((a, b) => {

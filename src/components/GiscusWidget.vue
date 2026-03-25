@@ -1,16 +1,20 @@
 <script setup lang="ts">
 import Giscus from '@giscus/vue'
-import { onMounted, onUnmounted, ref } from 'vue'
+import { computed, onMounted, onUnmounted, ref } from 'vue'
 
-type Theme = 'light' | 'dark'
+type ColorScheme = 'light' | 'dark'
 
-const theme = ref<Theme>('light')
+const colorScheme = ref<ColorScheme>('light')
+const theme = computed(() =>
+  colorScheme.value === 'dark'
+    ? 'catppuccin_macchiato'
+    : 'catppuccin_latte')
 
 function getSavedTheme() {
-  return localStorage.getItem('theme') as Theme ?? 'light'
+  return localStorage.getItem('theme') as ColorScheme ?? 'light'
 }
 
-function getSystemTheme(): Theme {
+function getSystemTheme(): ColorScheme {
   return matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
 }
 
@@ -18,10 +22,10 @@ let observer: MutationObserver | null = null
 
 onMounted(() => {
   const initialTheme = getSavedTheme() || getSystemTheme()
-  theme.value = initialTheme
+  colorScheme.value = initialTheme
 
   observer = new MutationObserver(() => {
-    theme.value = getSavedTheme()
+    colorScheme.value = getSavedTheme()
   })
 
   observer.observe(document.documentElement, {
