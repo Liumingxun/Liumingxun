@@ -1,14 +1,18 @@
+import { satteri } from '@astrojs/markdown-satteri'
 import sitemap from '@astrojs/sitemap'
 import vue from '@astrojs/vue'
 import tailwindcss from '@tailwindcss/vite'
 import { defineConfig } from 'astro/config'
-import remarkGithubAlerts from 'remark-github-alerts'
-import tsconfigpaths from 'vite-tsconfig-paths'
-import remarkAppendDate from './src/utils/append-date'
 
 // https://astro.build/config
 export default defineConfig({
   markdown: {
+    processor: satteri({
+      features: {
+        directive: true,
+        wikilinks: true,
+      },
+    }),
     shikiConfig: {
       defaultColor: 'light-dark()',
       themes: {
@@ -16,10 +20,6 @@ export default defineConfig({
         dark: 'catppuccin-macchiato',
       },
     },
-    remarkPlugins: [
-      remarkAppendDate,
-      remarkGithubAlerts,
-    ],
   },
   devToolbar: {
     enabled: false,
@@ -32,6 +32,9 @@ export default defineConfig({
   },
   site: 'https://limx.fun',
   vite: {
-    plugins: [tsconfigpaths(), tailwindcss()],
+    resolve: {
+      tsconfigPaths: true,
+    },
+    plugins: [tailwindcss()],
   },
 })

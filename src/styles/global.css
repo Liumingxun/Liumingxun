@@ -2,7 +2,6 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/firacode/6.2.0/fira_code.min.css');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@100..900&display=swap');
 @import 'tailwindcss';
-@import 'remark-github-alerts/styles/github-base.css';
 
 pre,
 code {
