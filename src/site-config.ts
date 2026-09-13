@@ -16,6 +16,10 @@ export const NAV_ITEMS: NavItem[] = [
     title: 'blogs',
   },
   {
+    path: '/cards',
+    title: 'cards',
+  },
+  {
     path: '/projects',
     title: 'projects',
   },

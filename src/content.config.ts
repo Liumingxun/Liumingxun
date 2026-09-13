@@ -1,7 +1,7 @@
 import type { Loader } from 'astro/loaders'
 import { glob } from 'astro/loaders'
+import { z } from 'astro/zod'
 import { defineCollection } from 'astro:content'
-import { blogSchema } from '@/schemas'
 
 function devLoader(opts: Pick<Parameters<typeof glob>[0], 'base' | 'pattern'>) {
   return ({
@@ -17,12 +17,35 @@ function devLoader(opts: Pick<Parameters<typeof glob>[0], 'base' | 'pattern'>) {
 
 const loader = import.meta.env.DEV ? devLoader : glob
 
-export const collections = {
-  blog: defineCollection({
-    loader: loader({
-      pattern: '**/*.md',
-      base: 'src/content/blog',
-    }),
-    schema: blogSchema,
+const blogCollection = defineCollection({
+  loader: loader({
+    pattern: '**/*.md',
+    base: 'src/content/blog',
   }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    tags: z.array(z.string()).optional().default([]),
+    draft: z.boolean().optional().default(true),
+    createAt: z.coerce.date().default(new Date()),
+    updateAt: z.coerce.date().default(new Date()),
+    hash: z.string().optional(),
+  }),
+})
+
+const cardCollenction = defineCollection({
+  loader: loader({
+    pattern: '**/*.md',
+    base: 'src/content/card',
+  }),
+  schema: z.object({
+    title: z.string(),
+    createAt: z.coerce.date(),
+  // type: z.enum(['cheatsheet', 'issue', 'tip', 'concept']),
+  }),
+})
+
+export const collections = {
+  blog: blogCollection,
+  card: cardCollenction,
 }

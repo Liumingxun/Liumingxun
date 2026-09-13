@@ -5,6 +5,11 @@ export default antfu({
   formatters: true,
   vue: true,
   stylistic: { braceStyle: '1tbs' },
+  astro: {
+    overrides: {
+      'antfu/no-top-level-await': 'off',
+    },
+  },
 })
   .override('antfu/stylistic/rules', { ignores: ['**/*.astro'] })
   .append(eslintPluginAstro.configs.recommended)
