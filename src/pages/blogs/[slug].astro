@@ -38,15 +38,15 @@ const { Content, headings } = await render(blog)
     tags: blog.data.tags,
   }}
 >
-  <div class="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] lg:gap-6">
-    <article class="prose max-w-xs md:max-w-lg lg:max-w-xl lg:col-start-2 mx-auto wrap-anywhere">
+  <div class="grid grid-cols-1 laptop:grid-cols-[1fr_auto_1fr] laptop:gap-6">
+    <article class="prose max-w-xs tablet:max-w-lg laptop:max-w-xl laptop:col-start-2 mx-auto wrap-anywhere">
       <Content />
     </article>
-    <aside class="hidden lg:block">
+    <aside class="hidden laptop:block">
       <TOC headings={headings} />
     </aside>
   </div>
-  <section class="m-auto md:w-1/2 w-full">
+  <section class="m-auto tablet:w-1/2 w-full">
     <nav class="flex flex-col py-4">
       {
         previous && (

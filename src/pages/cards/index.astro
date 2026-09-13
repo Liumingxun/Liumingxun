@@ -1,0 +1,33 @@
+---
+import type { RenderResult } from 'astro:content'
+import { render } from 'astro:content'
+import DefaultLayout from '@/layouts/default.astro'
+import { SITE } from '@/site-config'
+import { queryCollection } from '@/utils/queryCollection'
+
+const cards = await queryCollection('card').then((cards) => {
+  return Promise.all(
+    cards.map<Promise<[string, RenderResult]>>(async (card, i) => [cards[i].data.title, await render(card)]),
+  )
+})
+---
+
+<DefaultLayout
+  seo={{
+    title: 'Cards',
+    description: SITE.description,
+  }}
+>
+  <div class="masonry">
+    {
+      cards.map(([title, result]) => (
+        <div class="card bg-base-100 max-w-96 shadow-sm mbe-6">
+          <div class="card-body">
+            <h2 class="card-title">{title}</h2>
+            <result.Content />
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</DefaultLayout>

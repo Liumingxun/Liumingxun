@@ -1,24 +1,9 @@
-import type { Loader } from 'astro/loaders'
 import { glob } from 'astro/loaders'
 import { z } from 'astro/zod'
 import { defineCollection } from 'astro:content'
 
-function devLoader(opts: Pick<Parameters<typeof glob>[0], 'base' | 'pattern'>) {
-  return ({
-    name: 'dev-loader',
-    load: async (ctx) => {
-      ctx.store.clear()
-      setTimeout(() => {
-        glob(opts).load(ctx)
-      }, 0)
-    },
-  }) satisfies Loader
-}
-
-const loader = import.meta.env.DEV ? devLoader : glob
-
 const blogCollection = defineCollection({
-  loader: loader({
+  loader: glob({
     pattern: '**/*.md',
     base: 'src/content/blog',
   }),
@@ -34,7 +19,7 @@ const blogCollection = defineCollection({
 })
 
 const cardCollenction = defineCollection({
-  loader: loader({
+  loader: glob({
     pattern: '**/*.md',
     base: 'src/content/card',
   }),

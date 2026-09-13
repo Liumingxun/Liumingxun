@@ -17,10 +17,17 @@ code {
   @apply break-all;
 }
 
-@layer utilities {
-  /* .container {
-    @apply px-2;
-  } */
+@utility col-count-* {
+  column-count: --value(integer, --default(1));
+}
+
+@layer components {
+  .masonry {
+    @apply col-count gap-6 m-6 p-0;
+    @apply tablet:col-count-2;
+    @apply laptop:col-count-3;
+    /* @apply desktop:col-count-4; */
+  }
 }
 
 @layer base {
@@ -76,6 +83,11 @@ code {
   --animate-switch: switch 450ms ease-in-out;
 
   --background-image-gradient-primary: linear-gradient(to bottom, #aad37d, #66ccff);
+
+  --breakpoint-*: initial;
+  --breakpoint-tablet: 40rem;
+  --breakpoint-laptop: 64rem;
+  --breakpoint-desktop: 80rem;
 
   @keyframes floating {
     0%,
