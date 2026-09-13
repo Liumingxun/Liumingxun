@@ -25,6 +25,8 @@
     "astro": "^7.3.1",
     "astro-seo": "^0.8.4",
     "nanostores": "^0.9.5",
+    "satteri": "^0.10.5",
+    "satteri-callouts": "^1.0.1",
     "sharp": "^0.33.5",
     "tailwindcss": "^4.2.2",
     "vue": "^3.5.31"

@@ -3,11 +3,13 @@ import sitemap from '@astrojs/sitemap'
 import vue from '@astrojs/vue'
 import tailwindcss from '@tailwindcss/vite'
 import { defineConfig } from 'astro/config'
+import satteriCallouts from 'satteri-callouts'
 
 // https://astro.build/config
 export default defineConfig({
   markdown: {
     processor: satteri({
+      hastPlugins: [satteriCallouts()],
       features: {
         directive: true,
         wikilinks: true,

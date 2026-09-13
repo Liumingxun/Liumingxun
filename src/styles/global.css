@@ -2,6 +2,7 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/firacode/6.2.0/fira_code.min.css');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@100..900&display=swap');
 @import 'tailwindcss';
+@import 'satteri-callouts/theme/github';
 
 pre,
 code {
@@ -31,10 +32,11 @@ code {
     border-color: var(--color-gray-200, currentColor);
   }
   :root {
-    --color-note: var(--color-primary);
-    --color-important: var(--color-accent);
-    --color-tip: var(--color-info);
-    --color-caution: var(--color-error);
+    --callout-note-color-light: var(--color-primary);
+    --callout-tip-color-light: var(--color-info);
+    --callout-important-color-light: var(--color-accent);
+    --callout-warning-color-light: var(--color-warning);
+    --callout-caution-color-light: var(--color-error);
   }
 }
 
