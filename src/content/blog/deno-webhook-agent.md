@@ -10,8 +10,6 @@ updateAt: 2026-01-30T16:50:33.238Z
 hash: 2a57e96b625e02cb
 ---
 
-# 使用 Deno 创建一个 Webhook 代理
-
 Strapi 的 webhook 并不支持自定义 payload，不能按照预期触发在 Coding
 设置的构建计划，所以使用 Deno 设置一个代理来正确触发。
 

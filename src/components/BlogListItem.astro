@@ -17,19 +17,23 @@ const [month, day, year] = format(createAt.toLocaleString(), 'MMM/do/yyyy').spli
 
 <div class="mb-4 last:mb-0 min-h-24">
   <Card>
-    <div class="flex gap-4">
+    <div class="grid grid-cols-[3.75rem_1fr] gap-4">
       <time
         datetime={createAt.toLocaleString()}
-        class="flex flex-col text-secondary font-semibold text-center shrink-0"
+        class="flex flex-col text-secondary font-semibold text-center"
       >
         <span class="text-3xl">{day}</span>
         <span>{`${month} ${year}`}</span>
       </time>
-      <div class="grow">
-        <a href={`/blogs/${slug}`} class="hover:underline-offset-4 hover:underline decoration-primary text-xl">
+      <div>
+        <a
+          transition:name={slug + data.title}
+          href={`/blogs/${slug}`}
+          class="hover:underline-offset-4 hover:underline decoration-primary text-xl"
+        >
           {data.title}
         </a>
-        <div>
+        <div class="mt-1">
           {
             data.tags?.map((tag) => (
               <a class="badge badge-outline mr-2 last:mr-0" href={`/tags/${tagSlug(tag)}`}>

@@ -40,6 +40,9 @@ const { Content, headings } = await render(blog)
 >
   <div class="grid grid-cols-1 laptop:grid-cols-[1fr_auto_1fr] laptop:gap-6">
     <article class="prose max-w-xs tablet:max-w-lg laptop:max-w-xl laptop:col-start-2 mx-auto wrap-anywhere">
+      <h1 transition:name={blog.id + blog.data.title}>
+        {blog.data.title}
+      </h1>
       <Content />
     </article>
     <aside class="hidden laptop:block">
