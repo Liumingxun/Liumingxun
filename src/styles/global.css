@@ -12,7 +12,11 @@ code {
 }
 
 a.badge:hover {
-  @apply badge-primary badge-soft font-semibold;
+  @apply badge-primary badge-soft font-semibold opacity-100;
+}
+
+.badge.badge-outline {
+  @apply border-primary opacity-70;
 }
 
 .prose h1 {
