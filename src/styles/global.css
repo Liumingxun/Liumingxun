@@ -4,6 +4,8 @@
 @import 'tailwindcss';
 @import 'satteri-callouts/theme/github';
 
+/* @layer utilities, ec; */
+
 pre,
 code {
   @apply font-mono!;
