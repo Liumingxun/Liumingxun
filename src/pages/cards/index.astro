@@ -42,7 +42,7 @@ const tended = byLastTended(notes).slice(0, 5)
                 {format(note.updatedAt, 'yyyy-MM-dd')}
               </time>
             </div>
-            <p class="text-sm opacity-80">{note.description}</p>
+            <p class="text-sm opacity-80 break-all">{note.description}</p>
             {note.tags.length > 0 && (
               <div class="card-actions">
                 {note.tags.map((tag) => (
