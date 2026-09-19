@@ -46,7 +46,7 @@ const { Content, headings } = await render(blog)
       <Content />
     </article>
     <aside class="hidden laptop:block">
-      <TOC headings={headings} />
+      <TOC title={blog.data.title} headings={headings} />
     </aside>
   </div>
   <section class="m-auto tablet:w-4/5 laptop:max-w-2xl w-full">
