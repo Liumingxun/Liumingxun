@@ -2,7 +2,6 @@
 title: nginx 755
 type: tip
 createAt: 2026-03-11T17:25:00
-category: card
 tags: [nginx, linux]
 ---
 

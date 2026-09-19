@@ -1,5 +1,4 @@
 ---
-category: card
 title: WSL 脱机安装
 createAt: 2025-08-26T19:04:00
 type: cheatsheet

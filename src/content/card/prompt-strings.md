@@ -2,7 +2,6 @@
 type: concept
 source: https://wiki.archlinux.org/title/Bash/Prompt_customization
 createAt: 2025-09-22T14:30:00
-category: card
 title: shell prompt string
 tags: [bash, shell]
 ---

@@ -1,7 +1,6 @@
 ---
 type: tip
 createAt: 2026-07-29T18:00:00
-category: card
 title: WSL 访问 Windows 环境变量
 tags: [wsl, shell]
 ---

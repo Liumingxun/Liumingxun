@@ -1,7 +1,6 @@
 ---
 type: cheatsheet
 createAt: 2025-12-15T14:10:00
-category: card
 title: 回连或新建 Tmux 会话
 tags: [tmux, shell]
 ---

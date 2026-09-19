@@ -1,5 +1,4 @@
 ---
-category: card
 title: 跳过 eslint/typesciprt/prettier 检查
 createAt: 2026-09-06T21:33:50+08:00
 type: cheatsheet

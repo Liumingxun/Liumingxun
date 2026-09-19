@@ -1,7 +1,6 @@
 ---
 type: cheatsheet
 createAt: 2026-07-13T14:33:00
-category: card
 title: Windows 安装 ssh server/client
 tags: [windows, ssh]
 ---

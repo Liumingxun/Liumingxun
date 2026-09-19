@@ -2,7 +2,6 @@
 title: man 章节编码
 type: concept
 createAt: 2025-09-22T10:47:00
-category: card
 tags: [linux, shell]
 ---
 

@@ -1,5 +1,4 @@
 ---
-category: card
 title: Array[0]
 createAt: 2026-09-06T21:36:32+08:00
 type: cheatsheet

@@ -1,5 +1,4 @@
 ---
-category: card
 title: Tuple to Union
 createAt: 2026-09-06T21:36:32+08:00
 type: cheatsheet

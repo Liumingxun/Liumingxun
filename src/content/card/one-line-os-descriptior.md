@@ -1,7 +1,6 @@
 ---
 type: cheatsheet
 createAt: 2026-03-03T16:26:00
-category: card
 title: 一行获取操作系统标识
 tags: [node, shell]
 ---
