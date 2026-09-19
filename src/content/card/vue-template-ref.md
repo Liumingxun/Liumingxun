@@ -10,7 +10,6 @@ tags: [vue, typescript]
 ```typescript
 const basicInfoRef = ref<[InstanceType<typeof BasicInfo>] | null>(null)
 
-
 const tabData = computed(() => ([
   basicInfoRef.value?.[0].basicModel,
 ] as [
@@ -18,9 +17,8 @@ const tabData = computed(() => ([
 ]))
 ```
 
-```xml
+```vue
 <ATabPane v-for="tab in tabs" :key="tab" :tab="tab">
   <BasicInfo v-if="tab === '基本信息'" ref="basicInfoxRef" :readonly="false" />
 </ATabPane>
-
 ```
