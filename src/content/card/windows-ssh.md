@@ -3,6 +3,7 @@ type: cheatsheet
 createAt: 2026-07-13T14:33:00
 category: card
 title: Windows 安装 ssh server/client
+tags: [windows, ssh]
 ---
 
 [Get started with OpenSSH Server for Windows](https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse?tabs=powershell&pivots=windows-11#install-openssh-server--client)

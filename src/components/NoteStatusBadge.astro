@@ -1,0 +1,17 @@
+---
+import type { NoteStatus } from '@/utils/note-meta'
+import { NOTE_STATUS_META } from '@/utils/note-meta'
+
+interface Props {
+  status: NoteStatus
+  showLabel?: boolean
+}
+
+const { status, showLabel = true } = Astro.props
+const { emoji, label, description } = NOTE_STATUS_META[status]
+---
+
+<span class="badge badge-ghost badge-sm gap-1" title={description}>
+  <span aria-hidden="true">{emoji}</span>
+  {showLabel && <span>{label}</span>}
+</span>

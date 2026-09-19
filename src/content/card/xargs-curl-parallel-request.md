@@ -3,6 +3,7 @@ type: cheatsheet
 createAt: 2025-12-19T09:39:00
 category: card
 title: xargs curl 并发请求
+tags: [curl, shell]
 ---
 
 ```shell

@@ -3,6 +3,7 @@ title: git 配置 ssh 代理
 type: issue
 createAt: 2025-03-25T10:00:00
 category: card
+tags: [git, network]
 ---
 
 [https://www.seepine.com/git/ssh-proxy/](https://www.seepine.com/git/ssh-proxy/)

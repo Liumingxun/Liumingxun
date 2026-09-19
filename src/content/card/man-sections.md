@@ -3,9 +3,10 @@ title: man 章节编码
 type: concept
 createAt: 2025-09-22T10:47:00
 category: card
+tags: [linux, shell]
 ---
 
-```man
+```plaintext
  1   Executable programs or shell commands
  2   System calls (functions provided by the kernel)
  3   Library calls (functions within program libraries)

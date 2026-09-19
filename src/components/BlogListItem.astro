@@ -1,7 +1,8 @@
 ---
 import type { CollectionEntry } from 'astro:content'
-import Card from './Card.astro'
 import { format } from 'date-fns'
+import { tagSlug } from '@/utils/notes'
+import Card from './Card.astro'
 
 interface Props {
   slug: CollectionEntry<'blog'>['id']
@@ -29,7 +30,13 @@ const [month, day, year] = format(createAt.toLocaleString(), 'MMM/do/yyyy').spli
           {data.title}
         </a>
         <div>
-          {data.tags?.map((tag) => <span class="badge badge-outline mr-2 last:mr-0">{tag}</span>)}
+          {
+            data.tags?.map((tag) => (
+              <a class="badge badge-outline mr-2 last:mr-0" href={`/tags/${tagSlug(tag)}`}>
+                {tag}
+              </a>
+            ))
+          }
         </div>
       </div>
     </div>

@@ -1,15 +1,16 @@
 ---
-import type { RenderResult } from 'astro:content'
-import { render } from 'astro:content'
+import { format } from 'date-fns'
+import NoteListItem from '@/components/NoteListItem.astro'
+import NoteStatusBadge from '@/components/NoteStatusBadge.astro'
 import DefaultLayout from '@/layouts/default.astro'
 import { SITE } from '@/site-config'
-import { queryCollection } from '@/utils/queryCollection'
+import { byLastTended, getAllNotes, tagSlug } from '@/utils/notes'
 
-const cards = await queryCollection('card').then((cards) => {
-  return Promise.all(
-    cards.map<Promise<[string, RenderResult]>>(async (card, i) => [cards[i].data.title, await render(card)]),
-  )
-})
+const notes = await getAllNotes()
+const cards = notes
+  .filter((note) => note.collection === 'card')
+  .toSorted((a, b) => b.createdAt.getTime() - a.createdAt.getTime())
+const tended = byLastTended(notes).slice(0, 5)
 ---
 
 <DefaultLayout
@@ -18,13 +19,39 @@ const cards = await queryCollection('card').then((cards) => {
     description: SITE.description,
   }}
 >
+  <section class="mx-6 mt-4">
+    <h2 class="text-lg font-semibold text-primary mb-2">🌿 最近打理</h2>
+    <ul class="list-none p-0 m-0">
+      {tended.map((note) => <NoteListItem note={note} />)}
+    </ul>
+  </section>
+
   <div class="masonry">
     {
-      cards.map(([title, result]) => (
+      cards.map((note) => (
         <div class="card bg-base-100 max-w-96 shadow-sm mbe-6">
           <div class="card-body">
-            <h2 class="card-title">{title}</h2>
-            <result.Content />
+            <h2 class="card-title" transition:name={note.slug + note.title}>
+              <a href={note.href} class="hover:underline decoration-primary">
+                {note.title}
+              </a>
+            </h2>
+            <div class="flex flex-wrap items-center gap-2">
+              <NoteStatusBadge status={note.status} />
+              <time class="text-xs opacity-60" datetime={note.updatedAt.toISOString()}>
+                {format(note.updatedAt, 'yyyy-MM-dd')}
+              </time>
+            </div>
+            <p class="text-sm opacity-80">{note.description}</p>
+            {note.tags.length > 0 && (
+              <div class="card-actions">
+                {note.tags.map((tag) => (
+                  <a class="badge badge-outline badge-sm" href={`/tags/${tagSlug(tag)}`}>
+                    {tag}
+                  </a>
+                ))}
+              </div>
+            )}
           </div>
         </div>
       ))

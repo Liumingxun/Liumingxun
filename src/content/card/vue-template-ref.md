@@ -3,6 +3,7 @@ type: tip
 createAt: 2026-06-13T16:24:00
 category: card
 title: vue 模板引用
+tags: [vue, typescript]
 ---
 
 v-for 中的元素上的 ref 在 script 中获取到的 ref 是 type 标注应该是 tuple `[Instance]`

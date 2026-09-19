@@ -1,0 +1,38 @@
+---
+import type { GetStaticPaths } from 'astro'
+import NoteListItem from '@/components/NoteListItem.astro'
+import DefaultLayout from '@/layouts/default.astro'
+import { collectTags, getAllNotes } from '@/utils/notes'
+
+export const getStaticPaths = (async () => {
+  const tags = collectTags(await getAllNotes())
+
+  return tags.map(({ tag, slug }) => ({
+    params: { tag: slug },
+    props: { tag, slug },
+  }))
+}) satisfies GetStaticPaths
+
+const { tag } = Astro.props
+const notes = (await getAllNotes())
+  .filter((note) => note.tags.some((t) => t === tag))
+  .toSorted((a, b) => b.updatedAt.getTime() - a.updatedAt.getTime())
+---
+
+<DefaultLayout
+  seo={{
+    title: `#${tag}`,
+    description: `标签 ${tag} 下的全部内容`,
+  }}
+>
+  <div class="m-6">
+    <div class="flex items-baseline gap-3 mb-4">
+      <h1 class="text-2xl font-semibold">#{tag}</h1>
+      <span class="opacity-60 text-sm">{notes.length} 篇</span>
+      <a class="link link-hover ms-auto" href="/tags">全部标签</a>
+    </div>
+    <ul class="list-none p-0 m-0">
+      {notes.map((note) => <NoteListItem note={note} />)}
+    </ul>
+  </div>
+</DefaultLayout>

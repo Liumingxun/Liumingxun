@@ -3,6 +3,7 @@ category: card
 title: WSL 脱机安装
 createAt: 2025-08-26T19:04:00
 type: cheatsheet
+tags: [wsl, windows]
 ---
 
 若要脱机安装 WSL，需要执行以下步骤：

@@ -3,6 +3,7 @@ category: card
 title: 类型体操
 createAt: 2026-09-06T21:36:32+08:00
 type: cheatsheet
+tags: [typescript]
 ---
 
 ```typescript

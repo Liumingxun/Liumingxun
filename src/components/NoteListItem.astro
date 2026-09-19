@@ -1,0 +1,29 @@
+---
+import type { Note } from '@/utils/notes'
+import { format } from 'date-fns'
+import { tagSlug } from '@/utils/notes'
+import NoteStatusBadge from './NoteStatusBadge.astro'
+
+interface Props {
+  note: Note
+}
+
+const { note } = Astro.props
+---
+
+<li class="flex flex-wrap items-baseline gap-x-3 gap-y-1 py-2 border-b border-base-300 last:border-0">
+  <NoteStatusBadge status={note.status} showLabel={false} />
+  <a class="link link-hover decoration-primary font-medium" href={note.href}>{note.title}</a>
+  <time class="text-xs opacity-60" datetime={note.updatedAt.toISOString()}>
+    {format(note.updatedAt, 'yyyy-MM-dd')}
+  </time>
+  <span class="ms-auto flex flex-wrap gap-1">
+    {
+      note.tags.map((tag) => (
+        <a class="badge badge-outline badge-sm" href={`/tags/${tagSlug(tag)}`}>
+          {tag}
+        </a>
+      ))
+    }
+  </span>
+</li>

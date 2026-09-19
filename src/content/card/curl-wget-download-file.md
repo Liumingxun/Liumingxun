@@ -3,6 +3,7 @@ title: 使用 curl & wget 下载文件
 category: card
 type: cheatsheet
 createAt: 2025-09-22T10:49:00
+tags: [curl, shell]
 ---
 
 - `wget -qO- https://deno.land/x/install/install.sh | sh`

@@ -3,6 +3,7 @@ type: cheatsheet
 category: card
 title: 正则匹配组
 createAt: 2025-07-23T14:30:00
+tags: [regexp]
 ---
 
 - **方向**：

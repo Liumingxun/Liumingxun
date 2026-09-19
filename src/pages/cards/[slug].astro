@@ -1,0 +1,66 @@
+---
+import type { GetStaticPaths } from 'astro'
+import { render } from 'astro:content'
+import { format } from 'date-fns'
+import NoteStatusBadge from '@/components/NoteStatusBadge.astro'
+import DefaultLayout from '@/layouts/default.astro'
+import { NOTE_KIND_META } from '@/utils/note-meta'
+import { excerpt, tagSlug } from '@/utils/notes'
+import { queryCollection } from '@/utils/queryCollection'
+
+export const getStaticPaths = (async () => {
+  const cards = await queryCollection('card')
+
+  return cards.map((card) => ({
+    params: { slug: card.id },
+    props: { card },
+  }))
+}) satisfies GetStaticPaths
+
+const { card } = Astro.props
+const { Content } = await render(card)
+const { createAt, updateAt } = card.data
+---
+
+<DefaultLayout
+  seo={{
+    title: card.data.title,
+    description: card.data.description ?? excerpt(card.body),
+    createdAt: createAt.toLocaleDateString(),
+    updatedAt: (updateAt ?? createAt).toLocaleDateString(),
+    tags: card.data.tags,
+  }}
+>
+  <article class="prose max-w-xs tablet:max-w-lg laptop:max-w-xl mx-auto wrap-anywhere">
+    <div class="not-prose flex flex-wrap items-center gap-2 text-sm mb-6">
+      <a class="link link-hover" href="/cards">← 返回卡片墙</a>
+      <NoteStatusBadge status={card.data.status} />
+      <span class="badge badge-ghost badge-sm">{NOTE_KIND_META[card.data.type].label}</span>
+      <time class="opacity-60" datetime={createAt.toISOString()}>{format(createAt, 'yyyy-MM-dd')}</time>
+      {updateAt && <span class="opacity-60">· 更新于 {format(updateAt, 'yyyy-MM-dd')}</span>}
+    </div>
+    <h1 transition:name={card.id + card.data.title}>{card.data.title}</h1>
+    <Content />
+    {
+      card.data.source && (
+        <p class="not-prose text-sm mt-8 break-all">
+          来源：
+          <a class="link link-hover decoration-primary" href={card.data.source}>
+            {card.data.source}
+          </a>
+        </p>
+      )
+    }
+    {
+      card.data.tags.length > 0 && (
+        <div class="not-prose flex flex-wrap gap-2 mt-4">
+          {card.data.tags.map((tag) => (
+            <a class="badge badge-outline" href={`/tags/${tagSlug(tag)}`}>
+              {tag}
+            </a>
+          ))}
+        </div>
+      )
+    }
+  </article>
+</DefaultLayout>

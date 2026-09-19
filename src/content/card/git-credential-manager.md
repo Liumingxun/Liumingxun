@@ -3,6 +3,7 @@ title: 配置 git credential manager
 type: cheatsheet
 createAt: 2026-06-02T10:54:00
 category: card
+tags: [git, wsl]
 ---
 
 类比一下应该是 ssh-agent
