@@ -1,0 +1,8 @@
+/sitemap-index.xml
+  Cache-Control: public, max-age=0, must-revalidate, no-transform
+
+/sitemap-0.xml
+  Cache-Control: public, max-age=0, must-revalidate, no-transform
+
+/rss.xml
+  Cache-Control: public, max-age=0, must-revalidate, no-transform
