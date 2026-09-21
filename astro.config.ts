@@ -37,7 +37,6 @@ export default defineConfig({
   redirects: {},
   build: {
     redirects: false,
-    format: 'directory',
   },
   site: 'https://limx.fun',
   vite: {

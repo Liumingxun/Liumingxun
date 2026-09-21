@@ -1,1 +1,6 @@
 /sitemap.xml /sitemap-index.xml 301
+/about/ /about 301
+/blogs/ /blogs 301
+/blogs/deno-webhook-agent/ /blogs/deno-webhook-agent 301
+/blogs/what-is-responsive-design/ /blogs/what-is-responsive-design 301
+/blogs/vue-router-web-history/ /blogs/vue-router-web-history 301
