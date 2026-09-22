@@ -1,20 +1,27 @@
 ---
 import { NAV_ITEMS } from '@/site-config'
+
+const navItems = NAV_ITEMS.map((item) => ({
+  tag: Astro.url.pathname.replace(/\/$/, '') === item.path ? 'h1' : 'span',
+  path: item.path,
+  title: item.title,
+}))
 ---
 
 <nav>
   <ul class="inline-flex my-2 list-none gap-8 text-xl font-semibold text-primary pb-2">
     {
-      NAV_ITEMS.map((item) => (
+      navItems.map((item) => (
         <li>
-          <a
-            class:list={[
-              `pb-1 border-b-2 hover:border-gray-400`,
-              Astro.url.pathname.startsWith(item.path) ? 'border-primary' : '',
-            ]}
-            href={item.path}
-          >
-            {item.title}
+          <a href={item.path}>
+            <item.tag
+              class:list={[
+                `pb-1 border-b-2 hover:border-gray-400`,
+                Astro.url.pathname.startsWith(item.path) ? 'border-primary' : '',
+              ]}
+            >
+              {item.title}
+            </item.tag>
           </a>
         </li>
       ))
